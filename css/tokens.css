@@ -2,8 +2,7 @@
    SNELGROVE ICE CREAM — Design Tokens
    Nostalgic & Retro, Est. 1929
    Official Brand Color Palette applied.
-   NOTE: Update --font-display / --font-script / --font-body
-         once typography guide is confirmed.
+   Typography: GT America (body), Brandon Grotesque (headings), FunkiDori (accent).
    ============================================================= */
 
 :root {
@@ -44,10 +43,10 @@
   --color-dark:         var(--color-blueberry);
   --color-dark-deep:    var(--color-blueberry-dark);
 
-  /* --- Typography (update once typography guide confirmed) --- */
-  --font-display:       'Playfair Display', 'Georgia', serif;
-  --font-script:        'Dancing Script', cursive;
-  --font-body:          'Lato', 'Helvetica Neue', sans-serif;
+  /* --- Typography --- */
+  --font-display:       'Brandon Grotesque', 'Helvetica Neue', sans-serif;  /* headings — Medium 500 / Bold 700 */
+  --font-script:        'FunkiDori', cursive;                               /* decorative brand accent (stamps, taglines) */
+  --font-body:          'GT America', 'Helvetica Neue', sans-serif;         /* body copy */
 
   /* --- Font Sizes --- */
   --text-xs:    0.75rem;

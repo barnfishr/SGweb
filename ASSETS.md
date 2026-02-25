@@ -45,14 +45,17 @@
 
 ---
 
-## Typography — Still needed
+## Typography — Font Files Needed
 
-Update `css/tokens.css` lines 40–43 once confirmed:
+Fonts are referenced in `css/global.css` via `@font-face`. Drop `.woff2`/`.woff` files into `fonts/`:
 
-```css
---font-display: 'Playfair Display', 'Georgia', serif;   /* REPLACE */
---font-script:  'Dancing Script', cursive;               /* REPLACE */
---font-body:    'Lato', 'Helvetica Neue', sans-serif;    /* REPLACE */
-```
+| Font | File(s) | Used for |
+|------|---------|---------|
+| GT America Regular | `fonts/GTAmerica-Regular.woff2` + `.woff` | Body copy (`--font-body`) |
+| GT America Medium | `fonts/GTAmerica-Medium.woff2` + `.woff` | Body medium weight |
+| GT America Bold | `fonts/GTAmerica-Bold.woff2` + `.woff` | Body bold weight |
+| Brandon Grotesque Medium | `fonts/BrandonGrotesque-Medium.woff2` + `.woff` | Headings 500 (`--font-display`) |
+| Brandon Grotesque Bold | `fonts/BrandonGrotesque-Bold.woff2` + `.woff` | Headings 700 (`--font-display`) |
+| FunkiDori | `fonts/FunkiDori.woff2` + `.woff` | Decorative accent (`--font-script`) |
 
-Also update the Google Fonts `@import` in `css/global.css` line 1.
+**Webflow users:** Upload via Project Settings → Fonts instead of adding files to `fonts/`.

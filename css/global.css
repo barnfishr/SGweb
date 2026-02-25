@@ -2,7 +2,66 @@
    SNELGROVE ICE CREAM — Global Styles
    ============================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400;700;900&display=swap');
+/* =============================================================
+   FONT LOADING
+   Drop font files into fonts/ then uncomment the @font-face
+   blocks below. Webflow users: upload via Project Settings > Fonts.
+   ============================================================= */
+
+/* GT America — Body */
+@font-face {
+  font-family: 'GT America';
+  src: url('../fonts/GTAmerica-Regular.woff2') format('woff2'),
+       url('../fonts/GTAmerica-Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America';
+  src: url('../fonts/GTAmerica-Medium.woff2') format('woff2'),
+       url('../fonts/GTAmerica-Medium.woff')  format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America';
+  src: url('../fonts/GTAmerica-Bold.woff2') format('woff2'),
+       url('../fonts/GTAmerica-Bold.woff')  format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Brandon Grotesque — Headings */
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: url('../fonts/BrandonGrotesque-Medium.woff2') format('woff2'),
+       url('../fonts/BrandonGrotesque-Medium.woff')  format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: url('../fonts/BrandonGrotesque-Bold.woff2') format('woff2'),
+       url('../fonts/BrandonGrotesque-Bold.woff')  format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FunkiDori — Decorative / Brand Accent */
+@font-face {
+  font-family: 'FunkiDori';
+  src: url('../fonts/FunkiDori.woff2') format('woff2'),
+       url('../fonts/FunkiDori.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import 'tokens.css';
 
 /* --- Reset & Base --- */
