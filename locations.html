@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find Snelgrove Ice Cream near you. Now open in St. George, UT. Coming soon to Centerville, Lehi, South Jordan, and Sandy. Pints in grocery stores across Utah.">
+  <title>Locations — Snelgrove Ice Cream</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/locations.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="topbar">
+    🍦 Now open in St. George! &nbsp;·&nbsp; Coming soon: Centerville, Lehi, South Jordan &amp; Sandy
+  </div>
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Snelgrove Ice Cream — Home">
+        <img src="images/logo.svg" alt="Snelgrove Ice Cream" class="nav__logo-img"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="nav__logo-text" style="display:none">
+          <span class="nav__logo-name">Snelgrove</span>
+          <span class="nav__logo-est">Est. 1929</span>
+        </div>
+      </a>
+      <nav class="nav__links" role="navigation">
+        <a href="index.html"     class="nav__link">Home</a>
+        <a href="flavors.html"   class="nav__link">Flavors</a>
+        <a href="shop.html"      class="nav__link">Shop</a>
+        <a href="locations.html" class="nav__link active">Locations</a>
+        <a href="story.html"     class="nav__link">Our Story</a>
+        <a href="contact.html"   class="nav__link">Contact</a>
+      </nav>
+      <div class="nav__cta"><a href="shop.html" class="btn btn--primary">Order Online</a></div>
+      <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="nav__mobile" role="navigation">
+    <a href="index.html"     class="nav__mobile-link">Home</a>
+    <a href="flavors.html"   class="nav__mobile-link">Flavors</a>
+    <a href="shop.html"      class="nav__mobile-link">Shop</a>
+    <a href="locations.html" class="nav__mobile-link">Locations</a>
+    <a href="story.html"     class="nav__mobile-link">Our Story</a>
+    <a href="contact.html"   class="nav__mobile-link">Contact</a>
+    <div class="nav__mobile-cta"><a href="shop.html" class="btn btn--primary" style="width:100%;justify-content:center;">Order Online</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero__pattern"></div>
+      <div class="container page-hero__content">
+        <span class="page-hero__label" data-animate="fade-up">Come Find Us</span>
+        <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Locations</h1>
+        <p class="page-hero__desc" data-animate="fade-up" data-delay="200">
+          Scoop shops are opening across Utah. Visit our St. George location today,
+          or get notified when we open near you.
+        </p>
+      </div>
+    </section>
+
+    <!-- OPEN LOCATIONS -->
+    <section class="section locations-page" aria-labelledby="open-heading">
+      <div class="container">
+
+        <header class="section-header" data-animate="fade-up">
+          <span class="section-label">Now Open</span>
+          <h2 class="section-title" id="open-heading">Visit Us Today</h2>
+        </header>
+
+        <!-- ST. GEORGE -->
+        <div class="location-section" id="st-george">
+          <div class="location-feature">
+
+            <div class="location-feature__map" data-animate="fade-left">
+              <!-- Replace with actual Google Maps embed -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.0!2d-113.5335!3d37.1041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSnelgrove%20Ice%20Cream%20St.%20George!5e0!3m2!1sen!2sus!4v1700000000000"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Snelgrove Ice Cream St. George map"
+                onerror="this.style.display='none'"
+              ></iframe>
+              <div class="location-feature__map-placeholder" aria-hidden="true">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>922 E. Brigham Rd., Suite 4C<br>St. George, UT 84790</span>
+                <a href="https://maps.google.com/?q=922+E+Brigham+Rd+St+George+UT+84790" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:var(--space-3)">Open in Maps</a>
+              </div>
+            </div>
+
+            <div class="location-feature__info" data-animate="fade-right">
+              <div>
+                <span class="location-status-badge location-status-badge--open">
+                  <span style="width:8px;height:8px;border-radius:50%;background:#22C55E;display:inline-block;animation:pulse 2s ease-in-out infinite;"></span>
+                  Now Open
+                </span>
+              </div>
+
+              <h2 class="location-feature__name">St. George</h2>
+
+              <div class="location-detail">
+                <svg class="location-detail__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <span class="location-detail__label">Address</span>
+                  <p class="location-detail__text">
+                    Desert Hills Plaza<br>
+                    922 E. Brigham Rd., Suite 4C<br>
+                    St. George, UT 84790
+                  </p>
+                </div>
+              </div>
+
+              <div class="location-detail">
+                <svg class="location-detail__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div>
+                  <span class="location-detail__label">Hours</span>
+                  <div class="hours-grid">
+                    <span class="day">Sun – Thu</span><span>11:00 AM – 10:00 PM</span>
+                    <span class="day">Fri – Sat</span><span>11:00 AM – 11:00 PM</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="location-detail">
+                <svg class="location-detail__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <span class="location-detail__label">Phone</span>
+                  <p class="location-detail__text"><a href="tel:+14356277000">(435) 627-XXXX</a></p>
+                </div>
+              </div>
+
+              <div class="location-feature__actions">
+                <a href="https://maps.google.com/?q=922+E+Brigham+Rd+St+George+UT+84790"
+                   target="_blank" rel="noopener" class="btn btn--primary">
+                  Get Directions
+                </a>
+                <a href="contact.html" class="btn btn--secondary">Contact This Location</a>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /#st-george -->
+
+      </div>
+    </section>
+
+    <!-- COMING SOON -->
+    <section class="coming-soon-section" aria-labelledby="coming-soon-heading">
+      <div class="container">
+
+        <header class="section-header section-header--center" data-animate="fade-up">
+          <span class="section-label">Expanding Across Utah</span>
+          <h2 class="section-title" id="coming-soon-heading">Coming Soon Near You</h2>
+          <p class="section-subtitle">
+            We're bringing Snelgrove to the Wasatch Front and beyond.
+            Sign up to be the first to know when we open in your neighborhood.
+          </p>
+        </header>
+
+        <div class="coming-soon-grid">
+
+          <div class="coming-soon-card" data-animate="fade-up" data-delay="100">
+            <span class="coming-soon-card__icon">🏔️</span>
+            <h3 class="coming-soon-card__city">Centerville</h3>
+            <p class="coming-soon-card__region">Davis County, Utah</p>
+            <a href="contact.html#notify" class="coming-soon-card__notify">Notify me when open →</a>
+          </div>
+
+          <div class="coming-soon-card" data-animate="fade-up" data-delay="200">
+            <span class="coming-soon-card__icon">🏔️</span>
+            <h3 class="coming-soon-card__city">Lehi</h3>
+            <p class="coming-soon-card__region">Utah County, Utah</p>
+            <a href="contact.html#notify" class="coming-soon-card__notify">Notify me when open →</a>
+          </div>
+
+          <div class="coming-soon-card" data-animate="fade-up" data-delay="300">
+            <span class="coming-soon-card__icon">🏔️</span>
+            <h3 class="coming-soon-card__city">South Jordan</h3>
+            <p class="coming-soon-card__region">Salt Lake County, Utah</p>
+            <a href="contact.html#notify" class="coming-soon-card__notify">Notify me when open →</a>
+          </div>
+
+          <div class="coming-soon-card" data-animate="fade-up" data-delay="400">
+            <span class="coming-soon-card__icon">🏔️</span>
+            <h3 class="coming-soon-card__city">Sandy</h3>
+            <p class="coming-soon-card__region">Salt Lake County, Utah</p>
+            <a href="contact.html#notify" class="coming-soon-card__notify">Notify me when open →</a>
+          </div>
+
+        </div>
+
+        <!-- Notify form -->
+        <div style="max-width:520px; margin: var(--space-12) auto 0; text-align:center;" data-animate="fade-up" id="notify">
+          <h3 style="font-family:var(--font-display); font-size:var(--text-2xl); color:var(--color-blueberry); margin-bottom:var(--space-3);">
+            Be the First to Know
+          </h3>
+          <p style="font-size:var(--text-base); color:var(--color-text-mid); margin-bottom:var(--space-6);">
+            Enter your email and we'll notify you the moment Snelgrove opens near you.
+          </p>
+          <form style="display:flex; gap:var(--space-3); flex-wrap:wrap; justify-content:center;"
+                action="#" method="POST" aria-label="Location notification signup">
+            <input type="email" name="email" placeholder="your@email.com" required
+                   style="flex:1; min-width:220px; padding:var(--space-3) var(--space-5); border-radius:var(--radius-full); border:2px solid var(--color-melted); background:var(--color-white); font-size:var(--text-base); color:var(--color-blueberry); outline:none;"
+                   onfocus="this.style.borderColor='var(--color-cherry)'"
+                   onblur="this.style.borderColor='var(--color-melted)'">
+            <button type="submit" class="btn btn--primary">Notify Me</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GROCERY STORES -->
+    <section class="section grocery-section" aria-labelledby="grocery-heading" id="grocery">
+      <div class="container">
+
+        <header class="section-header section-header--center" data-animate="fade-up">
+          <span class="section-label">Pick Up a Pint</span>
+          <h2 class="section-title" id="grocery-heading">Find Us in Grocery Stores</h2>
+          <p class="section-subtitle">
+            Snelgrove pints are available at select grocery stores across the Wasatch Front.
+            Look for us in the ice cream aisle.
+          </p>
+        </header>
+
+        <div class="grocery-grid">
+          <div class="grocery-store-card" data-animate="fade-up" data-delay="100">
+            <h4 class="grocery-store-card__name">Smith's</h4>
+            <p class="grocery-store-card__region">Wasatch Front</p>
+          </div>
+          <div class="grocery-store-card" data-animate="fade-up" data-delay="150">
+            <h4 class="grocery-store-card__name">Harmons</h4>
+            <p class="grocery-store-card__region">Salt Lake Valley</p>
+          </div>
+          <div class="grocery-store-card" data-animate="fade-up" data-delay="200">
+            <h4 class="grocery-store-card__name">Associated Foods</h4>
+            <p class="grocery-store-card__region">Statewide</p>
+          </div>
+          <div class="grocery-store-card" data-animate="fade-up" data-delay="250">
+            <h4 class="grocery-store-card__name">Dan's</h4>
+            <p class="grocery-store-card__region">Salt Lake Area</p>
+          </div>
+          <div class="grocery-store-card" data-animate="fade-up" data-delay="300">
+            <h4 class="grocery-store-card__name">Lin's</h4>
+            <p class="grocery-store-card__region">Southern Utah</p>
+          </div>
+          <div class="grocery-store-card" data-animate="fade-up" data-delay="350">
+            <h4 class="grocery-store-card__name">More Coming</h4>
+            <p class="grocery-store-card__region">Expanding statewide</p>
+          </div>
+        </div>
+
+        <p style="text-align:center; margin-top:var(--space-8); font-size:var(--text-sm); color:var(--color-text-mid);" data-animate="fade-up">
+          Don't see your store? <a href="contact.html" style="color:var(--color-cherry); font-weight:700;">Let us know</a> and we'll work to get Snelgrove near you.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ORDER ONLINE CTA -->
+    <section style="background-color:var(--color-blueberry); color:var(--color-vanilla); padding-block:var(--space-16); text-align:center;">
+      <div class="container">
+        <span style="font-family:var(--font-script); font-size:var(--text-2xl); color:var(--color-banana-split); display:block; margin-bottom:var(--space-3);" data-animate="fade-up">
+          Can't wait?
+        </span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(var(--text-3xl),5vw,var(--text-5xl)); font-weight:900; color:var(--color-vanilla); margin-bottom:var(--space-4);" data-animate="fade-up" data-delay="100">
+          Ship Pints Straight to Your Door
+        </h2>
+        <p style="font-size:var(--text-lg); color:rgba(252,240,228,0.8); margin-bottom:var(--space-8);" data-animate="fade-up" data-delay="200">
+          Build your own custom pack and we'll ship Snelgrove ice cream right to you.
+        </p>
+        <div data-animate="fade-up" data-delay="300">
+          <a href="shop.html" class="btn btn--gold" style="font-size:var(--text-base); padding:var(--space-4) var(--space-10);">
+            Build a Pint Pack →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="images/logo-white.svg" alt="Snelgrove Ice Cream" class="footer__brand-logo" onerror="this.style.display='none'">
+          <p class="footer__brand-tagline">Artistry in Pleasure Foods</p>
+          <p class="footer__brand-desc">Utah's beloved ice cream since 1929.</p>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/snelgroveicecream" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Explore</h4>
+          <ul class="footer__links">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="flavors.html"   class="footer__link">Flavors</a></li>
+            <li><a href="shop.html"      class="footer__link">Shop Pints</a></li>
+            <li><a href="locations.html" class="footer__link">Locations</a></li>
+            <li><a href="story.html"     class="footer__link">Our Story</a></li>
+            <li><a href="contact.html"   class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Open Now</h4>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>922 E. Brigham Rd., Ste. 4C<br>St. George, UT 84790</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Sun–Thu 11am–10pm<br>Fri–Sat 11am–11pm</span>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Coming Soon</h4>
+          <ul class="footer__links">
+            <li><span class="footer__link" style="color:rgba(252,240,228,0.5)">Centerville</span></li>
+            <li><span class="footer__link" style="color:rgba(252,240,228,0.5)">Lehi</span></li>
+            <li><span class="footer__link" style="color:rgba(252,240,228,0.5)">South Jordan</span></li>
+            <li><span class="footer__link" style="color:rgba(252,240,228,0.5)">Sandy</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Snelgrove Ice Cream. All rights reserved.</p>
+        <nav class="footer__bottom-links"><a href="#" class="footer__bottom-link">Privacy</a><a href="#" class="footer__bottom-link">Terms</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <style>@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }</style>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="js/main.js"></script>
+</body>
+</html>

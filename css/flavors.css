@@ -1,0 +1,281 @@
+/* =============================================================
+   SNELGROVE ICE CREAM — Flavors Page
+   ============================================================= */
+
+/* ---- Page Hero ---- */
+.page-hero {
+  background-color: var(--color-blueberry);
+  color: var(--color-vanilla);
+  padding-block: var(--space-16) var(--space-12);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero__pattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 30px,
+    rgba(247, 210, 223, 0.04) 30px,
+    rgba(247, 210, 223, 0.04) 31px
+  );
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero__label {
+  font-family: var(--font-script);
+  font-size: var(--text-2xl);
+  color: var(--color-banana-split);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 7vw, var(--text-7xl));
+  font-weight: 900;
+  color: var(--color-vanilla);
+  line-height: 1.05;
+  margin-bottom: var(--space-4);
+}
+
+.page-hero__desc {
+  font-size: var(--text-lg);
+  color: rgba(252, 240, 228, 0.78);
+  max-width: 55ch;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+/* ---- Filter Bar ---- */
+.filter-bar {
+  background-color: var(--color-vanilla);
+  border-bottom: 2px solid var(--color-melted);
+  padding-block: var(--space-5);
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 100;
+}
+
+.filter-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-melted);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-blueberry);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-cherry);
+  color: var(--color-cherry);
+}
+
+.filter-btn.active {
+  background-color: var(--color-cherry);
+  border-color: var(--color-cherry);
+  color: var(--color-white);
+}
+
+/* ---- Flavors Grid ---- */
+.flavors-page {
+  background-color: var(--color-vanilla);
+}
+
+.flavors-full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.flavor-card-full {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.flavor-card-full:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
+.flavor-card-full__img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--color-melted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.flavor-card-full__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.flavor-card-full:hover .flavor-card-full__img {
+  transform: scale(1.06);
+}
+
+.flavor-card-full__emoji {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.flavor-card-full__badges {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  display: flex;
+  gap: var(--space-2);
+}
+
+.flavor-card-full__body {
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.flavor-card-full__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-blueberry);
+}
+
+.flavor-card-full__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-mid);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.flavor-card-full__cta {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-melted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.flavor-card-full__price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-blueberry);
+}
+
+.flavor-card-full__add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background-color: var(--color-cherry);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.flavor-card-full__add:hover {
+  background-color: var(--color-cherry-dark);
+  transform: scale(1.03);
+}
+
+/* ---- Seasonal Banner ---- */
+.seasonal-banner {
+  background: linear-gradient(135deg, var(--color-candy-pink) 0%, var(--color-melted) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.seasonal-banner__icon {
+  font-size: 64px;
+  flex-shrink: 0;
+}
+
+.seasonal-banner__label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-cherry);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.seasonal-banner__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: var(--color-blueberry);
+  margin-bottom: var(--space-2);
+}
+
+.seasonal-banner__desc {
+  font-size: var(--text-base);
+  color: var(--color-text-mid);
+  line-height: 1.6;
+  max-width: 50ch;
+}
+
+/* ---- Hidden (filtered) ---- */
+.flavor-card-full[data-hidden="true"] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .filter-bar__inner {
+    gap: var(--space-2);
+  }
+
+  .seasonal-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" role="img" aria-label="Snelgrove Ice Cream">
+  <title>Snelgrove Ice Cream</title>
+  <defs>
+    <clipPath id="sg-logo-cone-clip">
+      <path d="M5.4,37.8 L48.6,37.8 L27,63.7 Z"/>
+    </clipPath>
+    <pattern id="sg-logo-waffle" x="0" y="0" width="5.4" height="5.4" patternUnits="userSpaceOnUse">
+      <path d="M0,2.7 L2.7,0 L5.4,2.7 L2.7,5.4 Z" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="0.5"/>
+    </pattern>
+    <style>
+      .sg-name { font-family: 'FunkiDori', 'Brush Script MT', cursive; font-size: 40px; fill: #E8352A; }
+      .sg-tag  { font-family: 'Brandon Grotesque', 'Arial Narrow', sans-serif; font-size: 7.5px; fill: #E8352A; letter-spacing: 0.14em; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Cone icon group (scale 0.54 of 100×122 icon, translated to vertical center) -->
+  <g transform="translate(2, 3)">
+    <!-- Left scoop -->
+    <circle cx="20" cy="25.9" r="15.1" fill="#E8352A" stroke="rgba(255,255,255,0.18)" stroke-width="0.6"/>
+    <!-- Right scoop -->
+    <circle cx="34" cy="25.9" r="15.1" fill="#E8352A" stroke="rgba(255,255,255,0.18)" stroke-width="0.6"/>
+    <!-- Cone body -->
+    <path d="M5.4,37.8 L48.6,37.8 L27,63.7 Z" fill="#E8352A"/>
+    <!-- Waffle texture -->
+    <rect x="0" y="0" width="55" height="69" fill="url(#sg-logo-waffle)" clip-path="url(#sg-logo-cone-clip)"/>
+  </g>
+
+  <!-- Brand name -->
+  <text class="sg-name" x="64" y="50">Snelgrove</text>
+  <!-- Tagline -->
+  <text class="sg-tag" x="67" y="65">AMERICA'S FINEST SINCE 1929</text>
+</svg>
