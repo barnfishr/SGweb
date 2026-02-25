@@ -73,11 +73,9 @@
         <div class="filter-bar__inner">
           <button class="filter-btn active" data-filter="all">All Flavors</button>
           <button class="filter-btn" data-filter="classic">🏅 Classics</button>
-          <button class="filter-btn" data-filter="new">✨ New</button>
-          <button class="filter-btn" data-filter="seasonal">🌸 Seasonal</button>
           <button class="filter-btn" data-filter="chocolate">🍫 Chocolate</button>
-          <button class="filter-btn" data-filter="fruit">🍓 Fruit</button>
           <button class="filter-btn" data-filter="nutty">🥜 Nutty</button>
+          <button class="filter-btn" data-filter="fruit">🍓 Fruit</button>
         </div>
       </div>
     </div>
@@ -85,42 +83,19 @@
     <!-- FLAVORS SECTION -->
     <section class="section flavors-page" aria-labelledby="flavors-title">
       <div class="container">
-
         <h2 class="sr-only" id="flavors-title">All Ice Cream Flavors</h2>
 
-        <!-- Seasonal callout -->
-        <div class="seasonal-banner" data-animate="fade-up">
-          <div class="seasonal-banner__icon">🌸</div>
-          <div>
-            <span class="seasonal-banner__label">Monthly Special</span>
-            <h3 class="seasonal-banner__title">Strawberry Cheesecake</h3>
-            <p class="seasonal-banner__desc">
-              Creamy cheesecake ice cream loaded with fresh strawberry swirls.
-              Available this month only — don't miss it.
-            </p>
-          </div>
-          <a href="shop.html" class="btn btn--primary" style="flex-shrink:0;">Order Now</a>
-        </div>
-
-        <!-- Full Flavor Grid -->
         <div class="flavors-full-grid">
 
           <!-- CLASSICS -->
-          <article class="flavor-card-full" data-category="classic chocolate" data-animate="fade-up" data-delay="100" id="burnt-almond-fudge">
+          <article class="flavor-card-full" data-category="classic nutty chocolate" data-animate="fade-up" data-delay="100" id="burnt-almond-fudge">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/burnt-almond-fudge.jpg" alt="Burnt Almond Fudge" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍫</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--gold">Classic</span>
-              </div>
+              <img src="images/flavors/burnt-almond-fudge.png" alt="Burnt Almond Fudge" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--gold">Classic</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Burnt Almond Fudge</h3>
-              <p class="flavor-card-full__desc">
-                The flavor that built a legacy. Velvety chocolate fudge ice cream swirled with
-                hand-toasted almonds. A Snelgrove original since day one.
-              </p>
+              <p class="flavor-card-full__desc">The flavor that built a legacy. Velvety chocolate fudge ice cream swirled with hand-toasted almonds. A Snelgrove original since day one.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -130,19 +105,12 @@
 
           <article class="flavor-card-full" data-category="classic" data-animate="fade-up" data-delay="200" id="canadian-vanilla">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/canadian-vanilla.jpg" alt="Canadian Vanilla" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍨</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--gold">Classic</span>
-              </div>
+              <img src="images/flavors/canadian-vanilla.png" alt="Canadian Vanilla" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--gold">Classic</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Canadian Vanilla</h3>
-              <p class="flavor-card-full__desc">
-                Laird Snelgrove's secret recipe, acquired from a Canadian contact and
-                kept secret ever since. Impossibly rich, impossibly smooth.
-              </p>
+              <p class="flavor-card-full__desc">Laird Snelgrove's secret recipe, acquired from a Canadian contact and kept close ever since. Impossibly rich, impossibly smooth.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -150,43 +118,14 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="classic chocolate" data-animate="fade-up" data-delay="300" id="rocky-road">
+          <article class="flavor-card-full" data-category="classic nutty chocolate" data-animate="fade-up" data-delay="300" id="caramel-cashew">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/rocky-road.jpg" alt="Rocky Road" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍫</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--gold">Classic</span>
-              </div>
-            </div>
-            <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Rocky Road</h3>
-              <p class="flavor-card-full__desc">
-                Chocolate ice cream loaded with soft marshmallows, whole cashews, and
-                chocolate chips. A timeless crowd-pleaser.
-              </p>
-              <div class="flavor-card-full__cta">
-                <span class="flavor-card-full__price">$9.99 / pint</span>
-                <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="flavor-card-full" data-category="classic nutty" data-animate="fade-up" data-delay="100" id="caramel-cashew">
-            <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/caramel-cashew.jpg" alt="Caramel Cashew" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🥜</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--brown">Fan Fave</span>
-              </div>
+              <img src="images/flavors/caramel-cashew.png" alt="Caramel Cashew" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--brown">Fan Fave</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Caramel Cashew</h3>
-              <p class="flavor-card-full__desc">
-                Buttery caramel ice cream loaded with whole roasted cashews. Sweet, salty,
-                and utterly addictive.
-              </p>
+              <p class="flavor-card-full__desc">Buttery caramel ice cream loaded with whole roasted cashews. Sweet, salty, and completely irresistible.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -194,22 +133,14 @@
             </div>
           </article>
 
-          <!-- NEW / CURRENT -->
-          <article class="flavor-card-full" data-category="new fruit" data-animate="fade-up" data-delay="200">
+          <article class="flavor-card-full" data-category="classic chocolate" data-animate="fade-up" data-delay="100" id="rocky-road">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/raspberry-cookie-swirl.jpg" alt="Raspberry Cookie Swirl" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍓</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">New</span>
-              </div>
+              <img src="images/flavors/rocky-road.png" alt="Rocky Road" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--gold">Classic</span></div>
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Raspberry Cookie Swirl</h3>
-              <p class="flavor-card-full__desc">
-                Real raspberry purée swirled through cookies &amp; cream ice cream.
-                Bright, fruity, and deeply satisfying.
-              </p>
+              <h3 class="flavor-card-full__name">Rocky Road</h3>
+              <p class="flavor-card-full__desc">Chocolate ice cream loaded with soft marshmallows, whole cashews, and chocolate chips. A timeless crowd-pleaser.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -217,21 +148,58 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="new chocolate" data-animate="fade-up" data-delay="300">
+          <!-- CHOCOLATE -->
+          <article class="flavor-card-full" data-category="chocolate" data-animate="fade-up" data-delay="200">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/mint-brownie.jpg" alt="Mint Brownie" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🌿</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">New</span>
+              <img src="images/flavors/chocolate.png" alt="Chocolate" class="flavor-card-full__img">
+            </div>
+            <div class="flavor-card-full__body">
+              <h3 class="flavor-card-full__name">Chocolate</h3>
+              <p class="flavor-card-full__desc">Pure, deep chocolate ice cream. Sometimes the classic is all you need.</p>
+              <div class="flavor-card-full__cta">
+                <span class="flavor-card-full__price">$9.99 / pint</span>
+                <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
               </div>
+            </div>
+          </article>
+
+          <article class="flavor-card-full" data-category="chocolate" data-animate="fade-up" data-delay="300">
+            <div class="flavor-card-full__img-wrap">
+              <img src="images/flavors/german-choc-brownie.png" alt="German Chocolate Brownie" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span></div>
+            </div>
+            <div class="flavor-card-full__body">
+              <h3 class="flavor-card-full__name">German Chocolate Brownie</h3>
+              <p class="flavor-card-full__desc">Rich German chocolate ice cream packed with fudgy brownie bites. Decadent, dense, and absolutely worth it.</p>
+              <div class="flavor-card-full__cta">
+                <span class="flavor-card-full__price">$9.99 / pint</span>
+                <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flavor-card-full" data-category="chocolate" data-animate="fade-up" data-delay="100">
+            <div class="flavor-card-full__img-wrap">
+              <img src="images/flavors/triple-choco-brownie.png" alt="Triple Choco Brownie" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span></div>
+            </div>
+            <div class="flavor-card-full__body">
+              <h3 class="flavor-card-full__name">Triple Choco Brownie</h3>
+              <p class="flavor-card-full__desc">Triple chocolate intensity — chocolate ice cream, chocolate chips, and fudgy brownie bites throughout. For the true chocolate lover.</p>
+              <div class="flavor-card-full__cta">
+                <span class="flavor-card-full__price">$9.99 / pint</span>
+                <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flavor-card-full" data-category="chocolate" data-animate="fade-up" data-delay="200">
+            <div class="flavor-card-full__img-wrap">
+              <img src="images/flavors/mint-brownie.png" alt="Mint Brownie" class="flavor-card-full__img">
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Mint Brownie</h3>
-              <p class="flavor-card-full__desc">
-                Creamy mint ice cream packed with chewy fudgy brownie chunks.
-                Cool, rich, and completely refreshing.
-              </p>
+              <p class="flavor-card-full__desc">Creamy mint ice cream packed with chewy fudgy brownie chunks. Cool, rich, and completely refreshing.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -239,21 +207,14 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="new chocolate" data-animate="fade-up" data-delay="100">
+          <article class="flavor-card-full" data-category="chocolate" data-animate="fade-up" data-delay="300">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/chocolate-thunder.jpg" alt="Chocolate Thunder" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">⚡</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">New</span>
-              </div>
+              <img src="images/flavors/thunder-crunch.png" alt="Thunder Crunch" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span></div>
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Chocolate Thunder</h3>
-              <p class="flavor-card-full__desc">
-                Triple chocolate intensity — chocolate ice cream with fudgy brownie bites
-                and chocolate chips throughout.
-              </p>
+              <h3 class="flavor-card-full__name">Thunder Crunch</h3>
+              <p class="flavor-card-full__desc">Chocolate ice cream with a satisfying crunch in every bite. Bold, rich, and electric.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -261,21 +222,14 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="new" data-animate="fade-up" data-delay="200">
+          <!-- NUTTY -->
+          <article class="flavor-card-full" data-category="nutty" data-animate="fade-up" data-delay="100">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/biscoff.jpg" alt="Biscoff Dream" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍪</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">New</span>
-              </div>
+              <img src="images/flavors/pistachio-almond.png" alt="Pistachio Almond" class="flavor-card-full__img">
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Biscoff Dream</h3>
-              <p class="flavor-card-full__desc">
-                Creamy caramel and ginger-snap ice cream infused with Biscoff cookies.
-                Warm, spiced, and totally unique.
-              </p>
+              <h3 class="flavor-card-full__name">Pistachio Almond</h3>
+              <p class="flavor-card-full__desc">Smooth pistachio ice cream studded with whole roasted almonds. Elegant, nutty, and deeply satisfying.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -283,21 +237,13 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="new nutty" data-animate="fade-up" data-delay="300">
+          <article class="flavor-card-full" data-category="nutty" data-animate="fade-up" data-delay="200">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/pb-cookies.jpg" alt="Peanut Butter Cookies and Cream" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🥜</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">New</span>
-              </div>
+              <img src="images/flavors/maple-walnut.png" alt="Maple Walnut" class="flavor-card-full__img">
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">PB Cookies &amp; Cream</h3>
-              <p class="flavor-card-full__desc">
-                Salted peanut butter ice cream swirled with cookies and cream.
-                Salty, sweet, and deeply satisfying.
-              </p>
+              <h3 class="flavor-card-full__name">Maple Walnut</h3>
+              <p class="flavor-card-full__desc">Real maple-flavored ice cream loaded with whole walnuts. Warm, earthy, and a classic for good reason.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -305,21 +251,45 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="new" data-animate="fade-up" data-delay="100">
+          <article class="flavor-card-full" data-category="nutty" data-animate="fade-up" data-delay="300">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/cookie-dough.jpg" alt="Cookie Dough" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍪</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--brown">Fan Fave</span>
+              <img src="images/flavors/peanut-butter-cup.png" alt="Peanut Butter Cup" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--brown">Fan Fave</span></div>
+            </div>
+            <div class="flavor-card-full__body">
+              <h3 class="flavor-card-full__name">Peanut Butter Cup</h3>
+              <p class="flavor-card-full__desc">Creamy peanut butter ice cream loaded with peanut butter cup pieces. Salty-sweet perfection.</p>
+              <div class="flavor-card-full__cta">
+                <span class="flavor-card-full__price">$9.99 / pint</span>
+                <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
               </div>
+            </div>
+          </article>
+
+          <article class="flavor-card-full" data-category="nutty" data-animate="fade-up" data-delay="100">
+            <div class="flavor-card-full__img-wrap">
+              <img src="images/flavors/salted-pb-oreo.png" alt="Salted Peanut Butter Oreo" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span></div>
+            </div>
+            <div class="flavor-card-full__body">
+              <h3 class="flavor-card-full__name">Salted Peanut Butter Oreo</h3>
+              <p class="flavor-card-full__desc">Salted peanut butter ice cream swirled with Oreo cookie pieces. Sweet, salty, crunchy — endlessly snackable.</p>
+              <div class="flavor-card-full__cta">
+                <span class="flavor-card-full__price">$9.99 / pint</span>
+                <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- OTHER / FUN -->
+          <article class="flavor-card-full" data-category="classic" data-animate="fade-up" data-delay="200">
+            <div class="flavor-card-full__img-wrap">
+              <img src="images/flavors/cookie-dough.png" alt="M&M Cookie Dough" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--brown">Fan Fave</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">M&amp;M Cookie Dough</h3>
-              <p class="flavor-card-full__desc">
-                Vanilla ice cream packed with chunks of soft buttery cookie dough
-                and colorful M&amp;M candies.
-              </p>
+              <p class="flavor-card-full__desc">Vanilla ice cream packed with chunks of soft buttery cookie dough and colorful M&amp;M candies. Pure joy in every scoop.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -327,18 +297,13 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="new" data-animate="fade-up" data-delay="200">
+          <article class="flavor-card-full" data-category="classic" data-animate="fade-up" data-delay="300">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/cotton-candy.jpg" alt="Cotton Candy" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🩷</div>
+              <img src="images/flavors/cookies-and-cream.png" alt="Cookies and Cream" class="flavor-card-full__img">
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Cotton Candy</h3>
-              <p class="flavor-card-full__desc">
-                Dreamy cotton candy flavor swirled into creamy ice cream.
-                Pure carnival joy in every bite.
-              </p>
+              <h3 class="flavor-card-full__name">Cookies &amp; Cream</h3>
+              <p class="flavor-card-full__desc">Creamy vanilla ice cream loaded with generous chunks of chocolate cookie. A forever classic.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -346,22 +311,14 @@
             </div>
           </article>
 
-          <!-- SEASONAL -->
-          <article class="flavor-card-full" data-category="seasonal fruit" data-animate="fade-up" data-delay="300">
+          <article class="flavor-card-full" data-category="classic" data-animate="fade-up" data-delay="100">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/strawberry-cheesecake.jpg" alt="Strawberry Cheesecake" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🍓</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">Seasonal</span>
-              </div>
+              <img src="images/flavors/malted-milk.png" alt="Malted Milk" class="flavor-card-full__img">
+              <div class="flavor-card-full__badges"><span class="tag tag--gold">Classic</span></div>
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Strawberry Cheesecake</h3>
-              <p class="flavor-card-full__desc">
-                Creamy cheesecake ice cream with real strawberry swirls.
-                Limited time — available this month only.
-              </p>
+              <h3 class="flavor-card-full__name">Malted Milk</h3>
+              <p class="flavor-card-full__desc">A nostalgic old-fashioned malt shop flavor — creamy, smooth, and wonderfully retro. Like a milkshake in a pint.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -369,21 +326,14 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="seasonal" data-animate="fade-up" data-delay="100">
+          <!-- FRUIT -->
+          <article class="flavor-card-full" data-category="fruit" data-animate="fade-up" data-delay="200">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/birthday-cake.jpg" alt="Birthday Cake" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🎂</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">Seasonal</span>
-              </div>
+              <img src="images/flavors/strawberry.png" alt="Strawberry" class="flavor-card-full__img">
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Birthday Cake</h3>
-              <p class="flavor-card-full__desc">
-                Vanilla cake-flavored ice cream bursting with rainbow sprinkles.
-                Every day is worth celebrating.
-              </p>
+              <h3 class="flavor-card-full__name">Strawberry</h3>
+              <p class="flavor-card-full__desc">Bright, fresh strawberry ice cream made with real fruit. Light, summery, and refreshing.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
@@ -391,31 +341,23 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="seasonal" data-animate="fade-up" data-delay="200">
+          <article class="flavor-card-full" data-category="classic" data-animate="fade-up" data-delay="300">
             <div class="flavor-card-full__img-wrap">
-              <img src="images/flavors/peppermint-choc-spray.jpg" alt="Peppermint Chocolate Spray" class="flavor-card-full__img"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-              <div class="flavor-card-full__emoji" style="display:none">🌿</div>
-              <div class="flavor-card-full__badges">
-                <span class="tag tag--red">Seasonal</span>
-              </div>
+              <img src="images/flavors/root-beer.png" alt="Root Beer" class="flavor-card-full__img">
             </div>
             <div class="flavor-card-full__body">
-              <h3 class="flavor-card-full__name">Peppermint Chocolate Spray</h3>
-              <p class="flavor-card-full__desc">
-                Refreshing peppermint ice cream with streaks of chocolate.
-                A holiday classic that fans request all year.
-              </p>
+              <h3 class="flavor-card-full__name">Root Beer</h3>
+              <p class="flavor-card-full__desc">Creamy root beer float flavor in ice cream form. Nostalgic, fun, and totally unique.</p>
               <div class="flavor-card-full__cta">
                 <span class="flavor-card-full__price">$9.99 / pint</span>
                 <a href="shop.html" class="flavor-card-full__add">Add to Pack</a>
               </div>
             </div>
           </article>
+
 
         </div><!-- /.flavors-full-grid -->
 
-        <!-- CTA at bottom -->
         <div style="text-align:center; margin-top:var(--space-16);" data-animate="fade-up">
           <p class="section-subtitle" style="margin-inline:auto; margin-bottom:var(--space-6);">
             Want to stock up? Build your own custom pint pack and ship it anywhere in the US.
@@ -442,9 +384,6 @@
             <a href="https://www.instagram.com/snelgroveicecream" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="https://www.facebook.com/snelgroveicecream/" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
           </div>
         </div>
         <div class="footer__col">
@@ -461,10 +400,10 @@
         <div class="footer__col">
           <h4 class="footer__col-title">Classics</h4>
           <ul class="footer__links">
-            <li><a href="#burnt-almond-fudge" class="footer__link">Burnt Almond Fudge</a></li>
-            <li><a href="#canadian-vanilla"   class="footer__link">Canadian Vanilla</a></li>
-            <li><a href="#rocky-road"         class="footer__link">Rocky Road</a></li>
-            <li><a href="#caramel-cashew"     class="footer__link">Caramel Cashew</a></li>
+            <li><a href="flavors.html#burnt-almond-fudge" class="footer__link">Burnt Almond Fudge</a></li>
+            <li><a href="flavors.html#canadian-vanilla"   class="footer__link">Canadian Vanilla</a></li>
+            <li><a href="flavors.html#rocky-road"         class="footer__link">Rocky Road</a></li>
+            <li><a href="flavors.html#caramel-cashew"     class="footer__link">Caramel Cashew</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -485,27 +424,18 @@
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
   <script>
-    // Flavor filter logic
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
+        const filter = btn.dataset.filter;
         document.querySelectorAll('.flavor-card-full').forEach(card => {
           const cats = card.dataset.category || '';
-          if (filter === 'all' || cats.includes(filter)) {
-            card.removeAttribute('data-hidden');
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+          card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
         });
       });
     });
   </script>
-
-  <!-- Accessibility: skip link -->
-  <style>.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }</style>
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}</style>
 </body>
 </html>

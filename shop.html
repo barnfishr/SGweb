@@ -449,8 +449,9 @@
             <div class="builder-filter">
               <button class="builder-filter-btn active" data-bfilter="all">All</button>
               <button class="builder-filter-btn" data-bfilter="classic">🏅 Classics</button>
-              <button class="builder-filter-btn" data-bfilter="new">✨ New</button>
-              <button class="builder-filter-btn" data-bfilter="seasonal">🌸 Seasonal</button>
+              <button class="builder-filter-btn" data-bfilter="chocolate">🍫 Chocolate</button>
+              <button class="builder-filter-btn" data-bfilter="nutty">🥜 Nutty</button>
+              <button class="builder-filter-btn" data-bfilter="fruit">🍓 Fruit</button>
             </div>
 
             <div class="flavor-picker-grid" id="flavor-grid">
@@ -459,7 +460,7 @@
 
               <div class="picker-card" data-flavor-id="burnt-almond-fudge" data-category="classic" data-price="9.99" data-emoji="🍫" data-label="Burnt Almond Fudge">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/burnt-almond-fudge.jpg" alt="Burnt Almond Fudge" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/burnt-almond-fudge.png" alt="Burnt Almond Fudge" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🍫</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
@@ -477,7 +478,7 @@
 
               <div class="picker-card" data-flavor-id="canadian-vanilla" data-category="classic" data-price="9.99" data-emoji="🍨" data-label="Canadian Vanilla">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/canadian-vanilla.jpg" alt="Canadian Vanilla" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/canadian-vanilla.png" alt="Canadian Vanilla" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🍨</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
@@ -495,7 +496,7 @@
 
               <div class="picker-card" data-flavor-id="rocky-road" data-category="classic" data-price="9.99" data-emoji="🍫" data-label="Rocky Road">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/rocky-road.jpg" alt="Rocky Road" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/rocky-road.png" alt="Rocky Road" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🍫</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
@@ -505,15 +506,15 @@
                   <p class="picker-card__tag">Classic</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
               <div class="picker-card" data-flavor-id="caramel-cashew" data-category="classic" data-price="9.99" data-emoji="🥜" data-label="Caramel Cashew">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/caramel-cashew.jpg" alt="Caramel Cashew" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/caramel-cashew.png" alt="Caramel Cashew" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🥜</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
@@ -523,135 +524,261 @@
                   <p class="picker-card__tag">Classic</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="raspberry-cookie" data-category="new" data-price="9.99" data-emoji="🍓" data-label="Raspberry Cookie Swirl">
+              <div class="picker-card" data-flavor-id="cookies-and-cream" data-category="classic" data-price="9.99" data-emoji="🍪" data-label="Cookies &amp; Cream">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/raspberry-cookie-swirl.jpg" alt="Raspberry Cookie Swirl" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍓</span>
+                  <img src="images/flavors/cookies-and-cream.png" alt="Cookies and Cream" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍪</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
-                  <p class="picker-card__name">Raspberry Cookie Swirl</p>
-                  <p class="picker-card__tag">New</p>
+                  <p class="picker-card__name">Cookies &amp; Cream</p>
+                  <p class="picker-card__tag">Classic</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="mint-brownie" data-category="new" data-price="9.99" data-emoji="🌿" data-label="Mint Brownie">
+              <div class="picker-card" data-flavor-id="malted-milk" data-category="classic" data-price="9.99" data-emoji="🥛" data-label="Malted Milk">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/mint-brownie.jpg" alt="Mint Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/malted-milk.png" alt="Malted Milk" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🥛</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">Malted Milk</p>
+                  <p class="picker-card__tag">Classic</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="cookie-dough" data-category="classic" data-price="9.99" data-emoji="🍪" data-label="M&amp;M Cookie Dough">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/cookie-dough.png" alt="M&amp;M Cookie Dough" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍪</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">M&amp;M Cookie Dough</p>
+                  <p class="picker-card__tag">Classic</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="chocolate" data-category="chocolate" data-price="9.99" data-emoji="🍫" data-label="Chocolate">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/chocolate.png" alt="Chocolate" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍫</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">Chocolate</p>
+                  <p class="picker-card__tag">Chocolate</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="german-choc-brownie" data-category="chocolate" data-price="9.99" data-emoji="🍫" data-label="German Choc Brownie">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/german-choc-brownie.png" alt="German Choc Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍫</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">German Choc Brownie</p>
+                  <p class="picker-card__tag">Chocolate</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="triple-choco-brownie" data-category="chocolate" data-price="9.99" data-emoji="🍫" data-label="Triple Choco Brownie">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/triple-choco-brownie.png" alt="Triple Choco Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍫</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">Triple Choco Brownie</p>
+                  <p class="picker-card__tag">Chocolate</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="mint-brownie" data-category="chocolate" data-price="9.99" data-emoji="🌿" data-label="Mint Brownie">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/mint-brownie.png" alt="Mint Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🌿</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
                   <p class="picker-card__name">Mint Brownie</p>
-                  <p class="picker-card__tag">New</p>
+                  <p class="picker-card__tag">Chocolate</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="biscoff" data-category="new" data-price="9.99" data-emoji="🍪" data-label="Biscoff Dream">
+              <div class="picker-card" data-flavor-id="thunder-crunch" data-category="chocolate" data-price="9.99" data-emoji="⚡" data-label="Thunder Crunch">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/biscoff.jpg" alt="Biscoff Dream" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍪</span>
+                  <img src="images/flavors/thunder-crunch.png" alt="Thunder Crunch" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">⚡</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
-                  <p class="picker-card__name">Biscoff Dream</p>
-                  <p class="picker-card__tag">New</p>
+                  <p class="picker-card__name">Thunder Crunch</p>
+                  <p class="picker-card__tag">Chocolate</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="pb-cookies" data-category="new" data-price="9.99" data-emoji="🥜" data-label="PB Cookies &amp; Cream">
+              <div class="picker-card" data-flavor-id="pistachio-almond" data-category="nutty" data-price="9.99" data-emoji="🌿" data-label="Pistachio Almond">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/pb-cookies.jpg" alt="PB Cookies and Cream" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/pistachio-almond.png" alt="Pistachio Almond" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🌿</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">Pistachio Almond</p>
+                  <p class="picker-card__tag">Nutty</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="maple-walnut" data-category="nutty" data-price="9.99" data-emoji="🍁" data-label="Maple Walnut">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/maple-walnut.png" alt="Maple Walnut" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍁</span>
+                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                  <div class="picker-card__qty-badge">×1</div>
+                </div>
+                <div class="picker-card__body">
+                  <p class="picker-card__name">Maple Walnut</p>
+                  <p class="picker-card__tag">Nutty</p>
+                </div>
+                <div class="picker-card__qty-controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
+                  <span class="qty-count">1</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
+                </div>
+              </div>
+
+              <div class="picker-card" data-flavor-id="peanut-butter-cup" data-category="nutty" data-price="9.99" data-emoji="🥜" data-label="Peanut Butter Cup">
+                <div class="picker-card__img-wrap">
+                  <img src="images/flavors/peanut-butter-cup.png" alt="Peanut Butter Cup" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🥜</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
-                  <p class="picker-card__name">PB Cookies &amp; Cream</p>
-                  <p class="picker-card__tag">New</p>
+                  <p class="picker-card__name">Peanut Butter Cup</p>
+                  <p class="picker-card__tag">Nutty</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="cotton-candy" data-category="new" data-price="9.99" data-emoji="🩷" data-label="Cotton Candy">
+              <div class="picker-card" data-flavor-id="salted-pb-oreo" data-category="nutty" data-price="9.99" data-emoji="🥜" data-label="Salted PB Oreo">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/cotton-candy.jpg" alt="Cotton Candy" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🩷</span>
+                  <img src="images/flavors/salted-pb-oreo.png" alt="Salted PB Oreo" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🥜</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
-                  <p class="picker-card__name">Cotton Candy</p>
-                  <p class="picker-card__tag">New</p>
+                  <p class="picker-card__name">Salted PB Oreo</p>
+                  <p class="picker-card__tag">Nutty</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="strawberry-cheesecake" data-category="seasonal" data-price="9.99" data-emoji="🍓" data-label="Strawberry Cheesecake">
+              <div class="picker-card" data-flavor-id="strawberry" data-category="fruit" data-price="9.99" data-emoji="🍓" data-label="Strawberry">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/strawberry-cheesecake.jpg" alt="Strawberry Cheesecake" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <img src="images/flavors/strawberry.png" alt="Strawberry" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                   <span style="display:none">🍓</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
-                  <p class="picker-card__name">Strawberry Cheesecake</p>
-                  <p class="picker-card__tag" style="color:var(--color-cherry);">Seasonal</p>
+                  <p class="picker-card__name">Strawberry</p>
+                  <p class="picker-card__tag">Fruit</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
-              <div class="picker-card" data-flavor-id="birthday-cake" data-category="seasonal" data-price="9.99" data-emoji="🎂" data-label="Birthday Cake">
+              <div class="picker-card" data-flavor-id="root-beer" data-category="fruit" data-price="9.99" data-emoji="🍺" data-label="Root Beer">
                 <div class="picker-card__img-wrap">
-                  <img src="images/flavors/birthday-cake.jpg" alt="Birthday Cake" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🎂</span>
+                  <img src="images/flavors/root-beer.png" alt="Root Beer" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                  <span style="display:none">🍺</span>
                   <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
                   <div class="picker-card__qty-badge">×1</div>
                 </div>
                 <div class="picker-card__body">
-                  <p class="picker-card__name">Birthday Cake</p>
-                  <p class="picker-card__tag" style="color:var(--color-cherry);">Seasonal</p>
+                  <p class="picker-card__name">Root Beer</p>
+                  <p class="picker-card__tag">Fruit</p>
                 </div>
                 <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus">−</button>
+                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
                   <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus">+</button>
+                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
                 </div>
               </div>
 
