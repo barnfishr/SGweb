@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980" role="img" aria-label="Snelgrove Design Preview v1">
+  <rect width="1400" height="980" fill="#fff7ed"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="44" fill="#2f1d14" font-weight="700">Snelgrove Design Preview v1</text>
+  <text x="60" y="110" font-family="Arial, sans-serif" font-size="22" fill="#624332">A/B/C blend: Graeter's tone + Jeni's store UX + Snickers campaign accents</text>
+
+  <text x="60" y="170" font-family="Arial, sans-serif" font-size="34" fill="#2f1d14" font-weight="700">Style Tile</text>
+
+  <g transform="translate(60,200)">
+    <rect width="240" height="140" rx="16" fill="#ffffff" stroke="#ead8c7"/>
+    <rect x="16" y="16" width="208" height="52" rx="10" fill="#fff7ed"/>
+    <text x="16" y="95" font-family="Arial" font-size="22" fill="#2f1d14" font-weight="700">Cream</text>
+    <text x="16" y="122" font-family="Arial" font-size="18" fill="#624332">Background</text>
+  </g>
+
+  <g transform="translate(320,200)">
+    <rect width="240" height="140" rx="16" fill="#ffffff" stroke="#ead8c7"/>
+    <rect x="16" y="16" width="208" height="52" rx="10" fill="#2f1d14"/>
+    <text x="16" y="95" font-family="Arial" font-size="22" fill="#2f1d14" font-weight="700">Chocolate</text>
+    <text x="16" y="122" font-family="Arial" font-size="18" fill="#624332">Primary text</text>
+  </g>
+
+  <g transform="translate(580,200)">
+    <rect width="240" height="140" rx="16" fill="#ffffff" stroke="#ead8c7"/>
+    <rect x="16" y="16" width="208" height="52" rx="10" fill="#e9547b"/>
+    <text x="16" y="95" font-family="Arial" font-size="22" fill="#2f1d14" font-weight="700">Strawberry</text>
+    <text x="16" y="122" font-family="Arial" font-size="18" fill="#624332">Primary CTA</text>
+  </g>
+
+  <g transform="translate(840,200)">
+    <rect width="240" height="140" rx="16" fill="#ffffff" stroke="#ead8c7"/>
+    <rect x="16" y="16" width="208" height="52" rx="10" fill="#88d8c0"/>
+    <text x="16" y="95" font-family="Arial" font-size="22" fill="#2f1d14" font-weight="700">Mint</text>
+    <text x="16" y="122" font-family="Arial" font-size="18" fill="#624332">Support accent</text>
+  </g>
+
+  <g transform="translate(1100,200)">
+    <rect width="240" height="140" rx="16" fill="#ffffff" stroke="#ead8c7"/>
+    <rect x="16" y="16" width="208" height="52" rx="10" fill="#8b5e3c"/>
+    <text x="16" y="95" font-family="Arial" font-size="22" fill="#2f1d14" font-weight="700">Waffle</text>
+    <text x="16" y="122" font-family="Arial" font-size="18" fill="#624332">Secondary text</text>
+  </g>
+
+  <rect x="60" y="380" width="280" height="56" rx="12" fill="#e9547b"/>
+  <text x="200" y="416" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff" font-weight="700">Shop Nationwide</text>
+  <rect x="360" y="380" width="280" height="56" rx="12" fill="#2f1d14"/>
+  <text x="500" y="416" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff" font-weight="700">Find a Location</text>
+
+  <text x="60" y="500" font-family="Arial" font-size="34" fill="#2f1d14" font-weight="700">Wireframe Snapshot</text>
+
+  <rect x="60" y="530" width="1280" height="90" rx="14" fill="#ffffff" stroke="#d9c2af" stroke-dasharray="10 8" stroke-width="3"/>
+  <text x="90" y="578" font-family="Arial" font-size="24" fill="#2f1d14" font-weight="700">Home:</text>
+  <text x="190" y="578" font-family="Arial" font-size="22" fill="#624332">Utility strip → Header → Hero + CTAs → Featured flavors → Shipping confidence → Locations → Catering → Reviews → Footer</text>
+
+  <rect x="60" y="650" width="860" height="110" rx="14" fill="#ffffff" stroke="#d9c2af" stroke-dasharray="10 8" stroke-width="3"/>
+  <text x="90" y="706" font-family="Arial" font-size="24" fill="#2f1d14" font-weight="700">Collection:</text>
+  <text x="240" y="706" font-family="Arial" font-size="22" fill="#624332">Header → Filters/sort → Product grid → Inline shipping notes → Pagination</text>
+
+  <rect x="950" y="650" width="390" height="110" rx="14" fill="#ffffff" stroke="#d9c2af" stroke-dasharray="10 8" stroke-width="3"/>
+  <text x="980" y="706" font-family="Arial" font-size="24" fill="#2f1d14" font-weight="700">PDP:</text>
+  <text x="1065" y="706" font-family="Arial" font-size="20" fill="#624332">Gallery → Price/SKU → Add to cart →</text>
+  <text x="1065" y="734" font-family="Arial" font-size="20" fill="#624332">Shipping module → Allergens → FAQ</text>
+
+  <text x="60" y="860" font-family="Arial" font-size="20" fill="#624332">Source specs: DESIGN_V1_STYLE_TILE_AND_WIREFRAMES.md and DESIGN_BRIEF_AND_SITEMAP.md</text>
+</svg>
