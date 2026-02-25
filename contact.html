@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Snelgrove Ice Cream — get in touch, ask about catering, request a franchise location, or just say hello.">
+  <title>Contact — Snelgrove Ice Cream</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    .contact-page { background: var(--color-vanilla); }
+
+    /* Form layout */
+    .contact-section {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-16); align-items: start;
+    }
+
+    /* Info sidebar */
+    .contact-info__title {
+      font-family: var(--font-display); font-size: var(--text-3xl);
+      font-weight: 900; color: var(--color-blueberry); margin-bottom: var(--space-6);
+    }
+    .contact-info-item {
+      display: flex; gap: var(--space-4); margin-bottom: var(--space-6);
+    }
+    .contact-info-item__icon-wrap {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--color-cherry-light); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--color-cherry);
+    }
+    .contact-info-item__label {
+      font-size: var(--text-xs); font-weight: 900; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--color-cherry); margin-bottom: var(--space-1);
+    }
+    .contact-info-item__value {
+      font-size: var(--text-base); color: var(--color-text); line-height: 1.6;
+    }
+    .contact-info-item__value a { color: var(--color-cherry); }
+
+    /* Form card */
+    .contact-form-card {
+      background: var(--color-white); border-radius: var(--radius-xl);
+      padding: var(--space-8); box-shadow: var(--shadow-lg);
+    }
+    .contact-form-card__title {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      font-weight: 700; color: var(--color-blueberry); margin-bottom: var(--space-6);
+    }
+
+    /* Tab switcher */
+    .form-tabs {
+      display: flex; gap: var(--space-2); margin-bottom: var(--space-6);
+      background: var(--color-melted); border-radius: var(--radius-full);
+      padding: var(--space-1);
+    }
+    .form-tab {
+      flex: 1; padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full); font-size: var(--text-sm);
+      font-weight: 700; letter-spacing: .04em; cursor: pointer;
+      transition: all var(--transition-fast); color: var(--color-text-mid);
+      text-align: center;
+    }
+    .form-tab.active {
+      background: var(--color-white); color: var(--color-blueberry);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Form fields */
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    .form-group { margin-bottom: var(--space-5); }
+    .form-label {
+      display: block; font-size: var(--text-sm); font-weight: 700;
+      color: var(--color-blueberry); margin-bottom: var(--space-2);
+    }
+    .form-label span { color: var(--color-cherry); }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--color-melted); border-radius: var(--radius-md);
+      background: var(--color-vanilla); color: var(--color-blueberry);
+      font-family: var(--font-body); font-size: var(--text-base);
+      transition: border-color var(--transition-fast);
+      outline: none; appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--color-cherry); background: var(--color-white);
+    }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .form-select { cursor: pointer; }
+    .form-submit { width: 100%; padding-block: var(--space-4); font-size: var(--text-base); margin-top: var(--space-2); }
+
+    /* Catering section */
+    .catering-section { background: var(--color-melted); }
+    .catering-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-12); align-items: center;
+    }
+    .catering-img {
+      border-radius: var(--radius-xl); width: 100%;
+      aspect-ratio: 4/3; object-fit: cover;
+    }
+    .catering-img-placeholder {
+      border-radius: var(--radius-xl); aspect-ratio: 4/3;
+      background: var(--color-candy-pink); opacity: .4;
+      display: flex; align-items: center; justify-content: center; font-size: 80px;
+    }
+    .catering-label {
+      font-family: var(--font-script); font-size: var(--text-2xl);
+      color: var(--color-cherry); display: block; margin-bottom: var(--space-3);
+    }
+    .catering-title {
+      font-family: var(--font-display); font-size: clamp(var(--text-3xl),4vw,var(--text-5xl));
+      font-weight: 900; color: var(--color-blueberry); margin-bottom: var(--space-5); line-height: 1.1;
+    }
+    .catering-body {
+      font-size: var(--text-base); color: var(--color-text-mid); line-height: 1.8;
+      margin-bottom: var(--space-5); max-width: 50ch;
+    }
+    .catering-features { list-style: none; margin-bottom: var(--space-7); }
+    .catering-features li {
+      display: flex; align-items: center; gap: var(--space-3);
+      font-size: var(--text-sm); color: var(--color-text); margin-bottom: var(--space-3);
+    }
+    .catering-features li::before {
+      content: '✓'; display: flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--color-cherry); color: white; font-size: 11px; font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-section, .catering-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="topbar">
+    🍦 Now open in St. George! &nbsp;·&nbsp; <a href="locations.html">Find a location →</a>
+  </div>
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo.svg" alt="Snelgrove Ice Cream" class="nav__logo-img"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="nav__logo-text" style="display:none">
+          <span class="nav__logo-name">Snelgrove</span>
+          <span class="nav__logo-est">Est. 1929</span>
+        </div>
+      </a>
+      <nav class="nav__links">
+        <a href="index.html"     class="nav__link">Home</a>
+        <a href="flavors.html"   class="nav__link">Flavors</a>
+        <a href="shop.html"      class="nav__link">Shop</a>
+        <a href="locations.html" class="nav__link">Locations</a>
+        <a href="story.html"     class="nav__link">Our Story</a>
+        <a href="contact.html"   class="nav__link active">Contact</a>
+      </nav>
+      <div class="nav__cta"><a href="shop.html" class="btn btn--primary">Order Online</a></div>
+      <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="nav__mobile">
+    <a href="index.html"     class="nav__mobile-link">Home</a>
+    <a href="flavors.html"   class="nav__mobile-link">Flavors</a>
+    <a href="shop.html"      class="nav__mobile-link">Shop</a>
+    <a href="locations.html" class="nav__mobile-link">Locations</a>
+    <a href="story.html"     class="nav__mobile-link">Our Story</a>
+    <a href="contact.html"   class="nav__mobile-link">Contact</a>
+    <div class="nav__mobile-cta"><a href="shop.html" class="btn btn--primary" style="width:100%;justify-content:center;">Order Online</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" style="background-color:var(--color-blueberry);">
+      <div class="page-hero__pattern"></div>
+      <div class="container page-hero__content">
+        <span class="page-hero__label" data-animate="fade-up">We'd love to hear from you</span>
+        <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Say Hello</h1>
+        <p class="page-hero__desc" data-animate="fade-up" data-delay="200">
+          Questions, catering inquiries, franchise interest, or just want to share your
+          favorite scoop memory — we're all ears.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-page" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-section">
+
+          <!-- Info sidebar -->
+          <div data-animate="fade-up">
+            <h2 class="contact-info__title" id="contact-heading">Get in Touch</h2>
+
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="contact-info-item__label">St. George Location</p>
+                <p class="contact-info-item__value">
+                  Desert Hills Plaza<br>
+                  922 E. Brigham Rd., Suite 4C<br>
+                  St. George, UT 84790
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <p class="contact-info-item__label">Hours</p>
+                <p class="contact-info-item__value">
+                  Sun–Thu: 11am – 10pm<br>
+                  Fri–Sat: 11am – 11pm
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <p class="contact-info-item__label">Email</p>
+                <p class="contact-info-item__value">
+                  <a href="mailto:hello@snelgroveicecream.com">hello@snelgroveicecream.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </div>
+              <div>
+                <p class="contact-info-item__label">Instagram</p>
+                <p class="contact-info-item__value">
+                  <a href="https://www.instagram.com/snelgroveicecream" target="_blank" rel="noopener">@snelgroveicecream</a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Response time note -->
+            <div style="background:var(--color-mint-chip); border-radius:var(--radius-lg); padding:var(--space-5); margin-top:var(--space-4);">
+              <p style="font-size:var(--text-sm); color:var(--color-blueberry); line-height:1.6;">
+                <strong>We typically respond within 1–2 business days.</strong><br>
+                For urgent matters, reach us on Instagram DMs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Form card -->
+          <div class="contact-form-card" data-animate="fade-up" data-delay="200">
+            <h3 class="contact-form-card__title">Send Us a Message</h3>
+
+            <!-- Tab switcher -->
+            <div class="form-tabs" role="tablist">
+              <button class="form-tab active" role="tab" data-tab="general" aria-selected="true">General</button>
+              <button class="form-tab" role="tab" data-tab="catering" aria-selected="false">Catering</button>
+              <button class="form-tab" role="tab" data-tab="franchise" aria-selected="false">Franchise</button>
+            </div>
+
+            <!-- General Inquiry -->
+            <div class="form-panel active" id="panel-general">
+              <form action="#" method="POST" aria-label="General inquiry form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="first-name">First Name <span>*</span></label>
+                    <input type="text" id="first-name" name="first_name" class="form-input" required autocomplete="given-name">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="last-name">Last Name <span>*</span></label>
+                    <input type="text" id="last-name" name="last_name" class="form-input" required autocomplete="family-name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email <span>*</span></label>
+                  <input type="email" id="email" name="email" class="form-input" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="subject">Subject</label>
+                  <select id="subject" name="subject" class="form-select">
+                    <option value="">Choose a topic...</option>
+                    <option>Question about flavors</option>
+                    <option>Store locations</option>
+                    <option>Grocery store availability</option>
+                    <option>Online orders / shipping</option>
+                    <option>Media / press inquiry</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="message">Message <span>*</span></label>
+                  <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us what's on your mind..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary form-submit">Send Message</button>
+              </form>
+            </div>
+
+            <!-- Catering Inquiry -->
+            <div class="form-panel" id="panel-catering">
+              <form action="#" method="POST" aria-label="Catering inquiry form" id="catering">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="c-first">First Name <span>*</span></label>
+                    <input type="text" id="c-first" name="first_name" class="form-input" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="c-last">Last Name <span>*</span></label>
+                    <input type="text" id="c-last" name="last_name" class="form-input" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-email">Email <span>*</span></label>
+                  <input type="email" id="c-email" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-phone">Phone</label>
+                  <input type="tel" id="c-phone" name="phone" class="form-input" autocomplete="tel">
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="c-event-type">Event Type <span>*</span></label>
+                    <select id="c-event-type" name="event_type" class="form-select" required>
+                      <option value="">Select...</option>
+                      <option>Wedding</option>
+                      <option>Corporate Event</option>
+                      <option>Birthday Party</option>
+                      <option>School / Community</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="c-guests">Est. Guest Count <span>*</span></label>
+                    <select id="c-guests" name="guest_count" class="form-select" required>
+                      <option value="">Select...</option>
+                      <option>Under 50</option>
+                      <option>50–100</option>
+                      <option>100–250</option>
+                      <option>250–500</option>
+                      <option>500+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-date">Event Date <span>*</span></label>
+                  <input type="date" id="c-date" name="event_date" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-details">Event Details</label>
+                  <textarea id="c-details" name="details" class="form-textarea" placeholder="Tell us about your event, any flavor requests, dietary needs, etc..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary form-submit">Request Catering Quote</button>
+              </form>
+            </div>
+
+            <!-- Franchise Inquiry -->
+            <div class="form-panel" id="panel-franchise">
+              <form action="#" method="POST" aria-label="Franchise inquiry form">
+                <div class="form-group">
+                  <label class="form-label" for="f-name">Full Name <span>*</span></label>
+                  <input type="text" id="f-name" name="full_name" class="form-input" required>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="f-email">Email <span>*</span></label>
+                    <input type="email" id="f-email" name="email" class="form-input" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="f-phone">Phone <span>*</span></label>
+                    <input type="tel" id="f-phone" name="phone" class="form-input" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-city">Desired City / Market <span>*</span></label>
+                  <input type="text" id="f-city" name="city" class="form-input" required placeholder="e.g. Provo, UT">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-experience">Relevant Business Experience</label>
+                  <textarea id="f-experience" name="experience" class="form-textarea" placeholder="Tell us about any relevant experience in retail, food service, or business ownership..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary form-submit">Submit Franchise Interest</button>
+              </form>
+            </div>
+
+          </div><!-- /.contact-form-card -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CATERING FEATURE -->
+    <section class="section catering-section" aria-labelledby="catering-heading" id="catering-info">
+      <div class="container">
+        <div class="catering-grid">
+          <div data-animate="fade-left">
+            <img src="images/catering.jpg" alt="Snelgrove Ice Cream catering at an event" class="catering-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="catering-img-placeholder">🍦</div>
+          </div>
+          <div data-animate="fade-right">
+            <span class="catering-label">Catering</span>
+            <h2 class="catering-title" id="catering-heading">
+              Bring the Joy<br>to Your Event.
+            </h2>
+            <p class="catering-body">
+              Ice cream makes every event better. From intimate birthday parties to
+              large corporate gatherings, Snelgrove brings the scoop shop experience
+              straight to you.
+            </p>
+            <ul class="catering-features">
+              <li>Weddings &amp; receptions</li>
+              <li>Corporate events &amp; team celebrations</li>
+              <li>Birthday parties &amp; family reunions</li>
+              <li>School and community events</li>
+              <li>Custom flavor selections for your guests</li>
+              <li>Branded packaging available</li>
+            </ul>
+            <a href="#panel-catering" class="btn btn--primary" onclick="document.querySelector('[data-tab=catering]').click()">
+              Request a Catering Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="images/logo-white.svg" alt="Snelgrove Ice Cream" class="footer__brand-logo" onerror="this.style.display='none'">
+          <p class="footer__brand-tagline">Artistry in Pleasure Foods</p>
+          <p class="footer__brand-desc">Utah's beloved ice cream since 1929.</p>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/snelgroveicecream" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Explore</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="flavors.html" class="footer__link">Flavors</a></li>
+            <li><a href="shop.html" class="footer__link">Shop Pints</a></li>
+            <li><a href="locations.html" class="footer__link">Locations</a></li>
+            <li><a href="story.html" class="footer__link">Our Story</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Inquiries</h4>
+          <ul class="footer__links">
+            <li><a href="contact.html#catering-info" class="footer__link">Catering</a></li>
+            <li><a href="contact.html" class="footer__link">Franchise Interest</a></li>
+            <li><a href="contact.html" class="footer__link">Press / Media</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Find Us</h4>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>922 E. Brigham Rd., Ste. 4C<br>St. George, UT 84790</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span><a href="mailto:hello@snelgroveicecream.com" class="footer__link">hello@snelgroveicecream.com</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Snelgrove Ice Cream. All rights reserved.</p>
+        <nav class="footer__bottom-links"><a href="#" class="footer__bottom-link">Privacy</a><a href="#" class="footer__bottom-link">Terms</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="js/main.js"></script>
+  <script>
+    // Tab switcher logic
+    const tabs = document.querySelectorAll('.form-tab');
+    const panels = document.querySelectorAll('.form-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected','true');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+    // Check URL hash for catering tab
+    if (window.location.hash === '#catering') {
+      document.querySelector('[data-tab="catering"]').click();
+    }
+  </script>
+</body>
+</html>
