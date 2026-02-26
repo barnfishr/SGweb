@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snelgrove Design Preview v1</title>
+  <style>
+    :root{--cream:#fff7ed;--choc:#2f1d14;--straw:#e9547b;--mint:#88d8c0;--waffle:#8b5e3c}
+    body{font-family:Arial,sans-serif;background:var(--cream);color:var(--choc);margin:0}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    h1,h2{margin:0 0 12px}
+    .grid{display:grid;gap:16px}
+    .three{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:#fff;border:1px solid #ead8c7;border-radius:14px;padding:14px}
+    .swatch{height:46px;border-radius:10px;margin-bottom:8px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-p{background:var(--straw);color:#fff}.btn-s{background:var(--choc);color:#fff}
+    .wire{border:2px dashed #d9c2af;border-radius:12px;background:#fff;padding:12px;margin:10px 0}
+    .row{display:grid;grid-template-columns:2fr 1fr;gap:10px}.small{font-size:14px;color:#624332}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Snelgrove Design Preview v1</h1>
+    <p class="small">A/B/C blend: Graeter's tone + Jeni's store UX + Snickers campaign accents.</p>
+
+    <h2>Style Tile</h2>
+    <div class="grid three">
+      <div class="card"><div class="swatch" style="background:var(--cream)"></div><b>Cream</b><div class="small">Background</div></div>
+      <div class="card"><div class="swatch" style="background:var(--choc)"></div><b>Chocolate</b><div class="small">Primary text</div></div>
+      <div class="card"><div class="swatch" style="background:var(--straw)"></div><b>Strawberry</b><div class="small">Primary CTA</div></div>
+      <div class="card"><div class="swatch" style="background:var(--mint)"></div><b>Mint</b><div class="small">Support accent</div></div>
+      <div class="card"><div class="swatch" style="background:var(--waffle)"></div><b>Waffle</b><div class="small">Secondary text</div></div>
+      <div class="card"><a class="btn btn-p" href="#">Shop Nationwide</a> <a class="btn btn-s" href="#">Find a Location</a></div>
+    </div>
+
+    <h2>Wireframe Snapshot</h2>
+    <div class="wire"><b>Home:</b> Utility strip → Header → Hero + CTAs → Featured flavors → Shipping confidence → Locations → Catering → Reviews → Footer</div>
+    <div class="row">
+      <div class="wire"><b>Collection:</b> Header → Filters/sort → Product grid → Inline shipping notes → Pagination</div>
+      <div class="wire"><b>PDP:</b> Gallery → Price/SKU → Add to cart → Shipping module → Allergens → FAQ</div>
+    </div>
+
+    <p class="small">Source specs: <code>DESIGN_V1_STYLE_TILE_AND_WIREFRAMES.md</code> and <code>DESIGN_BRIEF_AND_SITEMAP.md</code>.</p>
+  </div>
+</body>
+</html>
