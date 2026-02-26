@@ -78,6 +78,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   overflow-x: hidden;
+  padding-bottom: 64px; /* clearance for fixed features strip */
 }
 
 img {

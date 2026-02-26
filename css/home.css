@@ -149,6 +149,11 @@
 
 /* ---- Features Strip ---- */
 .features-strip {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
   background-color: var(--color-cherry);
   color: var(--color-white);
   padding-block: var(--space-5);
