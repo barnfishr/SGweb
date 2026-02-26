@@ -28,7 +28,7 @@
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   min-height: calc(100vh - var(--nav-height) - 40px);
   max-width: var(--container-max);
   margin-inline: auto;
@@ -51,9 +51,9 @@
 
 .hero__product-img {
   width: 100%;
-  max-width: 460px;
+  max-width: 600px;
   height: 100%;
-  max-height: 680px;
+  max-height: 900px;
   object-fit: cover;
   object-position: top center;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
@@ -651,8 +651,8 @@
   }
 
   .hero__product-img {
-    max-width: 280px;
-    max-height: 380px;
+    max-width: 360px;
+    max-height: 480px;
     border-radius: var(--radius-xl) 0 0 0;
     margin-left: auto;
     margin-right: 0;
