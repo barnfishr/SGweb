@@ -69,65 +69,42 @@
   <main id="main-content">
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero texture-overlay" aria-label="Hero">
-      <div class="hero__bg"></div>
+    <section class="hero" aria-label="Hero">
       <div class="hero__pattern"></div>
 
-      <!-- Optional: swap src for actual hero photography -->
-      <img src="images/hero-bg.jpg" alt="" class="hero__image" role="presentation" aria-hidden="true">
+      <div class="hero__inner">
 
-      <div class="hero__content">
-        <span class="hero__eyebrow" data-animate="fade-up">Utah's Finest Since 1929</span>
+        <div class="hero__content">
+          <span class="hero__eyebrow" data-animate="fade-up">Utah's Finest Since 1929</span>
 
-        <h1 class="hero__title" data-animate="fade-up" data-delay="100">
-          Pure Joy<br>
-          <em>in Every</em><br>
-          Scoop.
-        </h1>
+          <h1 class="hero__title" data-animate="fade-up" data-delay="100">
+            Pure Joy<br>
+            <em>in Every</em><br>
+            Scoop.
+          </h1>
 
-        <span class="hero__script" data-animate="fade-up" data-delay="200">
-          Celebrate with Snelgrove
-        </span>
+          <span class="hero__script" data-animate="fade-up" data-delay="200">
+            Celebrate with Snelgrove
+          </span>
 
-        <p class="hero__desc" data-animate="fade-up" data-delay="300">
-          Charles Snelgrove believed ice cream wasn't just a treat — it was a reason to
-          gather, to laugh, to forget your troubles for a moment. Since 1929, every scoop
-          has carried that promise.
-        </p>
+          <p class="hero__desc" data-animate="fade-up" data-delay="300">
+            Charles Snelgrove believed ice cream wasn't just a treat — it was a reason to
+            gather, to laugh, to forget your troubles for a moment. Since 1929, every scoop
+            has carried that promise.
+          </p>
 
-        <div class="hero__actions" data-animate="fade-up" data-delay="400">
-          <a href="flavors.html" class="btn btn--gold">Explore Flavors</a>
-          <a href="shop.html"    class="btn btn--outline-white">Order Pints Online</a>
+          <div class="hero__actions" data-animate="fade-up" data-delay="400">
+            <a href="flavors.html" class="btn btn--gold">Explore Flavors</a>
+            <a href="shop.html"    class="btn btn--outline-white">Order Pints Online</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Retro rotating stamp -->
-      <div class="hero__stamp" aria-hidden="true">
-        <svg viewBox="0 0 120 120" width="120" height="120">
-          <defs>
-            <path id="stamp-circle" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"/>
-          </defs>
-          <circle cx="60" cy="60" r="50" fill="none" stroke="#F4E6AC" stroke-width="2" opacity="0.6"/>
-          <circle cx="60" cy="60" r="40" fill="none" stroke="#F4E6AC" stroke-width="1" opacity="0.4"/>
-          <text font-family="'Brandon Grotesque', 'Helvetica Neue', sans-serif" font-size="9.5" font-weight="700"
-                fill="#F4E6AC" letter-spacing="3" text-anchor="middle">
-            <textPath href="#stamp-circle" startOffset="0%">
-              SNELGROVE ICE CREAM · EST. 1929 · SALT LAKE CITY, UTAH ·
-            </textPath>
-          </text>
-          <text x="60" y="52" font-family="'Brandon Grotesque', 'Helvetica Neue', sans-serif" font-size="18" font-weight="900"
-                fill="#F7D2DF" text-anchor="middle">SIC</text>
-          <text x="60" y="70" font-family="'Brandon Grotesque', 'Helvetica Neue', sans-serif" font-size="7"
-                font-weight="700" fill="#F4E6AC" text-anchor="middle" letter-spacing="2">UTAH</text>
-        </svg>
-      </div>
+        <div class="hero__product-col" data-animate="fade-left" data-delay="200">
+          <img src="images/hero-pint.jpg"
+               alt="Hand holding a Snelgrove Ice Cream pint"
+               class="hero__product-img">
+        </div>
 
-      <!-- Scroll hint -->
-      <div class="hero__scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
       </div>
     </section>
 
