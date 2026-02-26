@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Order Snelgrove Ice Cream pints online. Build your own custom pack — choose your flavors and ship them anywhere in the US.">
+  <meta name="description" content="Order Snelgrove Ice Cream pints online. Build your own custom 6 or 12-pint pack — choose your flavors and ship them anywhere in the US.">
   <title>Shop — Build Your Pack | Snelgrove Ice Cream</title>
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/tokens.css">
@@ -12,304 +12,389 @@
   <link rel="stylesheet" href="css/animations.css">
   <style>
     /* ============================================================
-       SHOP / PACK BUILDER
-       Shopify Buy SDK integration point noted with comments.
+       SHOP — PACK BUILDER
+       Inspired by Graeter's "Create Your Own Pack" layout.
+       6-pack or 12-pack only. Scoop-dot fill indicator.
        ============================================================ */
 
-    .shop-page { background: var(--color-vanilla); }
+    body { background: #FBF7F2; }
 
-    /* ---- Pack Size Selector ---- */
-    .pack-picker {
-      background: var(--color-blueberry);
-      padding-block: var(--space-16);
-      color: var(--color-vanilla);
-      position: relative; overflow: hidden;
+    /* ---- Simple page header ---- */
+    .shop-header {
+      text-align: center;
+      padding: var(--space-12) var(--space-6) var(--space-10);
+      background: var(--color-off-white);
+      border-bottom: 1px solid var(--color-border);
     }
-    .pack-picker__pattern {
-      position: absolute; inset: 0;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(247,210,223,.04) 30px, rgba(247,210,223,.04) 31px);
+    .shop-header__title {
+      font-family: var(--font-display);
+      font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+      font-weight: 900;
+      color: var(--color-blueberry);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+      margin-bottom: var(--space-3);
     }
-    .pack-picker__inner { position: relative; z-index: 1; }
-    .pack-picker__label {
-      font-family: var(--font-script); font-size: var(--text-2xl);
-      color: var(--color-banana-split); display: block; margin-bottom: var(--space-3); text-align: center;
-    }
-    .pack-picker__title {
-      font-family: var(--font-display); font-size: clamp(var(--text-4xl),6vw,var(--text-6xl));
-      font-weight: 900; color: var(--color-vanilla); text-align: center;
-      margin-bottom: var(--space-3); line-height: 1.05;
-    }
-    .pack-picker__sub {
-      font-size: var(--text-lg); color: rgba(252,240,228,.75); text-align: center;
-      margin-bottom: var(--space-10); max-width: 52ch; margin-inline: auto;
+    .shop-header__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-mid);
     }
 
-    /* Pack size cards */
-    .pack-sizes {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-5); max-width: 800px; margin-inline: auto;
-    }
-    .pack-size-card {
-      background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.15);
-      border-radius: var(--radius-xl); padding: var(--space-7);
-      text-align: center; cursor: pointer;
-      transition: all var(--transition-base);
-      position: relative;
-    }
-    .pack-size-card:hover {
-      background: rgba(255,255,255,.12);
-      border-color: rgba(244,230,172,.5);
-      transform: translateY(-3px);
-    }
-    .pack-size-card.selected {
-      background: rgba(244,230,172,.12);
-      border-color: var(--color-banana-split);
-      box-shadow: 0 0 0 3px rgba(244,230,172,.25);
-    }
-    .pack-size-card__popular {
-      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--color-cherry); color: white; font-size: var(--text-xs);
-      font-weight: 900; letter-spacing: .12em; text-transform: uppercase;
-      padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
-      white-space: nowrap;
-    }
-    .pack-size-card__emoji { font-size: 48px; display: block; margin-bottom: var(--space-3); }
-    .pack-size-card__count {
-      font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 900;
-      color: var(--color-vanilla); line-height: 1;
-    }
-    .pack-size-card__label {
-      font-size: var(--text-sm); color: rgba(252,240,228,.6);
-      letter-spacing: .05em; margin-bottom: var(--space-4);
-    }
-    .pack-size-card__price {
-      font-family: var(--font-display); font-size: var(--text-2xl);
-      font-weight: 700; color: var(--color-banana-split);
-    }
-    .pack-size-card__per {
-      font-size: var(--text-xs); color: rgba(252,240,228,.5); margin-top: var(--space-1);
-    }
-
-    /* ---- Pack Builder UI ---- */
+    /* ---- Builder section ---- */
     .builder-section {
-      padding-block: var(--space-16); background: var(--color-vanilla);
+      padding: var(--space-8) 0 var(--space-20);
     }
+
+    /* ---- Filter bar ---- */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .filter-bar__label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-blueberry);
+    }
+    .filter-bar__label svg { flex-shrink: 0; }
+    .filter-btn {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-blueberry);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: transparent;
+    }
+    .filter-btn:hover { color: var(--color-cherry); }
+    .filter-btn.active {
+      color: var(--color-cherry);
+      text-decoration-color: var(--color-cherry);
+    }
+
+    /* ---- Two-column layout ---- */
     .builder-layout {
-      display: grid; grid-template-columns: 1fr 360px;
-      gap: var(--space-8); align-items: start;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: var(--space-8);
+      align-items: start;
     }
 
-    /* Flavor picker grid */
-    .builder-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-3);
-    }
-    .builder-title {
-      font-family: var(--font-display); font-size: var(--text-2xl);
-      font-weight: 700; color: var(--color-blueberry);
-    }
-    .builder-progress {
-      font-size: var(--text-sm); color: var(--color-text-mid);
-    }
-    .builder-progress strong { color: var(--color-cherry); }
-
-    .builder-filter {
-      display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-6);
-    }
-    .builder-filter-btn {
-      padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
-      border: 2px solid var(--color-melted); background: var(--color-white);
-      font-size: var(--text-sm); font-weight: 700; color: var(--color-blueberry);
-      cursor: pointer; transition: all var(--transition-fast);
-    }
-    .builder-filter-btn:hover { border-color: var(--color-cherry); color: var(--color-cherry); }
-    .builder-filter-btn.active { background: var(--color-cherry); border-color: var(--color-cherry); color: white; }
-
-    .flavor-picker-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    /* ---- Flavor grid ---- */
+    .shop-flavor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--space-4);
     }
-    .picker-card {
-      background: var(--color-white); border-radius: var(--radius-lg);
-      border: 2px solid var(--color-melted);
-      overflow: hidden; cursor: pointer; transition: all var(--transition-fast);
-      position: relative; user-select: none;
+
+    /* ---- Flavor card ---- */
+    .shop-card {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid var(--color-border);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      cursor: default;
     }
-    .picker-card:hover { border-color: var(--color-cherry); box-shadow: var(--shadow-md); }
-    .picker-card.selected {
+    .shop-card.has-qty {
       border-color: var(--color-cherry);
-      box-shadow: 0 0 0 3px rgba(239,67,58,.15);
+      box-shadow: 0 0 0 3px rgba(239,67,58,.1);
     }
-    .picker-card.max-reached:not(.selected) { opacity: .5; cursor: not-allowed; }
-    .picker-card__img-wrap {
-      aspect-ratio: 1; background: var(--color-melted);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 48px; position: relative; overflow: hidden;
+    .shop-card.maxed-out:not(.has-qty) {
+      opacity: 0.5;
     }
-    .picker-card__img { width: 100%; height: 100%; object-fit: cover; }
-    .picker-card__check {
-      position: absolute; top: 6px; right: 6px;
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--color-cherry); display: flex;
-      align-items: center; justify-content: center;
-      opacity: 0; transform: scale(.6);
-      transition: all var(--transition-fast);
+    .shop-card__img-wrap {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--color-melted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
-    .picker-card.selected .picker-card__check { opacity: 1; transform: scale(1); }
-    .picker-card__qty-badge {
-      position: absolute; bottom: 6px; right: 6px;
-      background: var(--color-blueberry); color: white;
-      font-size: 11px; font-weight: 900; border-radius: var(--radius-full);
-      padding: 2px 8px; display: none;
+    .shop-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .picker-card.selected .picker-card__qty-badge { display: block; }
-    .picker-card__body { padding: var(--space-3); }
-    .picker-card__name {
-      font-family: var(--font-display); font-size: var(--text-sm);
-      font-weight: 700; color: var(--color-blueberry); line-height: 1.3;
-      margin-bottom: var(--space-1);
+    .shop-card__img-fallback {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 900;
+      color: var(--color-blueberry);
+      text-align: center;
+      padding: var(--space-2);
+      display: none;
     }
-    .picker-card__tag { font-size: var(--text-xs); color: var(--color-cherry); font-weight: 700; }
-    .picker-card__qty-controls {
-      display: none; align-items: center; justify-content: center; gap: var(--space-2);
-      padding: var(--space-2); border-top: 1px solid var(--color-melted);
+    .shop-card__name {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--color-blueberry);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.3;
+      padding: var(--space-3) var(--space-2) var(--space-2);
     }
-    .picker-card.selected .picker-card__qty-controls { display: flex; }
+    .shop-card__controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      padding: var(--space-2) var(--space-4) var(--space-3);
+    }
     .qty-btn {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 2px solid var(--color-melted); background: var(--color-vanilla);
-      font-size: var(--text-base); font-weight: 700; color: var(--color-blueberry);
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: all var(--transition-fast);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-white);
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-blueberry);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
     }
-    .qty-btn:hover { border-color: var(--color-cherry); background: var(--color-cherry-light); }
-    .qty-count { font-weight: 700; color: var(--color-blueberry); min-width: 20px; text-align: center; }
-
-    /* ---- Cart / Summary Sidebar ---- */
-    .cart-sidebar {
-      position: sticky; top: calc(var(--nav-height) + var(--space-4));
-      background: var(--color-white); border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-xl); overflow: hidden;
+    .qty-btn:hover:not(:disabled) {
+      border-color: var(--color-cherry);
     }
-    .cart-sidebar__head {
-      background: var(--color-blueberry); padding: var(--space-5) var(--space-6);
-      color: var(--color-vanilla);
+    .qty-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
     }
-    .cart-sidebar__head-title {
-      font-family: var(--font-display); font-size: var(--text-xl);
-      font-weight: 700; color: var(--color-vanilla);
-    }
-    .cart-sidebar__pack-label {
-      font-size: var(--text-sm); color: rgba(252,240,228,.65); margin-top: var(--space-1);
-    }
-
-    /* Progress bar */
-    .cart-progress { padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--color-melted); }
-    .cart-progress__bar-wrap {
-      background: var(--color-melted); border-radius: var(--radius-full);
-      height: 8px; overflow: hidden; margin-bottom: var(--space-2);
-    }
-    .cart-progress__bar {
-      height: 100%; border-radius: var(--radius-full);
-      background: linear-gradient(90deg, var(--color-cherry), var(--color-candy-pink));
-      transition: width var(--transition-base);
-    }
-    .cart-progress__label {
-      font-size: var(--text-sm); color: var(--color-text-mid); text-align: right;
+    .qty-count {
+      font-weight: 700;
+      color: var(--color-blueberry);
+      min-width: 22px;
+      text-align: center;
+      font-size: var(--text-base);
     }
 
-    /* Item list */
-    .cart-items {
-      min-height: 180px; max-height: 300px; overflow-y: auto;
-      padding: var(--space-4) var(--space-6);
+    /* ---- Pack sidebar ---- */
+    .pack-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--space-4));
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
     }
-    .cart-empty {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      height: 160px; gap: var(--space-3); color: var(--color-text-light);
-      font-size: var(--text-sm); text-align: center;
-    }
-    .cart-item {
-      display: flex; align-items: center; gap: var(--space-3);
-      padding-block: var(--space-3); border-bottom: 1px solid var(--color-melted);
-    }
-    .cart-item:last-child { border-bottom: none; }
-    .cart-item__emoji { font-size: 28px; flex-shrink: 0; }
-    .cart-item__name { flex: 1; font-size: var(--text-sm); font-weight: 700; color: var(--color-blueberry); }
-    .cart-item__qty { font-size: var(--text-sm); color: var(--color-text-mid); }
-    .cart-item__remove {
-      color: var(--color-text-light); background: none; border: none; cursor: pointer;
-      font-size: var(--text-base); transition: color var(--transition-fast);
-    }
-    .cart-item__remove:hover { color: var(--color-cherry); }
-
-    /* Totals + CTA */
-    .cart-footer { padding: var(--space-5) var(--space-6); border-top: 2px solid var(--color-melted); }
-    .cart-line {
-      display: flex; justify-content: space-between;
-      font-size: var(--text-sm); margin-bottom: var(--space-2); color: var(--color-text-mid);
-    }
-    .cart-line--total {
-      font-family: var(--font-display); font-size: var(--text-xl);
-      font-weight: 700; color: var(--color-blueberry); margin-top: var(--space-3);
-      padding-top: var(--space-3); border-top: 1px solid var(--color-melted);
-    }
-    .cart-checkout {
-      width: 100%; padding: var(--space-4); font-size: var(--text-base);
-      margin-top: var(--space-4); cursor: pointer;
-    }
-    .cart-checkout:disabled {
-      opacity: .5; cursor: not-allowed; transform: none !important;
-    }
-    .cart-note {
-      font-size: var(--text-xs); color: var(--color-text-light);
-      text-align: center; margin-top: var(--space-3); line-height: 1.5;
+    .pack-sidebar__inner {
+      padding: var(--space-5) var(--space-5) var(--space-6);
     }
 
-    /* ---- Upsell / Trust strip ---- */
+    /* Savings note */
+    .savings-note {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--color-blueberry);
+      margin-bottom: var(--space-3);
+    }
+    .savings-note s {
+      color: var(--color-text-light);
+      font-weight: 400;
+      text-decoration: line-through;
+    }
+
+    /* Pack toggle */
+    .pack-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 2px solid var(--color-blueberry);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: var(--space-5);
+    }
+    .pack-btn {
+      padding: var(--space-3) var(--space-2);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      background: var(--color-white);
+      color: var(--color-blueberry);
+      transition: background var(--transition-fast), color var(--transition-fast);
+      line-height: 1.4;
+    }
+    .pack-btn + .pack-btn {
+      border-left: 2px solid var(--color-blueberry);
+    }
+    .pack-btn.active {
+      background: var(--color-blueberry);
+      color: var(--color-white);
+    }
+
+    /* Scoop dots */
+    .scoop-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding: var(--space-4) 0;
+      min-height: 60px;
+    }
+    .scoop-dot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #EDE5DF;
+      border: 2px solid #D8CFC8;
+      transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+    }
+    .scoop-dot.filled {
+      background: var(--color-cherry);
+      border-color: var(--color-cherry-dark);
+      box-shadow: 0 3px 8px rgba(239,67,58,.35);
+      transform: scale(1.05);
+    }
+
+    /* Status message */
+    .pack-status {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-blueberry);
+      margin-bottom: var(--space-3);
+      min-height: 1.6em;
+    }
+
+    /* Clear */
+    .clear-btn {
+      display: block;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-mid);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-1) var(--space-2);
+      margin: 0 auto var(--space-4);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color var(--transition-fast);
+    }
+    .clear-btn:hover { color: var(--color-cherry); }
+
+    /* Total row */
+    .pack-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 2px solid var(--color-border);
+      padding-top: var(--space-4);
+      margin-bottom: var(--space-4);
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 900;
+      color: var(--color-blueberry);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* CTA button */
+    .cta-btn {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--color-blueberry);
+      color: var(--color-white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+    .cta-btn:not(:disabled):hover {
+      background: var(--color-blueberry-dark);
+    }
+    .cta-btn:disabled {
+      background: #B8AFA8;
+      cursor: not-allowed;
+    }
+
+    /* ---- Trust strip ---- */
     .trust-strip {
-      background: var(--color-mint-chip); padding-block: var(--space-6);
+      background: var(--color-mint-chip);
+      padding-block: var(--space-6);
+      border-top: 1px solid var(--color-pistachio);
     }
     .trust-strip__inner {
-      display: flex; justify-content: center; gap: var(--space-10); flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-10);
+      flex-wrap: wrap;
     }
     .trust-item {
-      display: flex; align-items: center; gap: var(--space-3);
-      font-size: var(--text-sm); color: var(--color-blueberry);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-blueberry);
     }
-    .trust-item__icon { font-size: var(--text-2xl); }
+    .trust-item svg { flex-shrink: 0; opacity: 0.7; }
     .trust-item strong { display: block; font-weight: 700; }
     .trust-item span { color: var(--color-text-mid); font-size: var(--text-xs); }
 
-    /* Shopify embed container */
-    .shopify-embed {
-      background: var(--color-vanilla); padding-block: var(--space-12);
-      border-top: 2px solid var(--color-melted);
+    /* ---- Responsive ---- */
+    @media (max-width: 960px) {
+      .builder-layout {
+        grid-template-columns: 1fr;
+      }
+      .pack-sidebar {
+        position: static;
+      }
     }
-    .shopify-embed__note {
-      background: var(--color-banana-split); border-radius: var(--radius-lg);
-      padding: var(--space-5) var(--space-6); font-size: var(--text-sm);
-      color: var(--color-blueberry); margin-bottom: var(--space-6);
-    }
-    .shopify-embed__note strong { display: block; margin-bottom: var(--space-1); }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .pack-sizes { grid-template-columns: 1fr; max-width: 340px; }
-      .builder-layout { grid-template-columns: 1fr; }
-      .cart-sidebar { position: static; }
-      .flavor-picker-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    @media (max-width: 640px) {
+      .shop-flavor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
-<body>
+<body class="shop-page">
 
   <!-- NAV -->
   <div class="topbar">
-    📦 Free shipping on packs of 6+ &nbsp;·&nbsp; Ships within the US
+    Free shipping on all packs &nbsp;·&nbsp; Ships anywhere in the US
   </div>
   <header class="nav" role="banner">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo">
+      <a href="index.html" class="nav__logo" aria-label="Snelgrove Ice Cream — Home">
         <img src="images/logo.svg" alt="Snelgrove Ice Cream" class="nav__logo-img"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="nav__logo-text" style="display:none">
@@ -317,7 +402,7 @@
           <span class="nav__logo-est">Est. 1929</span>
         </div>
       </a>
-      <nav class="nav__links">
+      <nav class="nav__links" role="navigation" aria-label="Main navigation">
         <a href="index.html"     class="nav__link">Home</a>
         <a href="flavors.html"   class="nav__link">Flavors</a>
         <a href="shop.html"      class="nav__link active">Shop</a>
@@ -325,70 +410,357 @@
         <a href="story.html"     class="nav__link">Our Story</a>
         <a href="contact.html"   class="nav__link">Contact</a>
       </nav>
-      <div class="nav__cta"><a href="#pack-builder" class="btn btn--primary">Build a Pack</a></div>
-      <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="nav__cta">
+        <a href="#pack-builder" class="btn btn--primary">Build a Pack</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
-  <nav class="nav__mobile">
+  <nav class="nav__mobile" role="navigation" aria-label="Mobile navigation">
     <a href="index.html"     class="nav__mobile-link">Home</a>
     <a href="flavors.html"   class="nav__mobile-link">Flavors</a>
     <a href="shop.html"      class="nav__mobile-link">Shop</a>
     <a href="locations.html" class="nav__mobile-link">Locations</a>
     <a href="story.html"     class="nav__mobile-link">Our Story</a>
     <a href="contact.html"   class="nav__mobile-link">Contact</a>
-    <div class="nav__mobile-cta"><a href="#pack-builder" class="btn btn--primary" style="width:100%;justify-content:center;">Build a Pack</a></div>
+    <div class="nav__mobile-cta">
+      <a href="#pack-builder" class="btn btn--primary" style="width:100%;justify-content:center;">Build a Pack</a>
+    </div>
   </nav>
 
   <main id="main-content">
 
-    <!-- PACK SIZE SELECTOR -->
-    <section class="pack-picker" aria-labelledby="pack-heading">
-      <div class="pack-picker__pattern"></div>
-      <div class="container pack-picker__inner">
-        <span class="pack-picker__label" data-animate="fade-up">Build Your Own</span>
-        <h1 class="pack-picker__title" data-animate="fade-up" data-delay="100">
-          Choose Your Pack
-        </h1>
-        <p class="pack-picker__sub" data-animate="fade-up" data-delay="200">
-          Pick the size that works for you, then choose your flavors.
-          All packs ship in insulated packaging to keep every pint perfect.
-        </p>
+    <!-- PAGE HEADER -->
+    <div class="shop-header">
+      <h1 class="shop-header__title">Build Your Pack</h1>
+      <p class="shop-header__sub">Utah ice cream delivery, guaranteed frozen.</p>
+    </div>
 
-        <div class="pack-sizes" data-animate="fade-up" data-delay="300">
+    <!-- PACK BUILDER -->
+    <section class="builder-section" id="pack-builder" aria-labelledby="builder-heading">
+      <div class="container">
 
-          <div class="pack-size-card" data-size="4" data-price="39.99" onclick="selectPack(this)">
-            <span class="pack-size-card__emoji">🍦</span>
-            <div class="pack-size-card__count">4</div>
-            <div class="pack-size-card__label">Pint Pack</div>
-            <div class="pack-size-card__price">$39.99</div>
-            <div class="pack-size-card__per">$10.00 / pint</div>
-          </div>
-
-          <div class="pack-size-card selected" data-size="6" data-price="54.99" onclick="selectPack(this)">
-            <div class="pack-size-card__popular">Most Popular</div>
-            <span class="pack-size-card__emoji">🍦🍦</span>
-            <div class="pack-size-card__count">6</div>
-            <div class="pack-size-card__label">Pint Pack + Free Shipping</div>
-            <div class="pack-size-card__price">$54.99</div>
-            <div class="pack-size-card__per">$9.17 / pint · free shipping</div>
-          </div>
-
-          <div class="pack-size-card" data-size="12" data-price="99.99" onclick="selectPack(this)">
-            <span class="pack-size-card__emoji">🍦🍦🍦</span>
-            <div class="pack-size-card__count">12</div>
-            <div class="pack-size-card__label">The Full Freezer</div>
-            <div class="pack-size-card__price">$99.99</div>
-            <div class="pack-size-card__per">$8.33 / pint · free shipping</div>
-          </div>
-
+        <!-- Filter bar -->
+        <div class="filter-bar">
+          <span class="filter-bar__label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+            Filter:
+          </span>
+          <button class="filter-btn active" data-filter="all">All Flavors</button>
+          <button class="filter-btn" data-filter="classic">Classics</button>
+          <button class="filter-btn" data-filter="chocolate">Chocolate</button>
+          <button class="filter-btn" data-filter="nutty">Nutty</button>
+          <button class="filter-btn" data-filter="fruit">Fruit</button>
         </div>
 
-        <div style="text-align:center; margin-top:var(--space-8);" data-animate="fade-up" data-delay="400">
-          <a href="#pack-builder" class="btn btn--gold" style="padding:var(--space-4) var(--space-10); font-size:var(--text-base);">
-            Choose My Flavors →
-          </a>
-        </div>
-      </div>
+        <div class="builder-layout">
+
+          <!-- Left: Flavor grid -->
+          <div>
+            <h2 id="builder-heading" class="sr-only">Pick Your Flavors</h2>
+            <div class="shop-flavor-grid" id="flavor-grid">
+
+              <!-- CLASSIC -->
+              <div class="shop-card" data-flavor-id="burnt-almond-fudge" data-category="classic" data-label="Burnt Almond Fudge">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/burnt-almond-fudge.png" alt="Burnt Almond Fudge" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Burnt Almond Fudge</div>
+                </div>
+                <p class="shop-card__name">Burnt Almond Fudge</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Burnt Almond Fudge" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Burnt Almond Fudge">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="canadian-vanilla" data-category="classic" data-label="Canadian Vanilla">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/canadian-vanilla.png" alt="Canadian Vanilla" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Canadian Vanilla</div>
+                </div>
+                <p class="shop-card__name">Canadian Vanilla</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Canadian Vanilla" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Canadian Vanilla">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="rocky-road" data-category="classic" data-label="Rocky Road">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/rocky-road.png" alt="Rocky Road" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Rocky Road</div>
+                </div>
+                <p class="shop-card__name">Rocky Road</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Rocky Road" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Rocky Road">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="caramel-cashew" data-category="classic" data-label="Caramel Cashew">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/caramel-cashew.png" alt="Caramel Cashew" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Caramel Cashew</div>
+                </div>
+                <p class="shop-card__name">Caramel Cashew</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Caramel Cashew" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Caramel Cashew">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="cookies-and-cream" data-category="classic" data-label="Cookies &amp; Cream">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/cookies-and-cream.png" alt="Cookies and Cream" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Cookies &amp; Cream</div>
+                </div>
+                <p class="shop-card__name">Cookies &amp; Cream</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Cookies and Cream" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Cookies and Cream">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="malted-milk" data-category="classic" data-label="Malted Milk">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/malted-milk.png" alt="Malted Milk" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Malted Milk</div>
+                </div>
+                <p class="shop-card__name">Malted Milk</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Malted Milk" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Malted Milk">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="cookie-dough" data-category="classic" data-label="M&M Cookie Dough">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/cookie-dough.png" alt="M&M Cookie Dough" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">M&amp;M Cookie Dough</div>
+                </div>
+                <p class="shop-card__name">M&amp;M Cookie Dough</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one M&M Cookie Dough" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one M&M Cookie Dough">+</button>
+                </div>
+              </div>
+
+              <!-- CHOCOLATE -->
+              <div class="shop-card" data-flavor-id="chocolate" data-category="chocolate" data-label="Chocolate">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/chocolate.png" alt="Chocolate" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Chocolate</div>
+                </div>
+                <p class="shop-card__name">Chocolate</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Chocolate" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Chocolate">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="german-choc-brownie" data-category="chocolate" data-label="German Choc Brownie">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/german-choc-brownie.png" alt="German Choc Brownie" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">German Choc Brownie</div>
+                </div>
+                <p class="shop-card__name">German Choc Brownie</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one German Choc Brownie" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one German Choc Brownie">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="triple-choco-brownie" data-category="chocolate" data-label="Triple Choco Brownie">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/triple-choco-brownie.png" alt="Triple Choco Brownie" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Triple Choco Brownie</div>
+                </div>
+                <p class="shop-card__name">Triple Choco Brownie</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Triple Choco Brownie" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Triple Choco Brownie">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="mint-brownie" data-category="chocolate" data-label="Mint Brownie">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/mint-brownie.png" alt="Mint Brownie" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Mint Brownie</div>
+                </div>
+                <p class="shop-card__name">Mint Brownie</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Mint Brownie" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Mint Brownie">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="thunder-crunch" data-category="chocolate" data-label="Thunder Crunch">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/thunder-crunch.png" alt="Thunder Crunch" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Thunder Crunch</div>
+                </div>
+                <p class="shop-card__name">Thunder Crunch</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Thunder Crunch" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Thunder Crunch">+</button>
+                </div>
+              </div>
+
+              <!-- NUTTY -->
+              <div class="shop-card" data-flavor-id="pistachio-almond" data-category="nutty" data-label="Pistachio Almond">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/pistachio-almond.png" alt="Pistachio Almond" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Pistachio Almond</div>
+                </div>
+                <p class="shop-card__name">Pistachio Almond</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Pistachio Almond" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Pistachio Almond">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="maple-walnut" data-category="nutty" data-label="Maple Walnut">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/maple-walnut.png" alt="Maple Walnut" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Maple Walnut</div>
+                </div>
+                <p class="shop-card__name">Maple Walnut</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Maple Walnut" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Maple Walnut">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="peanut-butter-cup" data-category="nutty" data-label="Peanut Butter Cup">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/peanut-butter-cup.png" alt="Peanut Butter Cup" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Peanut Butter Cup</div>
+                </div>
+                <p class="shop-card__name">Peanut Butter Cup</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Peanut Butter Cup" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Peanut Butter Cup">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="salted-pb-oreo" data-category="nutty" data-label="Salted PB Oreo">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/salted-pb-oreo.png" alt="Salted PB Oreo" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Salted PB Oreo</div>
+                </div>
+                <p class="shop-card__name">Salted PB Oreo</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Salted PB Oreo" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Salted PB Oreo">+</button>
+                </div>
+              </div>
+
+              <!-- FRUIT -->
+              <div class="shop-card" data-flavor-id="strawberry" data-category="fruit" data-label="Strawberry">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/strawberry.png" alt="Strawberry" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Strawberry</div>
+                </div>
+                <p class="shop-card__name">Strawberry</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Strawberry" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Strawberry">+</button>
+                </div>
+              </div>
+
+              <div class="shop-card" data-flavor-id="root-beer" data-category="fruit" data-label="Root Beer Float">
+                <div class="shop-card__img-wrap">
+                  <img src="images/flavors/root-beer.png" alt="Root Beer Float" class="shop-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="shop-card__img-fallback">Root Beer Float</div>
+                </div>
+                <p class="shop-card__name">Root Beer Float</p>
+                <div class="shop-card__controls">
+                  <button class="qty-btn qty-minus" aria-label="Remove one Root Beer Float" disabled>−</button>
+                  <span class="qty-count">0</span>
+                  <button class="qty-btn qty-plus" aria-label="Add one Root Beer Float">+</button>
+                </div>
+              </div>
+
+            </div><!-- /#flavor-grid -->
+          </div>
+
+          <!-- Right: Pack sidebar -->
+          <aside class="pack-sidebar" aria-label="Your pack">
+            <div class="pack-sidebar__inner">
+
+              <!-- Savings note -->
+              <p class="savings-note" id="savings-note">
+                SAVE $9.99 ON 12 PACK &nbsp; $99.99 &nbsp; <s>$109.98</s>
+              </p>
+
+              <!-- Pack toggle -->
+              <div class="pack-toggle" role="group" aria-label="Pack size">
+                <button class="pack-btn active" data-size="6" data-price="54.99">
+                  6 Pints<br>$54.99
+                </button>
+                <button class="pack-btn" data-size="12" data-price="99.99">
+                  12 Pints<br>$99.99
+                </button>
+              </div>
+
+              <!-- Scoop dots fill indicator -->
+              <div class="scoop-dots" id="scoop-dots" aria-label="Pack fill indicator" aria-live="polite"></div>
+
+              <!-- Status -->
+              <p class="pack-status" id="pack-status">6 pack minimum needed to ship</p>
+
+              <!-- Clear -->
+              <button class="clear-btn" id="clear-btn" aria-label="Clear all selections">Clear</button>
+
+              <!-- Total -->
+              <div class="pack-total-row">
+                <span>Total:</span>
+                <span id="total-price">$54.99</span>
+              </div>
+
+              <!-- CTA -->
+              <!--
+                SHOPIFY INTEGRATION:
+                Replace onclick with Shopify Buy SDK checkout call.
+                Pass selected flavors as line item properties.
+                Example:
+                  client.checkout.create().then(checkout => {
+                    client.checkout.addLineItems(checkout.id, [{
+                      variantId: packVariantId,
+                      quantity: 1,
+                      customAttributes: Object.entries(quantities).flatMap(([id, qty]) =>
+                        Array.from({length: qty}, (_, i) => ({ key: `Flavor ${i+1}`, value: id }))
+                      )
+                    }]);
+                    window.location = checkout.webUrl;
+                  });
+              -->
+              <button class="cta-btn" id="cta-btn" disabled>Add 6 Items</button>
+
+            </div>
+          </aside>
+
+        </div><!-- /.builder-layout -->
+      </div><!-- /.container -->
     </section>
 
     <!-- TRUST STRIP -->
@@ -396,452 +768,24 @@
       <div class="container">
         <div class="trust-strip__inner">
           <div class="trust-item">
-            <span class="trust-item__icon">❄️</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <div><strong>Insulated Packaging</strong><span>Stays frozen in transit</span></div>
           </div>
           <div class="trust-item">
-            <span class="trust-item__icon">🚚</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             <div><strong>Ships Nationwide</strong><span>Delivered to your door</span></div>
           </div>
           <div class="trust-item">
-            <span class="trust-item__icon">🎁</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
             <div><strong>Gift-Ready</strong><span>Perfect for any occasion</span></div>
           </div>
           <div class="trust-item">
-            <span class="trust-item__icon">🍦</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <div><strong>Since 1929</strong><span>Utah's classic flavors</span></div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- PACK BUILDER -->
-    <section class="builder-section" id="pack-builder" aria-labelledby="builder-heading">
-      <div class="container">
-
-        <!-- Shopify integration note (for developer handoff) -->
-        <!--
-          SHOPIFY INTEGRATION:
-          This pack builder is designed to work with Shopify's Buy SDK.
-          Steps to integrate:
-          1. Install Shopify Buy Button channel in your Shopify store
-          2. Create a "Pint Pack" product with variants (4-pack, 6-pack, 12-pack)
-          3. Create individual flavor products
-          4. Replace the "Proceed to Checkout" button with Shopify's cart/checkout API
-          5. Use line item properties to pass selected flavors to the order
-          Example SDK init:
-            ShopifyBuy.buildClient({ domain: 'snelgroveicecream.myshopify.com', storefrontAccessToken: 'YOUR_TOKEN' });
-          See: https://shopify.github.io/js-buy-sdk/
-        -->
-
-        <div class="builder-layout">
-
-          <!-- Left: Flavor picker -->
-          <div>
-            <div class="builder-header">
-              <h2 class="builder-title" id="builder-heading">Pick Your Flavors</h2>
-              <p class="builder-progress">
-                <strong id="selected-count">0</strong> / <strong id="pack-total">6</strong> selected
-              </p>
-            </div>
-
-            <!-- Filter -->
-            <div class="builder-filter">
-              <button class="builder-filter-btn active" data-bfilter="all">All</button>
-              <button class="builder-filter-btn" data-bfilter="classic">🏅 Classics</button>
-              <button class="builder-filter-btn" data-bfilter="chocolate">🍫 Chocolate</button>
-              <button class="builder-filter-btn" data-bfilter="nutty">🥜 Nutty</button>
-              <button class="builder-filter-btn" data-bfilter="fruit">🍓 Fruit</button>
-            </div>
-
-            <div class="flavor-picker-grid" id="flavor-grid">
-
-              <!-- Data: each card has data-flavor-id, data-category, data-price, data-emoji, data-label -->
-
-              <div class="picker-card" data-flavor-id="burnt-almond-fudge" data-category="classic" data-price="9.99" data-emoji="🍫" data-label="Burnt Almond Fudge">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/burnt-almond-fudge.png" alt="Burnt Almond Fudge" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍫</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Burnt Almond Fudge</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="canadian-vanilla" data-category="classic" data-price="9.99" data-emoji="🍨" data-label="Canadian Vanilla">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/canadian-vanilla.png" alt="Canadian Vanilla" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍨</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Canadian Vanilla</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="rocky-road" data-category="classic" data-price="9.99" data-emoji="🍫" data-label="Rocky Road">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/rocky-road.png" alt="Rocky Road" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍫</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Rocky Road</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="caramel-cashew" data-category="classic" data-price="9.99" data-emoji="🥜" data-label="Caramel Cashew">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/caramel-cashew.png" alt="Caramel Cashew" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🥜</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Caramel Cashew</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="cookies-and-cream" data-category="classic" data-price="9.99" data-emoji="🍪" data-label="Cookies &amp; Cream">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/cookies-and-cream.png" alt="Cookies and Cream" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍪</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Cookies &amp; Cream</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="malted-milk" data-category="classic" data-price="9.99" data-emoji="🥛" data-label="Malted Milk">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/malted-milk.png" alt="Malted Milk" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🥛</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Malted Milk</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="cookie-dough" data-category="classic" data-price="9.99" data-emoji="🍪" data-label="M&amp;M Cookie Dough">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/cookie-dough.png" alt="M&amp;M Cookie Dough" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍪</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">M&amp;M Cookie Dough</p>
-                  <p class="picker-card__tag">Classic</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="chocolate" data-category="chocolate" data-price="9.99" data-emoji="🍫" data-label="Chocolate">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/chocolate.png" alt="Chocolate" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍫</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Chocolate</p>
-                  <p class="picker-card__tag">Chocolate</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="german-choc-brownie" data-category="chocolate" data-price="9.99" data-emoji="🍫" data-label="German Choc Brownie">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/german-choc-brownie.png" alt="German Choc Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍫</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">German Choc Brownie</p>
-                  <p class="picker-card__tag">Chocolate</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="triple-choco-brownie" data-category="chocolate" data-price="9.99" data-emoji="🍫" data-label="Triple Choco Brownie">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/triple-choco-brownie.png" alt="Triple Choco Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍫</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Triple Choco Brownie</p>
-                  <p class="picker-card__tag">Chocolate</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="mint-brownie" data-category="chocolate" data-price="9.99" data-emoji="🌿" data-label="Mint Brownie">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/mint-brownie.png" alt="Mint Brownie" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🌿</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Mint Brownie</p>
-                  <p class="picker-card__tag">Chocolate</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="thunder-crunch" data-category="chocolate" data-price="9.99" data-emoji="⚡" data-label="Thunder Crunch">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/thunder-crunch.png" alt="Thunder Crunch" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">⚡</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Thunder Crunch</p>
-                  <p class="picker-card__tag">Chocolate</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="pistachio-almond" data-category="nutty" data-price="9.99" data-emoji="🌿" data-label="Pistachio Almond">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/pistachio-almond.png" alt="Pistachio Almond" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🌿</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Pistachio Almond</p>
-                  <p class="picker-card__tag">Nutty</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="maple-walnut" data-category="nutty" data-price="9.99" data-emoji="🍁" data-label="Maple Walnut">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/maple-walnut.png" alt="Maple Walnut" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍁</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Maple Walnut</p>
-                  <p class="picker-card__tag">Nutty</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="peanut-butter-cup" data-category="nutty" data-price="9.99" data-emoji="🥜" data-label="Peanut Butter Cup">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/peanut-butter-cup.png" alt="Peanut Butter Cup" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🥜</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Peanut Butter Cup</p>
-                  <p class="picker-card__tag">Nutty</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="salted-pb-oreo" data-category="nutty" data-price="9.99" data-emoji="🥜" data-label="Salted PB Oreo">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/salted-pb-oreo.png" alt="Salted PB Oreo" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🥜</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Salted PB Oreo</p>
-                  <p class="picker-card__tag">Nutty</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="strawberry" data-category="fruit" data-price="9.99" data-emoji="🍓" data-label="Strawberry">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/strawberry.png" alt="Strawberry" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍓</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Strawberry</p>
-                  <p class="picker-card__tag">Fruit</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-              <div class="picker-card" data-flavor-id="root-beer" data-category="fruit" data-price="9.99" data-emoji="🍺" data-label="Root Beer">
-                <div class="picker-card__img-wrap">
-                  <img src="images/flavors/root-beer.png" alt="Root Beer" class="picker-card__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                  <span style="display:none">🍺</span>
-                  <div class="picker-card__check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-                  <div class="picker-card__qty-badge">×1</div>
-                </div>
-                <div class="picker-card__body">
-                  <p class="picker-card__name">Root Beer</p>
-                  <p class="picker-card__tag">Fruit</p>
-                </div>
-                <div class="picker-card__qty-controls">
-                  <button class="qty-btn qty-minus" aria-label="Remove one">−</button>
-                  <span class="qty-count">1</span>
-                  <button class="qty-btn qty-plus" aria-label="Add one">+</button>
-                </div>
-              </div>
-
-            </div><!-- /#flavor-grid -->
-          </div>
-
-          <!-- Right: Cart sidebar -->
-          <aside class="cart-sidebar" aria-label="Your pack">
-            <div class="cart-sidebar__head">
-              <h3 class="cart-sidebar__head-title">Your Pack</h3>
-              <p class="cart-sidebar__pack-label" id="cart-pack-label">6-Pint Pack · $54.99</p>
-            </div>
-
-            <div class="cart-progress">
-              <div class="cart-progress__bar-wrap">
-                <div class="cart-progress__bar" id="progress-bar" style="width:0%"></div>
-              </div>
-              <p class="cart-progress__label" id="progress-label">0 of 6 pints selected</p>
-            </div>
-
-            <div class="cart-items" id="cart-items">
-              <div class="cart-empty" id="cart-empty">
-                <span style="font-size:48px">🍦</span>
-                <span>Select flavors to start building your pack</span>
-              </div>
-            </div>
-
-            <div class="cart-footer">
-              <div class="cart-line">
-                <span>Subtotal</span>
-                <span id="cart-subtotal">$0.00</span>
-              </div>
-              <div class="cart-line">
-                <span>Shipping</span>
-                <span id="cart-shipping">Calculated at checkout</span>
-              </div>
-              <div class="cart-line cart-line--total">
-                <span>Total</span>
-                <span id="cart-total">$0.00</span>
-              </div>
-              <!--
-                SHOPIFY: Replace button onclick with Shopify cart SDK call.
-                Pass selected flavors as line item properties.
-                Example:
-                  checkout.addLineItems([{
-                    variantId: packVariantId,
-                    quantity: 1,
-                    customAttributes: selectedFlavors.map((f,i) => ({key: `Flavor ${i+1}`, value: f.label}))
-                  }])
-              -->
-              <button class="btn btn--primary cart-checkout" id="checkout-btn" disabled onclick="handleCheckout()">
-                Proceed to Checkout →
-              </button>
-              <p class="cart-note">
-                🔒 Secure checkout via Shopify.<br>
-                All orders ship in insulated packaging.
-              </p>
-            </div>
-          </aside>
-
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -852,29 +796,34 @@
         <div class="footer__brand">
           <img src="images/logo-white.svg" alt="Snelgrove Ice Cream" class="footer__brand-logo" onerror="this.style.display='none'">
           <p class="footer__brand-tagline">Artistry in Pleasure Foods</p>
-          <p class="footer__brand-desc">Utah's beloved ice cream since 1929.</p>
+          <p class="footer__brand-desc">Utah's beloved ice cream since 1929. Classic recipes handed down through generations — made with the same love, craft, and promise of joy.</p>
           <div class="footer__socials">
             <a href="https://www.instagram.com/snelgroveicecream" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/snelgroveicecream/" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@snelgroveicecream" class="footer__social-link" aria-label="TikTok" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.03a8.16 8.16 0 0 0 4.76 1.52V7.1a4.85 4.85 0 0 1-.99-.41z"/></svg>
             </a>
           </div>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Explore</h4>
           <ul class="footer__links">
-            <li><a href="index.html" class="footer__link">Home</a></li>
-            <li><a href="flavors.html" class="footer__link">Flavors</a></li>
-            <li><a href="shop.html" class="footer__link">Shop Pints</a></li>
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="flavors.html"   class="footer__link">Flavors</a></li>
+            <li><a href="shop.html"      class="footer__link">Shop Pints</a></li>
             <li><a href="locations.html" class="footer__link">Locations</a></li>
-            <li><a href="story.html" class="footer__link">Our Story</a></li>
-            <li><a href="contact.html" class="footer__link">Contact</a></li>
+            <li><a href="story.html"     class="footer__link">Our Story</a></li>
+            <li><a href="contact.html"   class="footer__link">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Pack Sizes</h4>
           <ul class="footer__links">
-            <li><a href="shop.html" class="footer__link">4-Pint Pack</a></li>
-            <li><a href="shop.html" class="footer__link">6-Pint Pack (Most Popular)</a></li>
+            <li><a href="shop.html" class="footer__link">6-Pint Pack</a></li>
             <li><a href="shop.html" class="footer__link">12-Pint Pack</a></li>
           </ul>
         </div>
@@ -882,7 +831,7 @@
           <h4 class="footer__col-title">Shipping</h4>
           <div class="footer__contact-item">
             <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            <span>Ships anywhere in the US<br>in insulated packaging</span>
+            <span>Ships anywhere in the US in insulated packaging</span>
           </div>
           <div class="footer__contact-item">
             <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
@@ -892,7 +841,10 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copyright">&copy; <span id="footer-year"></span> Snelgrove Ice Cream. All rights reserved.</p>
-        <nav class="footer__bottom-links"><a href="#" class="footer__bottom-link">Privacy</a><a href="#" class="footer__bottom-link">Terms</a></nav>
+        <nav class="footer__bottom-links" aria-label="Legal">
+          <a href="#" class="footer__bottom-link">Privacy Policy</a>
+          <a href="#" class="footer__bottom-link">Terms of Use</a>
+        </nav>
       </div>
     </div>
   </footer>
@@ -901,205 +853,192 @@
   <script src="js/main.js"></script>
   <script>
     /* ============================================================
-       PACK BUILDER LOGIC
-       - Tracks selected flavors & quantities
-       - Updates cart sidebar in real time
-       - Checkout button enabled when pack is full
-       SHOPIFY: Replace handleCheckout() with Shopify SDK call
+       PACK BUILDER — Logic
+       Tracks quantities, fills scoop dots, updates CTA dynamically.
+       SHOPIFY: Replace handleCheckout() with Shopify Buy SDK call.
        ============================================================ */
+    (function () {
+      const PACKS = {
+        6:  { price: 54.99 },
+        12: { price: 99.99 }
+      };
 
-    const packPrices = { 4: 39.99, 6: 54.99, 12: 99.99 };
-    let currentPackSize = 6;
-    let currentPackPrice = 54.99;
-    const selections = {}; // { flavorId: { qty, label, emoji } }
+      let packSize = 6;
+      const quantities = {}; // { flavorId: count }
 
-    function totalSelected() {
-      return Object.values(selections).reduce((s, v) => s + v.qty, 0);
-    }
-
-    function selectPack(card) {
-      document.querySelectorAll('.pack-size-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      currentPackSize = parseInt(card.dataset.size);
-      currentPackPrice = parseFloat(card.dataset.price);
-      document.getElementById('cart-pack-label').textContent =
-        `${currentPackSize}-Pint Pack · $${currentPackPrice.toFixed(2)}`;
-      document.getElementById('pack-total').textContent = currentPackSize;
-
-      // Clear selections if over new pack size
-      let tot = totalSelected();
-      if (tot > currentPackSize) {
-        for (const id in selections) {
-          if (totalSelected() <= currentPackSize) break;
-          const over = totalSelected() - currentPackSize;
-          selections[id].qty = Math.max(0, selections[id].qty - over);
-          if (selections[id].qty === 0) delete selections[id];
-        }
-        syncAllCards();
+      function getTotal() {
+        return Object.values(quantities).reduce(function(a, b) { return a + b; }, 0);
       }
 
-      updateUI();
-    }
+      /* --- Scoop dots --- */
+      function renderDots() {
+        var container = document.getElementById('scoop-dots');
+        var total = getTotal();
+        var dots = container.querySelectorAll('.scoop-dot');
 
-    function syncAllCards() {
-      document.querySelectorAll('.picker-card').forEach(card => {
-        const id = card.dataset.flavorId;
-        const sel = selections[id];
-        if (sel && sel.qty > 0) {
-          card.classList.add('selected');
-          card.querySelector('.qty-count').textContent = sel.qty;
-          card.querySelector('.picker-card__qty-badge').textContent = `×${sel.qty}`;
-        } else {
-          card.classList.remove('selected');
-          card.querySelector('.qty-count').textContent = 1;
-          card.querySelector('.picker-card__qty-badge').textContent = '×1';
+        // Re-create if count changed
+        if (dots.length !== packSize) {
+          container.innerHTML = '';
+          for (var i = 0; i < packSize; i++) {
+            var dot = document.createElement('div');
+            dot.className = 'scoop-dot';
+            container.appendChild(dot);
+          }
+          dots = container.querySelectorAll('.scoop-dot');
         }
-      });
-    }
 
-    function updateUI() {
-      const tot = totalSelected();
-      const pct = Math.min((tot / currentPackSize) * 100, 100);
-
-      document.getElementById('selected-count').textContent = tot;
-      document.getElementById('progress-bar').style.width = pct + '%';
-      document.getElementById('progress-label').textContent = `${tot} of ${currentPackSize} pints selected`;
-
-      // Checkout button
-      const btn = document.getElementById('checkout-btn');
-      btn.disabled = (tot !== currentPackSize);
-      btn.textContent = tot < currentPackSize
-        ? `Add ${currentPackSize - tot} more pint${currentPackSize - tot !== 1 ? 's' : ''}`
-        : 'Proceed to Checkout →';
-
-      // Cart items
-      const cartItems = document.getElementById('cart-items');
-      const cartEmpty = document.getElementById('cart-empty');
-      cartItems.querySelectorAll('.cart-item').forEach(el => el.remove());
-
-      if (tot === 0) {
-        cartEmpty.style.display = 'flex';
-      } else {
-        cartEmpty.style.display = 'none';
-        for (const [id, data] of Object.entries(selections)) {
-          if (data.qty === 0) continue;
-          const item = document.createElement('div');
-          item.className = 'cart-item';
-          item.innerHTML = `
-            <span class="cart-item__emoji">${data.emoji}</span>
-            <span class="cart-item__name">${data.label}</span>
-            <span class="cart-item__qty">×${data.qty}</span>
-            <button class="cart-item__remove" aria-label="Remove ${data.label}" onclick="removeItem('${id}')">✕</button>
-          `;
-          cartItems.appendChild(item);
-        }
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('filled', i < total);
+        });
       }
 
-      // Pricing
-      const subtotal = currentPackPrice;
-      document.getElementById('cart-subtotal').textContent = tot > 0 ? `$${subtotal.toFixed(2)}` : '$0.00';
-      document.getElementById('cart-shipping').textContent = currentPackSize >= 6 ? 'Free 🎉' : 'Calculated at checkout';
-      document.getElementById('cart-total').textContent = tot > 0 ? `$${subtotal.toFixed(2)}` : '$0.00';
+      /* --- Update all UI elements --- */
+      function updateUI() {
+        var total = getTotal();
+        var remaining = packSize - total;
+        var price = PACKS[packSize].price;
 
-      // Dim unavailable cards when pack full
-      document.querySelectorAll('.picker-card').forEach(card => {
-        if (tot >= currentPackSize && !card.classList.contains('selected')) {
-          card.classList.add('max-reached');
+        // Dots
+        renderDots();
+
+        // Status text
+        var statusEl = document.getElementById('pack-status');
+        if (total === 0) {
+          statusEl.textContent = packSize + ' pack minimum needed to ship';
+        } else if (remaining > 0) {
+          statusEl.textContent = 'Add ' + remaining + ' more item' + (remaining !== 1 ? 's' : '') + ' for your ' + packSize + '-pack.';
         } else {
-          card.classList.remove('max-reached');
+          statusEl.textContent = 'Your ' + packSize + '-pack is complete!';
         }
-      });
-    }
 
-    function removeItem(id) {
-      delete selections[id];
-      const card = document.querySelector(`[data-flavor-id="${id}"]`);
-      if (card) {
-        card.classList.remove('selected');
-        card.querySelector('.qty-count').textContent = 1;
-        card.querySelector('.picker-card__qty-badge').textContent = '×1';
+        // Total price
+        document.getElementById('total-price').textContent = '$' + price.toFixed(2);
+
+        // CTA button
+        var btn = document.getElementById('cta-btn');
+        if (remaining > 0) {
+          btn.textContent = 'Add ' + remaining + ' More Item' + (remaining !== 1 ? 's' : '');
+          btn.disabled = true;
+        } else {
+          btn.textContent = 'Add to Cart — $' + price.toFixed(2);
+          btn.disabled = false;
+        }
+
+        // Card states
+        var maxed = (total >= packSize);
+        document.querySelectorAll('.shop-card').forEach(function(card) {
+          var id = card.dataset.flavorId;
+          var qty = quantities[id] || 0;
+          card.classList.toggle('has-qty', qty > 0);
+          card.classList.toggle('maxed-out', maxed && qty === 0);
+          card.querySelector('.qty-count').textContent = qty;
+          var minus = card.querySelector('.qty-minus');
+          var plus  = card.querySelector('.qty-plus');
+          minus.disabled = (qty === 0);
+          plus.disabled  = maxed && qty === 0;
+        });
       }
-      updateUI();
-    }
 
-    // Attach click events
-    document.querySelectorAll('.picker-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.classList.contains('qty-btn') || e.target.closest('.qty-btn')) return;
-        const id = card.dataset.flavorId;
-        const tot = totalSelected();
-
-        if (card.classList.contains('selected')) {
-          // Deselect
-          delete selections[id];
-          card.classList.remove('selected');
-          card.querySelector('.qty-count').textContent = 1;
+      /* --- Set quantity for a flavor --- */
+      function setQty(flavorId, delta) {
+        var current = quantities[flavorId] || 0;
+        var total   = getTotal();
+        if (delta > 0 && total >= packSize) return; // at max
+        var next = Math.max(0, current + delta);
+        if (next === 0) {
+          delete quantities[flavorId];
         } else {
-          if (tot >= currentPackSize) return;
-          selections[id] = { qty: 1, label: card.dataset.label, emoji: card.dataset.emoji };
-          card.classList.add('selected');
+          quantities[flavorId] = next;
         }
         updateUI();
-      });
+      }
 
-      // Qty controls
-      const minusBtn = card.querySelector('.qty-minus');
-      const plusBtn  = card.querySelector('.qty-plus');
-      const qtyCount = card.querySelector('.qty-count');
-      const qtyBadge = card.querySelector('.picker-card__qty-badge');
-      const id = card.dataset.flavorId;
+      /* --- Switch pack size --- */
+      function switchPack(size) {
+        packSize = size;
 
-      if (minusBtn) minusBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (!selections[id]) return;
-        selections[id].qty--;
-        if (selections[id].qty <= 0) {
-          delete selections[id];
-          card.classList.remove('selected');
-          qtyCount.textContent = 1;
-        } else {
-          qtyCount.textContent = selections[id].qty;
-          qtyBadge.textContent = `×${selections[id].qty}`;
+        // Trim excess if over new limit
+        var total = getTotal();
+        if (total > packSize) {
+          Object.keys(quantities).forEach(function(id) {
+            if (getTotal() <= packSize) return;
+            var excess = getTotal() - packSize;
+            quantities[id] = Math.max(0, quantities[id] - excess);
+            if (quantities[id] === 0) delete quantities[id];
+          });
         }
+
+        // Update toggle buttons
+        document.querySelectorAll('.pack-btn').forEach(function(btn) {
+          btn.classList.toggle('active', parseInt(btn.dataset.size) === size);
+        });
+
+        // Update savings note
+        var note = document.getElementById('savings-note');
+        if (size === 12) {
+          note.innerHTML = 'SAVE $9.99 ON 12 PACK &nbsp; $99.99 &nbsp; <s>$109.98</s>';
+        } else {
+          note.innerHTML = 'SAVE $9.99 WHEN YOU UPGRADE TO 12 PINTS';
+        }
+
         updateUI();
+      }
+
+      /* --- Clear all --- */
+      function clearAll() {
+        Object.keys(quantities).forEach(function(k) { delete quantities[k]; });
+        updateUI();
+      }
+
+      /* --- Checkout placeholder --- */
+      function handleCheckout() {
+        alert('Checkout coming soon! Connect your Shopify store to enable purchasing.');
+      }
+
+      /* --- Event: flavor qty buttons (delegated) --- */
+      document.getElementById('flavor-grid').addEventListener('click', function(e) {
+        var plus  = e.target.closest('.qty-plus');
+        var minus = e.target.closest('.qty-minus');
+        if (plus && !plus.disabled) {
+          setQty(plus.closest('.shop-card').dataset.flavorId, 1);
+        } else if (minus && !minus.disabled) {
+          setQty(minus.closest('.shop-card').dataset.flavorId, -1);
+        }
       });
 
-      if (plusBtn) plusBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const tot = totalSelected();
-        if (tot >= currentPackSize) return;
-        if (!selections[id]) selections[id] = { qty: 0, label: card.dataset.label, emoji: card.dataset.emoji };
-        selections[id].qty++;
-        qtyCount.textContent = selections[id].qty;
-        qtyBadge.textContent = `×${selections[id].qty}`;
-        updateUI();
-      });
-    });
-
-    // Builder filter
-    document.querySelectorAll('.builder-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.builder-filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.bfilter;
-        document.querySelectorAll('.picker-card').forEach(card => {
-          card.style.display = (f === 'all' || card.dataset.category === f) ? '' : 'none';
+      /* --- Event: pack toggle --- */
+      document.querySelectorAll('.pack-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchPack(parseInt(btn.dataset.size));
         });
       });
-    });
 
-    // Checkout handler — replace with Shopify SDK
-    function handleCheckout() {
-      const flavorList = Object.entries(selections)
-        .map(([id, d]) => `${d.qty}× ${d.label}`)
-        .join(', ');
-      alert(`SHOPIFY INTEGRATION POINT\n\nPack: ${currentPackSize}-pint ($${currentPackPrice.toFixed(2)})\nFlavors: ${flavorList}\n\nConnect your Shopify Buy SDK here to create a checkout session.`);
-      // TODO: Replace with actual Shopify checkout:
-      // const client = ShopifyBuy.buildClient({ domain: 'snelgroveicecream.myshopify.com', storefrontAccessToken: 'YOUR_TOKEN' });
-      // client.checkout.create().then(checkout => { ... add line items, redirect });
-    }
+      /* --- Event: filter --- */
+      document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = btn.dataset.filter;
+          document.querySelectorAll('.filter-btn').forEach(function(b) {
+            b.classList.toggle('active', b === btn);
+          });
+          document.querySelectorAll('.shop-card').forEach(function(card) {
+            var show = filter === 'all' || card.dataset.category === filter;
+            card.style.display = show ? '' : 'none';
+          });
+        });
+      });
 
-    updateUI();
+      /* --- Event: clear --- */
+      document.getElementById('clear-btn').addEventListener('click', clearAll);
+
+      /* --- Event: checkout --- */
+      document.getElementById('cta-btn').addEventListener('click', function() {
+        if (!this.disabled) handleCheckout();
+      });
+
+      /* --- Init --- */
+      renderDots();
+      updateUI();
+    })();
   </script>
 </body>
 </html>
