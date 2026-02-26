@@ -102,7 +102,7 @@
 .hero__script {
   font-family: var(--font-script);
   font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-  color: var(--color-banana-split);
+  color: var(--color-candy-pink);
   display: block;
   margin-bottom: var(--space-6);
   line-height: 1;
