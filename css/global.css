@@ -39,6 +39,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: url('../fonts/HvDTrial_Brandon_Grotesque_black-BF64a625c944b08.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Funkydori — Decorative / Brand Accent */
 @font-face {
