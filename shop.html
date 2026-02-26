@@ -370,6 +370,29 @@
     .trust-item strong { display: block; font-weight: 700; }
     .trust-item span { color: var(--color-text-mid); font-size: var(--text-xs); }
 
+    /* Sidebar trust items */
+    .sidebar-trust {
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .sidebar-trust__item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: 11px;
+      color: var(--color-text-mid);
+      line-height: 1.4;
+    }
+    .sidebar-trust__item svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      opacity: 0.6;
+    }
+
     /* ---- Responsive ---- */
     @media (max-width: 960px) {
       .builder-layout {
@@ -755,6 +778,22 @@
                   });
               -->
               <button class="cta-btn" id="cta-btn" disabled>Add 6 Items</button>
+
+              <!-- Trust items inside sidebar -->
+              <div class="sidebar-trust">
+                <div class="sidebar-trust__item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Insulated packaging — stays frozen in transit</span>
+                </div>
+                <div class="sidebar-trust__item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  <span>Ships nationwide to your door</span>
+                </div>
+                <div class="sidebar-trust__item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                  <span>Gift-ready for any occasion</span>
+                </div>
+              </div>
 
             </div>
           </aside>
