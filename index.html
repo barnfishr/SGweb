@@ -26,7 +26,7 @@
 
   <!-- ===================== NAV ===================== -->
   <div class="topbar">
-    Now open in 5 Utah locations! &nbsp;·&nbsp; St. George · Centerville · Lehi · South Jordan · Sandy &nbsp;·&nbsp;
+    Now open in 6 Utah locations! &nbsp;·&nbsp; St. George · Centerville · Lehi · Daybreak · Sandy · Bluffdale &nbsp;·&nbsp;
     <a href="locations.html">Find a location →</a>
   </div>
 
@@ -69,6 +69,14 @@
   <main id="main-content">
 
     <!-- ===================== HERO ===================== -->
+    <!--
+      PROMO SYSTEM: To change the hero promotion, update the hero__promo block below.
+      Options:
+        1. Seasonal message: Update text and link in hero__promo
+        2. Product feature: Swap hero image in hero__product-col
+        3. Event banner: Add/replace the hero__promo block
+      To hide the promo banner, add style="display:none" to .hero__promo
+    -->
     <section class="hero" aria-label="Hero">
       <div class="hero__pattern"></div>
 
@@ -76,6 +84,13 @@
 
         <div class="hero__content">
           <span class="hero__eyebrow" data-animate="fade-up">Utah's Finest Since 1929</span>
+
+          <!-- PROMO BANNER — easy to swap for seasonal/event promotions -->
+          <div class="hero__promo" data-animate="fade-up" data-delay="50">
+            <span class="hero__promo-label">Spring 2026</span>
+            <span class="hero__promo-text">New flavors are here! Try Bear Lake Raspberry & Cookie Butter Biscoff.</span>
+            <a href="flavors.html" class="hero__promo-link">See what's new →</a>
+          </div>
 
           <h1 class="hero__title" data-animate="fade-up" data-delay="100">
             Celebrate<br>
@@ -96,6 +111,7 @@
         </div>
 
         <div class="hero__product-col" data-animate="fade-left" data-delay="200">
+          <!-- Swap this image for seasonal/product promotions -->
           <img src="images/pint-hero.png"
                alt="Hand holding a Snelgrove Ice Cream pint"
                class="hero__product-img">
@@ -271,7 +287,7 @@
           <span class="section-label">Find Us</span>
           <h2 class="section-title" id="locations-heading">Now Open Across Utah</h2>
           <p class="section-subtitle">
-            Five scoop shops open across the state. Find your closest Snelgrove location.
+            Six scoop shops open across the state — with more on the way. Find your closest Snelgrove location.
           </p>
         </header>
 
@@ -321,7 +337,17 @@
               <div class="status-dot"></div>
               <span class="tag tag--gold" style="background:#DCFCE7; color:#166534;">Now Open</span>
             </div>
-            <h3 class="location-card__name">South Jordan &amp; Sandy</h3>
+            <h3 class="location-card__name">Daybreak &amp; Sandy</h3>
+            <p class="location-card__address">Salt Lake County, Utah</p>
+            <a href="locations.html" class="location-card__link">View details →</a>
+          </div>
+
+          <div class="location-card" data-animate="fade-up" data-delay="500">
+            <div class="location-card__status">
+              <div class="status-dot"></div>
+              <span class="tag tag--gold" style="background:#DCFCE7; color:#166534;">Now Open</span>
+            </div>
+            <h3 class="location-card__name">Bluffdale</h3>
             <p class="location-card__address">Salt Lake County, Utah</p>
             <a href="locations.html" class="location-card__link">View details →</a>
           </div>
@@ -499,7 +525,7 @@
           </div>
           <div class="footer__contact-item">
             <svg class="footer__contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span><a href="mailto:hello@snelgroveicecream.com" class="footer__link">hello@snelgroveicecream.com</a></span>
+            <span><a href="mailto:lyndsay@snelgroveicecream.com" class="footer__link">lyndsay@snelgroveicecream.com</a></span>
           </div>
         </div>
       </div>

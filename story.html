@@ -370,7 +370,18 @@
           <div data-animate="fade-left">
             <img src="images/lyndsay-snelgrove.jpg" alt="Lyndsay Snelgrove, founder" class="family-photo"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="family-photo-placeholder"><img src="images/logo-icon.svg" alt="" style="height:64px;opacity:0.25;"></div>
+            <div class="family-photo-placeholder" style="flex-direction:column;gap:var(--space-4);background:linear-gradient(135deg,rgba(192,57,43,0.08),rgba(247,210,223,0.2));border:2px solid rgba(192,57,43,0.15);">
+              <!-- Double-cone heart graphic -->
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.6;">
+                <path d="M60 100 L35 45 Q35 20 60 20 Q85 20 85 45 Z" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.3)" stroke-width="1.5"/>
+                <path d="M60 20 Q47 20 42 30 Q37 40 40 48" stroke="rgba(192,57,43,0.4)" stroke-width="1.5" fill="none"/>
+                <path d="M60 20 Q73 20 78 30 Q83 40 80 48" stroke="rgba(192,57,43,0.4)" stroke-width="1.5" fill="none"/>
+                <circle cx="50" cy="38" r="8" fill="rgba(247,210,223,0.5)" stroke="rgba(192,57,43,0.3)" stroke-width="1"/>
+                <circle cx="70" cy="38" r="8" fill="rgba(247,210,223,0.5)" stroke="rgba(192,57,43,0.3)" stroke-width="1"/>
+                <path d="M42 38 Q46 28 54 30 Q60 32 60 38 Q60 32 66 30 Q74 28 78 38 Q80 48 60 60 Q40 48 42 38Z" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.4)" stroke-width="1.5"/>
+              </svg>
+              <span style="font-family:var(--font-display);font-size:var(--text-sm);color:rgba(192,57,43,0.5);letter-spacing:0.15em;text-transform:uppercase;">Family Legacy</span>
+            </div>
           </div>
           <div data-animate="fade-right">
             <span class="family-label">The Family</span>
