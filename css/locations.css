@@ -1,186 +1,253 @@
 /* =============================================================
    SNELGROVE ICE CREAM — Locations Page
+   Salt & Straw–inspired clean, centered layout
    ============================================================= */
 
 .locations-page {
   background-color: var(--color-vanilla);
 }
 
-/* ---- Locations Grid ---- */
-.locations-grid {
+/* ---- Big Hero ---- */
+.loc-hero {
+  position: relative;
+  height: 75vh;
+  min-height: 480px;
+  max-height: 720px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.loc-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loc-hero__placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    var(--color-blueberry) 0%,
+    #3A6B9F 30%,
+    var(--color-candy-pink) 70%,
+    var(--color-banana-split) 100%
+  );
+}
+
+.loc-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(38, 78, 123, 0.7) 0%, transparent 60%);
+}
+
+.loc-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-12) var(--space-8);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  width: 100%;
+}
+
+.loc-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 7vw, var(--text-7xl));
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.05;
+  max-width: 12ch;
+}
+
+.loc-hero__title em {
+  font-family: var(--font-script);
+  font-style: normal;
+  color: var(--color-banana-split);
+}
+
+/* ---- Section Layout ---- */
+.loc-section {
+  padding-block: var(--space-16);
+}
+
+.loc-section--alt {
+  background-color: var(--color-melted);
+}
+
+.loc-section__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.loc-section__region {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.loc-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: 900;
+  color: var(--color-blueberry);
+  margin-bottom: var(--space-4);
+}
+
+.loc-section__menu-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-cherry);
+  color: var(--color-cherry);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.loc-section__menu-link:hover {
+  background-color: var(--color-cherry);
+  color: var(--color-white);
+}
+
+/* ---- Location Cards Grid ---- */
+.loc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.loc-grid__card {
+  padding: 0 var(--space-8);
+  text-align: center;
+  border-right: 1px solid var(--color-border);
+}
+
+.loc-grid__card:last-child,
+.loc-grid__card:nth-child(3n) {
+  border-right: none;
 }
 
 /* ---- Location Card ---- */
 .loc-card {
-  background: var(--color-white);
+  padding-bottom: var(--space-8);
+}
+
+.loc-card__photo {
+  width: 100%;
+  aspect-ratio: 4/3;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-base);
-  display: flex;
-  flex-direction: column;
-}
-
-.loc-card:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-4px);
-}
-
-.loc-card__img-wrap {
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--color-candy-pink) 0%, var(--color-melted) 50%, var(--color-banana-split) 100%);
+  margin-bottom: var(--space-5);
+  background: linear-gradient(135deg, #F7D2DF44, var(--color-melted), #F4E6AC44);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.loc-card__img {
+.loc-card__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
 }
 
-.loc-card:hover .loc-card__img {
-  transform: scale(1.05);
-}
-
-.loc-card__img-wrap--no-img {
-  background: linear-gradient(135deg, #F7D2DF44, var(--color-melted), #F4E6AC44);
-}
-
-.loc-card__img-wrap--no-img::after {
+.loc-card__photo--no-img::after {
   content: 'Photo Coming Soon';
   position: absolute;
   bottom: var(--space-3);
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--color-cherry);
-  opacity: .4;
+  opacity: .35;
   white-space: nowrap;
 }
 
-.loc-card__img-wrap--no-img .loc-card__placeholder-icon {
-  display: block;
-}
-
-.loc-card__placeholder-icon {
+.loc-card__photo .loc-card__placeholder-icon {
   display: none;
   color: var(--color-cherry);
-  opacity: 0.15;
+  opacity: 0.12;
 }
 
-.loc-card__badge {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.loc-card__badge--open {
-  background-color: #DCFCE7;
-  color: #166534;
-}
-
-.loc-card__badge--open::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22C55E;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.loc-card__badge--soon {
-  background-color: var(--color-banana-split);
-  color: var(--color-blueberry);
-}
-
-.loc-card__body {
-  padding: var(--space-5) var(--space-6) var(--space-6);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+.loc-card__photo--no-img .loc-card__placeholder-icon {
+  display: block;
 }
 
 .loc-card__name {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blueberry);
+  margin-bottom: var(--space-3);
+}
+
+.loc-card__address {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-mid);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.loc-card__hours {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.loc-card__hours strong {
+  font-weight: 700;
   color: var(--color-blueberry);
 }
 
-.loc-card__detail {
-  display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
+.loc-card__phone {
   font-size: var(--text-sm);
-  color: var(--color-text);
-  line-height: 1.6;
+  color: var(--color-text-mid);
+  margin-bottom: var(--space-5);
 }
 
-.loc-card__detail svg {
-  color: var(--color-cherry);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.loc-card__detail a {
-  color: var(--color-text);
+.loc-card__phone a {
+  color: inherit;
   text-decoration: none;
 }
 
-.loc-card__detail a:hover {
+.loc-card__phone a:hover {
   color: var(--color-cherry);
-}
-
-.loc-card__hours-line {
-  display: block;
-}
-
-.loc-card__hours-line strong {
-  color: var(--color-blueberry);
-  font-weight: 700;
 }
 
 .loc-card__actions {
   display: flex;
   gap: var(--space-3);
-  margin-top: auto;
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-melted);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .loc-card__actions .btn {
-  flex: 1;
-  justify-content: center;
-  font-size: var(--text-sm);
-  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-xs);
+  padding: var(--space-2) var(--space-5);
 }
 
 /* ---- Coming Soon Banner ---- */
-.coming-soon-section {
-  background-color: var(--color-melted);
-  padding-block: var(--space-16);
-}
-
 .coming-soon-banner {
   background: var(--color-white);
   border-radius: var(--radius-xl);
@@ -190,6 +257,8 @@
   gap: var(--space-8);
   box-shadow: var(--shadow-sm);
   border-left: 4px solid var(--color-banana-split);
+  max-width: 600px;
+  margin-inline: auto;
 }
 
 .coming-soon-banner__icon {
@@ -229,15 +298,12 @@
 }
 
 /* ---- Local Delivery Section ---- */
-.delivery-section {
-  background: linear-gradient(135deg, var(--color-candy-pink) 0%, var(--color-melted) 100%);
-  padding-block: var(--space-16);
-}
-
 .delivery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-5);
+  max-width: 900px;
+  margin-inline: auto;
 }
 
 .delivery-card {
@@ -278,15 +344,12 @@
 }
 
 /* ---- Grocery Stores ---- */
-.grocery-section {
-  padding-block: var(--space-16);
-  background-color: var(--color-vanilla);
-}
-
 .grocery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-4);
+  max-width: 900px;
+  margin-inline: auto;
 }
 
 .grocery-store-card {
@@ -325,21 +388,50 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
-  .locations-grid {
+@media (max-width: 1024px) {
+  .loc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .loc-grid__card:nth-child(3n) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .loc-grid__card:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .loc-hero {
+    height: 55vh;
+    min-height: 360px;
+  }
+
+  .loc-hero__content {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .loc-grid {
     grid-template-columns: 1fr;
+  }
+
+  .loc-grid__card {
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 0 var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .loc-grid__card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
   }
 
   .coming-soon-banner {
     flex-direction: column;
     text-align: center;
     padding: var(--space-6);
-  }
-}
-
-@media (max-width: 600px) {
-  .loc-card__actions {
-    flex-direction: column;
   }
 
   .delivery-grid {

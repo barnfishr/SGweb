@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find Snelgrove Ice Cream near you. Now open in St. George, Centerville, Lehi, Daybreak, Sandy, and Bluffdale, UT. Tooele coming soon. Pints in grocery stores across Utah.">
+  <meta name="description" content="Find Snelgrove Ice Cream near you. Six scoop shops across Utah — St. George, Centerville, Lehi, Daybreak, Sandy, and Bluffdale. Tooele coming soon.">
   <title>Locations — Snelgrove Ice Cream</title>
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/tokens.css">
@@ -50,233 +50,181 @@
 
   <main id="main-content">
 
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-      <div class="page-hero__pattern"></div>
-      <div class="container page-hero__content">
-        <span class="page-hero__label" data-animate="fade-up">Come Find Us</span>
-        <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Our Locations</h1>
-        <p class="page-hero__desc" data-animate="fade-up" data-delay="200">
-          Six scoop shops across Utah, with more on the way. Stop in for a cone, grab a pint, or get delivery straight to your door.
-        </p>
+    <!-- ============================================================= -->
+    <!--  HERO                                                          -->
+    <!-- ============================================================= -->
+    <section class="loc-hero">
+      <img src="images/locations/hero.jpg" alt="Inside a Snelgrove Ice Cream scoop shop" class="loc-hero__img"
+           onerror="this.style.display='none'">
+      <div class="loc-hero__placeholder"></div>
+      <div class="loc-hero__overlay"></div>
+      <div class="loc-hero__content">
+        <h1 class="loc-hero__title" data-animate="fade-up">
+          Find your <em>nearest</em> scoop shop
+        </h1>
       </div>
     </section>
 
     <!-- ============================================================= -->
     <!--  SCOOP SHOPS                                                   -->
     <!-- ============================================================= -->
-    <section class="section locations-page" aria-labelledby="shops-heading">
+    <section class="loc-section locations-page" aria-labelledby="shops-heading">
       <div class="container">
 
-        <header class="section-header section-header--center" data-animate="fade-up">
-          <span class="section-label">Scoop Shops</span>
-          <h2 class="section-title" id="shops-heading">Visit Us Today</h2>
-          <p class="section-subtitle">Pick your nearest shop. Walk in, grab a cone, and taste what 1929 tastes like.</p>
-        </header>
+        <div class="loc-section__header" data-animate="fade-up">
+          <span class="loc-section__region">Utah</span>
+          <h2 class="loc-section__title" id="shops-heading">Locations</h2>
+          <a href="menu.html" class="loc-section__menu-link">See In-Store Menu →</a>
+        </div>
 
-        <div class="locations-grid">
+        <div class="loc-grid">
 
           <!-- ST. GEORGE -->
-          <article class="loc-card" id="st-george" data-animate="fade-up" data-delay="100">
-            <div class="loc-card__img-wrap">
-              <img src="images/locations/st-george.jpg" alt="Snelgrove Ice Cream St. George storefront" class="loc-card__img">
-              <svg class="loc-card__placeholder-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span class="loc-card__badge loc-card__badge--open">Now Open</span>
-            </div>
-            <div class="loc-card__body">
+          <div class="loc-grid__card" data-animate="fade-up" data-delay="100">
+            <article class="loc-card" id="st-george">
+              <div class="loc-card__photo">
+                <img src="images/locations/st-george.jpg" alt="Snelgrove St. George storefront">
+                <svg class="loc-card__placeholder-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3 class="loc-card__name">St. George</h3>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>Desert Hills Plaza<br>922 E. Brigham Rd., Suite 4C<br>St. George, UT 84790</p>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <span class="loc-card__hours-line"><strong>Sun – Thu</strong>&ensp;11:00 AM – 10:00 PM</span>
-                  <span class="loc-card__hours-line"><strong>Fri – Sat</strong>&ensp;11:00 AM – 11:00 PM</span>
-                </div>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+14356277000">(435) 627-XXXX</a>
-              </div>
+              <p class="loc-card__address">
+                Desert Hills Plaza<br>
+                922 E. Brigham Rd., Suite 4C<br>
+                St. George, UT 84790
+              </p>
+              <p class="loc-card__hours"><strong>Sun – Thu</strong> 11 AM – 10 PM</p>
+              <p class="loc-card__hours"><strong>Fri – Sat</strong> 11 AM – 11 PM</p>
+              <p class="loc-card__phone"><a href="tel:+14356277000">(435) 627-XXXX</a></p>
               <div class="loc-card__actions">
-                <a href="https://maps.google.com/?q=922+E+Brigham+Rd+Suite+4C+St+George+UT+84790" target="_blank" rel="noopener" class="btn btn--primary">Get Directions</a>
-                <a href="shop.html" class="btn btn--secondary">Order Now</a>
+                <a href="https://maps.google.com/?q=922+E+Brigham+Rd+Suite+4C+St+George+UT+84790" target="_blank" rel="noopener" class="btn btn--primary">Directions</a>
+                <a href="shop.html" class="btn btn--secondary">Order</a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
           <!-- CENTERVILLE -->
-          <article class="loc-card" id="centerville" data-animate="fade-up" data-delay="200">
-            <div class="loc-card__img-wrap">
-              <img src="images/locations/centerville.jpg" alt="Snelgrove Ice Cream Centerville storefront" class="loc-card__img">
-              <svg class="loc-card__placeholder-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span class="loc-card__badge loc-card__badge--open">Now Open</span>
-            </div>
-            <div class="loc-card__body">
+          <div class="loc-grid__card" data-animate="fade-up" data-delay="200">
+            <article class="loc-card" id="centerville">
+              <div class="loc-card__photo">
+                <img src="images/locations/centerville.jpg" alt="Snelgrove Centerville storefront">
+                <svg class="loc-card__placeholder-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3 class="loc-card__name">Centerville</h3>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>285 N. Main St.<br>Centerville, UT 84014</p>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <span class="loc-card__hours-line"><strong>Sun – Thu</strong>&ensp;11:00 AM – 10:00 PM</span>
-                  <span class="loc-card__hours-line"><strong>Fri – Sat</strong>&ensp;11:00 AM – 11:00 PM</span>
-                </div>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+18015551234">(801) 555-XXXX</a>
-              </div>
+              <p class="loc-card__address">
+                285 N. Main St.<br>
+                Centerville, UT 84014
+              </p>
+              <p class="loc-card__hours"><strong>Sun – Thu</strong> 11 AM – 10 PM</p>
+              <p class="loc-card__hours"><strong>Fri – Sat</strong> 11 AM – 11 PM</p>
+              <p class="loc-card__phone"><a href="tel:+18015551234">(801) 555-XXXX</a></p>
               <div class="loc-card__actions">
-                <a href="https://maps.google.com/?q=285+N+Main+St+Centerville+UT+84014" target="_blank" rel="noopener" class="btn btn--primary">Get Directions</a>
-                <a href="shop.html" class="btn btn--secondary">Order Now</a>
+                <a href="https://maps.google.com/?q=285+N+Main+St+Centerville+UT+84014" target="_blank" rel="noopener" class="btn btn--primary">Directions</a>
+                <a href="shop.html" class="btn btn--secondary">Order</a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
           <!-- LEHI -->
-          <article class="loc-card" id="lehi" data-animate="fade-up" data-delay="300">
-            <div class="loc-card__img-wrap">
-              <img src="images/locations/lehi.jpg" alt="Snelgrove Ice Cream Lehi storefront" class="loc-card__img">
-              <svg class="loc-card__placeholder-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span class="loc-card__badge loc-card__badge--open">Now Open</span>
-            </div>
-            <div class="loc-card__body">
+          <div class="loc-grid__card" data-animate="fade-up" data-delay="300">
+            <article class="loc-card" id="lehi">
+              <div class="loc-card__photo">
+                <img src="images/locations/lehi.jpg" alt="Snelgrove Lehi storefront">
+                <svg class="loc-card__placeholder-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3 class="loc-card__name">Lehi</h3>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>3400 N. Digital Dr.<br>Lehi, UT 84043</p>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <span class="loc-card__hours-line"><strong>Sun – Thu</strong>&ensp;11:00 AM – 10:00 PM</span>
-                  <span class="loc-card__hours-line"><strong>Fri – Sat</strong>&ensp;11:00 AM – 11:00 PM</span>
-                </div>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+18015551234">(801) 555-XXXX</a>
-              </div>
+              <p class="loc-card__address">
+                3400 N. Digital Dr.<br>
+                Lehi, UT 84043
+              </p>
+              <p class="loc-card__hours"><strong>Sun – Thu</strong> 11 AM – 10 PM</p>
+              <p class="loc-card__hours"><strong>Fri – Sat</strong> 11 AM – 11 PM</p>
+              <p class="loc-card__phone"><a href="tel:+18015551234">(801) 555-XXXX</a></p>
               <div class="loc-card__actions">
-                <a href="https://maps.google.com/?q=3400+N+Digital+Dr+Lehi+UT+84043" target="_blank" rel="noopener" class="btn btn--primary">Get Directions</a>
-                <a href="shop.html" class="btn btn--secondary">Order Now</a>
+                <a href="https://maps.google.com/?q=3400+N+Digital+Dr+Lehi+UT+84043" target="_blank" rel="noopener" class="btn btn--primary">Directions</a>
+                <a href="shop.html" class="btn btn--secondary">Order</a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
           <!-- DAYBREAK -->
-          <article class="loc-card" id="daybreak" data-animate="fade-up" data-delay="100">
-            <div class="loc-card__img-wrap">
-              <img src="images/locations/daybreak.jpg" alt="Snelgrove Ice Cream Daybreak storefront" class="loc-card__img">
-              <svg class="loc-card__placeholder-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span class="loc-card__badge loc-card__badge--open">Now Open</span>
-            </div>
-            <div class="loc-card__body">
+          <div class="loc-grid__card" data-animate="fade-up" data-delay="100">
+            <article class="loc-card" id="daybreak">
+              <div class="loc-card__photo">
+                <img src="images/locations/daybreak.jpg" alt="Snelgrove Daybreak storefront">
+                <svg class="loc-card__placeholder-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3 class="loc-card__name">Daybreak</h3>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>11277 S. Kestrel Rise Rd.<br>South Jordan, UT 84009</p>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <span class="loc-card__hours-line"><strong>Sun – Thu</strong>&ensp;11:00 AM – 10:00 PM</span>
-                  <span class="loc-card__hours-line"><strong>Fri – Sat</strong>&ensp;11:00 AM – 11:00 PM</span>
-                </div>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+18015551234">(801) 555-XXXX</a>
-              </div>
+              <p class="loc-card__address">
+                11277 S. Kestrel Rise Rd.<br>
+                South Jordan, UT 84009
+              </p>
+              <p class="loc-card__hours"><strong>Sun – Thu</strong> 11 AM – 10 PM</p>
+              <p class="loc-card__hours"><strong>Fri – Sat</strong> 11 AM – 11 PM</p>
+              <p class="loc-card__phone"><a href="tel:+18015551234">(801) 555-XXXX</a></p>
               <div class="loc-card__actions">
-                <a href="https://maps.google.com/?q=11277+S+Kestrel+Rise+Rd+South+Jordan+UT+84009" target="_blank" rel="noopener" class="btn btn--primary">Get Directions</a>
-                <a href="shop.html" class="btn btn--secondary">Order Now</a>
+                <a href="https://maps.google.com/?q=11277+S+Kestrel+Rise+Rd+South+Jordan+UT+84009" target="_blank" rel="noopener" class="btn btn--primary">Directions</a>
+                <a href="shop.html" class="btn btn--secondary">Order</a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
           <!-- SANDY -->
-          <article class="loc-card" id="sandy" data-animate="fade-up" data-delay="200">
-            <div class="loc-card__img-wrap">
-              <img src="images/locations/sandy.jpg" alt="Snelgrove Ice Cream Sandy storefront" class="loc-card__img">
-              <svg class="loc-card__placeholder-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span class="loc-card__badge loc-card__badge--open">Now Open</span>
-            </div>
-            <div class="loc-card__body">
+          <div class="loc-grid__card" data-animate="fade-up" data-delay="200">
+            <article class="loc-card" id="sandy">
+              <div class="loc-card__photo">
+                <img src="images/locations/sandy.jpg" alt="Snelgrove Sandy storefront">
+                <svg class="loc-card__placeholder-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3 class="loc-card__name">Sandy</h3>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>10450 S. State St.<br>Sandy, UT 84070</p>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <span class="loc-card__hours-line"><strong>Sun – Thu</strong>&ensp;11:00 AM – 10:00 PM</span>
-                  <span class="loc-card__hours-line"><strong>Fri – Sat</strong>&ensp;11:00 AM – 11:00 PM</span>
-                </div>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+18015551234">(801) 555-XXXX</a>
-              </div>
+              <p class="loc-card__address">
+                10450 S. State St.<br>
+                Sandy, UT 84070
+              </p>
+              <p class="loc-card__hours"><strong>Sun – Thu</strong> 11 AM – 10 PM</p>
+              <p class="loc-card__hours"><strong>Fri – Sat</strong> 11 AM – 11 PM</p>
+              <p class="loc-card__phone"><a href="tel:+18015551234">(801) 555-XXXX</a></p>
               <div class="loc-card__actions">
-                <a href="https://maps.google.com/?q=10450+S+State+St+Sandy+UT+84070" target="_blank" rel="noopener" class="btn btn--primary">Get Directions</a>
-                <a href="shop.html" class="btn btn--secondary">Order Now</a>
+                <a href="https://maps.google.com/?q=10450+S+State+St+Sandy+UT+84070" target="_blank" rel="noopener" class="btn btn--primary">Directions</a>
+                <a href="shop.html" class="btn btn--secondary">Order</a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
           <!-- BLUFFDALE -->
-          <article class="loc-card" id="bluffdale" data-animate="fade-up" data-delay="300">
-            <div class="loc-card__img-wrap">
-              <img src="images/locations/bluffdale.jpg" alt="Snelgrove Ice Cream Bluffdale storefront" class="loc-card__img">
-              <svg class="loc-card__placeholder-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span class="loc-card__badge loc-card__badge--open">Now Open</span>
-            </div>
-            <div class="loc-card__body">
+          <div class="loc-grid__card" data-animate="fade-up" data-delay="300">
+            <article class="loc-card" id="bluffdale">
+              <div class="loc-card__photo">
+                <img src="images/locations/bluffdale.jpg" alt="Snelgrove Bluffdale storefront">
+                <svg class="loc-card__placeholder-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3 class="loc-card__name">Bluffdale</h3>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>14400 S. Bangerter Pkwy.<br>Bluffdale, UT 84065</p>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <span class="loc-card__hours-line"><strong>Sun – Thu</strong>&ensp;11:00 AM – 10:00 PM</span>
-                  <span class="loc-card__hours-line"><strong>Fri – Sat</strong>&ensp;11:00 AM – 11:00 PM</span>
-                </div>
-              </div>
-              <div class="loc-card__detail">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.18 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+18015551234">(801) 555-XXXX</a>
-              </div>
+              <p class="loc-card__address">
+                14400 S. Bangerter Pkwy.<br>
+                Bluffdale, UT 84065
+              </p>
+              <p class="loc-card__hours"><strong>Sun – Thu</strong> 11 AM – 10 PM</p>
+              <p class="loc-card__hours"><strong>Fri – Sat</strong> 11 AM – 11 PM</p>
+              <p class="loc-card__phone"><a href="tel:+18015551234">(801) 555-XXXX</a></p>
               <div class="loc-card__actions">
-                <a href="https://maps.google.com/?q=14400+S+Bangerter+Pkwy+Bluffdale+UT+84065" target="_blank" rel="noopener" class="btn btn--primary">Get Directions</a>
-                <a href="shop.html" class="btn btn--secondary">Order Now</a>
+                <a href="https://maps.google.com/?q=14400+S+Bangerter+Pkwy+Bluffdale+UT+84065" target="_blank" rel="noopener" class="btn btn--primary">Directions</a>
+                <a href="shop.html" class="btn btn--secondary">Order</a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
-        </div>
+        </div><!-- /.loc-grid -->
       </div>
     </section>
 
     <!-- ============================================================= -->
     <!--  COMING SOON                                                   -->
     <!-- ============================================================= -->
-    <section class="coming-soon-section" aria-labelledby="coming-soon-heading">
+    <section class="loc-section loc-section--alt" aria-labelledby="coming-soon-heading">
       <div class="container">
-
-        <header class="section-header section-header--center" data-animate="fade-up">
-          <span class="section-label">On the Way</span>
-          <h2 class="section-title" id="coming-soon-heading">Opening Soon</h2>
-        </header>
-
+        <div class="loc-section__header" data-animate="fade-up">
+          <span class="loc-section__region">On the Way</span>
+          <h2 class="loc-section__title" id="coming-soon-heading">Opening Soon</h2>
+        </div>
         <div class="coming-soon-banner" data-animate="fade-up" data-delay="100">
           <span class="coming-soon-banner__icon">🚧</span>
           <div class="coming-soon-banner__info">
@@ -285,64 +233,58 @@
             <span class="coming-soon-banner__badge">Coming Soon</span>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- ============================================================= -->
     <!--  LOCAL DELIVERY                                                -->
     <!-- ============================================================= -->
-    <section class="delivery-section" aria-labelledby="delivery-heading">
+    <section class="loc-section" aria-labelledby="delivery-heading">
       <div class="container">
-
-        <header class="section-header section-header--center" data-animate="fade-up">
-          <span class="section-label">Local Delivery</span>
-          <h2 class="section-title" id="delivery-heading">Delivered to Your Door</h2>
-          <p class="section-subtitle">
-            Can't make it to the shop? Order Snelgrove through your favorite delivery app and we'll bring the scoops to you.
+        <div class="loc-section__header" data-animate="fade-up">
+          <span class="loc-section__region">Delivery</span>
+          <h2 class="loc-section__title" id="delivery-heading">Delivered to Your Door</h2>
+          <p style="font-size:var(--text-base); color:var(--color-text-mid); max-width:50ch; margin-inline:auto; line-height:1.7; margin-top:var(--space-2);">
+            Can't make it to the shop? Order Snelgrove through your favorite delivery app.
           </p>
-        </header>
-
+        </div>
         <div class="delivery-grid">
           <a class="delivery-card" href="#" data-animate="fade-up" data-delay="100">
             <span class="delivery-card__icon">🟠</span>
             <span class="delivery-card__name">DoorDash</span>
-            <span class="delivery-card__desc">Order for delivery or pickup</span>
+            <span class="delivery-card__desc">Delivery &amp; pickup</span>
           </a>
           <a class="delivery-card" href="#" data-animate="fade-up" data-delay="200">
             <span class="delivery-card__icon">🟢</span>
             <span class="delivery-card__name">Uber Eats</span>
-            <span class="delivery-card__desc">Order for delivery or pickup</span>
+            <span class="delivery-card__desc">Delivery &amp; pickup</span>
           </a>
           <a class="delivery-card" href="#" data-animate="fade-up" data-delay="300">
             <span class="delivery-card__icon">🔴</span>
             <span class="delivery-card__name">Grubhub</span>
-            <span class="delivery-card__desc">Order for delivery or pickup</span>
+            <span class="delivery-card__desc">Delivery &amp; pickup</span>
           </a>
           <a class="delivery-card" href="shop.html" data-animate="fade-up" data-delay="400">
             <span class="delivery-card__icon">📦</span>
             <span class="delivery-card__name">Ship Nationwide</span>
-            <span class="delivery-card__desc">Build a pint pack &amp; we'll ship it</span>
+            <span class="delivery-card__desc">Build a pint pack</span>
           </a>
         </div>
-
       </div>
     </section>
 
     <!-- ============================================================= -->
     <!--  GROCERY STORES                                                -->
     <!-- ============================================================= -->
-    <section class="section grocery-section" aria-labelledby="grocery-heading" id="grocery">
+    <section class="loc-section loc-section--alt" aria-labelledby="grocery-heading" id="grocery">
       <div class="container">
-
-        <header class="section-header section-header--center" data-animate="fade-up">
-          <span class="section-label">Grocery Locator</span>
-          <h2 class="section-title" id="grocery-heading">Find Us in Stores</h2>
-          <p class="section-subtitle">
-            Snelgrove pints are in grocery store freezers across Utah. Grab one on your next shopping trip.
+        <div class="loc-section__header" data-animate="fade-up">
+          <span class="loc-section__region">Grocery Locator</span>
+          <h2 class="loc-section__title" id="grocery-heading">Find Us in Stores</h2>
+          <p style="font-size:var(--text-base); color:var(--color-text-mid); max-width:50ch; margin-inline:auto; line-height:1.7; margin-top:var(--space-2);">
+            Snelgrove pints are in freezers across Utah. Grab one on your next shopping trip.
           </p>
-        </header>
-
+        </div>
         <div class="grocery-grid">
           <div class="grocery-store-card" data-animate="fade-up" data-delay="100">
             <span class="grocery-store-card__icon">🛒</span>
@@ -375,11 +317,9 @@
             <p class="grocery-store-card__region">Expanding statewide</p>
           </div>
         </div>
-
         <p style="text-align:center; margin-top:var(--space-8); font-size:var(--text-sm); color:var(--color-text-mid);" data-animate="fade-up">
           Don't see your store? <a href="contact.html" style="color:var(--color-cherry); font-weight:700;">Let us know</a> and we'll work to get Snelgrove near you.
         </p>
-
       </div>
     </section>
 
@@ -388,19 +328,11 @@
     <!-- ============================================================= -->
     <section style="background-color:var(--color-blueberry); color:var(--color-vanilla); padding-block:var(--space-16); text-align:center;">
       <div class="container">
-        <span style="font-family:var(--font-script); font-size:var(--text-2xl); color:var(--color-banana-split); display:block; margin-bottom:var(--space-3);" data-animate="fade-up">
-          Can't wait?
-        </span>
-        <h2 style="font-family:var(--font-display); font-size:clamp(var(--text-3xl),5vw,var(--text-5xl)); font-weight:900; color:var(--color-vanilla); margin-bottom:var(--space-4);" data-animate="fade-up" data-delay="100">
-          Ship Pints Straight to Your Door
-        </h2>
-        <p style="font-size:var(--text-lg); color:rgba(252,240,228,0.8); margin-bottom:var(--space-8);" data-animate="fade-up" data-delay="200">
-          Build your own custom pack and we'll ship Snelgrove ice cream right to you.
-        </p>
+        <span style="font-family:var(--font-script); font-size:var(--text-2xl); color:var(--color-banana-split); display:block; margin-bottom:var(--space-3);" data-animate="fade-up">Can't wait?</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(var(--text-3xl),5vw,var(--text-5xl)); font-weight:900; color:var(--color-vanilla); margin-bottom:var(--space-4);" data-animate="fade-up" data-delay="100">Ship Pints Straight to Your Door</h2>
+        <p style="font-size:var(--text-lg); color:rgba(252,240,228,0.8); margin-bottom:var(--space-8);" data-animate="fade-up" data-delay="200">Build your own custom pack and we'll ship Snelgrove ice cream right to you.</p>
         <div data-animate="fade-up" data-delay="300">
-          <a href="shop.html" class="btn btn--gold" style="font-size:var(--text-base); padding:var(--space-4) var(--space-10);">
-            Build a Pint Pack →
-          </a>
+          <a href="shop.html" class="btn btn--gold" style="font-size:var(--text-base); padding:var(--space-4) var(--space-10);">Build a Pint Pack →</a>
         </div>
       </div>
     </section>
@@ -458,14 +390,13 @@
     </div>
   </footer>
 
-  <style>@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }</style>
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
   <script>
-    document.querySelectorAll('.loc-card__img').forEach(function(img) {
+    document.querySelectorAll('.loc-card__photo img').forEach(function(img) {
       img.addEventListener('error', function() {
         this.style.display = 'none';
-        this.closest('.loc-card__img-wrap').classList.add('loc-card__img-wrap--no-img');
+        this.closest('.loc-card__photo').classList.add('loc-card__photo--no-img');
       });
     });
   </script>
