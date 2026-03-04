@@ -1,0 +1,24 @@
+<section class="page-hero">
+  <div class="page-hero__pattern"></div>
+  <div class="page-hero__content container">
+    <span class="page-hero__label">{{ section.settings.label | default: 'Shop' }}</span>
+    <h1 class="page-hero__title">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <p class="page-hero__desc">{{ collection.description }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section label",
+      "default": "Our Flavors"
+    }
+  ]
+}
+{% endschema %}

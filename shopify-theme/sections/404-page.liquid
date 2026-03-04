@@ -1,0 +1,22 @@
+<section class="page-hero">
+  <div class="page-hero__pattern"></div>
+  <div class="page-hero__content container">
+    <span class="page-hero__label">Oops!</span>
+    <h1 class="page-hero__title">Page Not Found</h1>
+    <p class="page-hero__desc">Looks like this flavor doesn't exist. Let's get you back to the good stuff.</p>
+  </div>
+</section>
+
+<section class="section" style="text-align:center;">
+  <div class="container">
+    <a href="/" class="btn btn--primary">Back to Home</a>
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--secondary" style="margin-left: var(--space-4);">Browse Flavors</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404 Page",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+<section class="section featured-flavors" aria-labelledby="fc-heading-{{ section.id }}">
+  <div class="container">
+
+    <header class="section-header section-header--center" data-animate="fade-up">
+      {%- if section.settings.label != blank -%}
+        <span class="section-label">{{ section.settings.label }}</span>
+      {%- endif -%}
+      <h2 class="section-title" id="fc-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
+      {%- if section.settings.description != blank -%}
+        <p class="section-subtitle">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- assign collection = collections[section.settings.collection] -%}
+    <div class="flavors-grid">
+      {%- for product in collection.products limit: section.settings.limit -%}
+        <article class="flavor-card" data-animate="fade-up" data-delay="{{ forloop.index | times: 100 }}">
+          <a href="{{ product.url }}" class="flavor-card__link">
+            <div class="flavor-card__img-wrap">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 400 }}"
+                     alt="{{ product.featured_image.alt | default: product.title }}"
+                     class="flavor-card__img"
+                     loading="lazy">
+              {%- else -%}
+                <div class="flavor-card__emoji" aria-hidden="true">{{ product.title | truncate: 3, '' }}</div>
+              {%- endif -%}
+              {%- if product.tags contains 'classic' -%}
+                <div class="flavor-card__badge"><span class="tag tag--gold">Classic</span></div>
+              {%- elsif product.tags contains 'fan-favorite' -%}
+                <div class="flavor-card__badge"><span class="tag tag--brown">Fan Favorite</span></div>
+              {%- endif -%}
+            </div>
+            <div class="flavor-card__body">
+              <h3 class="flavor-card__name">{{ product.title }}</h3>
+              <p class="flavor-card__desc">{{ product.description | strip_html | truncate: 120 }}</p>
+              <p class="flavor-card__price">{{ product.price | money }}</p>
+            </div>
+          </a>
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <div style="text-align:center; margin-top: var(--space-10);" data-animate="fade-up">
+      <a href="{{ collection.url | default: routes.all_products_collection_url }}" class="btn btn--primary">{{ section.settings.button_text | default: 'See All Flavors' }}</a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section label",
+      "default": "The Classics"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Flavors Worth<br>Coming Back For</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "See All Flavors"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

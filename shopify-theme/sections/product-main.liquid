@@ -1,0 +1,117 @@
+<section class="section product-page">
+  <div class="container">
+    <div class="product-layout">
+
+      <!-- Product Images -->
+      <div class="product-gallery" data-animate="fade-up">
+        <div class="product-gallery__main">
+          {%- if product.featured_image -%}
+            <img id="product-main-image"
+                 src="{{ product.featured_image | image_url: width: 800 }}"
+                 alt="{{ product.featured_image.alt | default: product.title }}"
+                 class="product-gallery__img">
+          {%- endif -%}
+        </div>
+        {%- if product.images.size > 1 -%}
+          <div class="product-gallery__thumbs">
+            {%- for image in product.images -%}
+              <button class="product-gallery__thumb{% if forloop.first %} active{% endif %}"
+                      data-image-url="{{ image | image_url: width: 800 }}"
+                      aria-label="View {{ product.title }} image {{ forloop.index }}">
+                <img src="{{ image | image_url: width: 120 }}" alt="" loading="lazy">
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info" data-animate="fade-up" data-delay="200">
+        {%- if product.tags contains 'classic' -%}
+          <span class="tag tag--gold" style="margin-bottom: var(--space-3);">Classic</span>
+        {%- elsif product.tags contains 'fan-favorite' -%}
+          <span class="tag tag--brown" style="margin-bottom: var(--space-3);">Fan Favorite</span>
+        {%- endif -%}
+
+        <h1 class="product-info__title">{{ product.title }}</h1>
+        <p class="product-info__price">{{ product.price | money }}</p>
+
+        <div class="product-info__desc">
+          {{ product.description }}
+        </div>
+
+        {%- form 'product', product -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          {%- if product.variants.size > 1 -%}
+            <div class="product-info__variants">
+              <label for="variant-select" class="product-info__label">Size / Option</label>
+              <select id="variant-select" name="id" class="product-info__select">
+                {%- for variant in product.variants -%}
+                  <option value="{{ variant.id }}"
+                    {%- if variant == product.selected_or_first_available_variant %} selected{% endif -%}
+                    {%- unless variant.available %} disabled{% endunless -%}>
+                    {{ variant.title }} — {{ variant.price | money }}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endif -%}
+
+          <div class="product-info__quantity">
+            <label for="quantity" class="product-info__label">Quantity</label>
+            <div class="quantity-selector">
+              <button type="button" class="quantity-selector__btn" data-action="decrease" aria-label="Decrease quantity">−</button>
+              <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector__input">
+              <button type="button" class="quantity-selector__btn" data-action="increase" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary product-info__add"
+                  {%- unless product.selected_or_first_available_variant.available %} disabled{% endunless -%}>
+            {%- if product.selected_or_first_available_variant.available -%}
+              Add to Cart
+            {%- else -%}
+              Sold Out
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Thumbnail gallery
+  document.querySelectorAll('.product-gallery__thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var url = this.getAttribute('data-image-url');
+      document.getElementById('product-main-image').src = url;
+      document.querySelectorAll('.product-gallery__thumb').forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // Quantity selector
+  document.querySelectorAll('.quantity-selector__btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var input = this.parentElement.querySelector('.quantity-selector__input');
+      var val = parseInt(input.value) || 1;
+      if (this.getAttribute('data-action') === 'increase') {
+        input.value = val + 1;
+      } else if (val > 1) {
+        input.value = val - 1;
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Main",
+  "settings": []
+}
+{% endschema %}

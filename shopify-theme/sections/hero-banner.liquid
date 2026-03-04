@@ -1,0 +1,95 @@
+<section class="hero" aria-label="Hero">
+  <div class="hero__pattern"></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="hero__eyebrow" data-animate="fade-up">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      <h1 class="hero__title" data-animate="fade-up" data-delay="100">
+        {{ section.settings.heading }}
+      </h1>
+
+      {%- if section.settings.description != blank -%}
+        <p class="hero__desc" data-animate="fade-up" data-delay="300">
+          {{ section.settings.description }}
+        </p>
+      {%- endif -%}
+
+      <div class="hero__actions" data-animate="fade-up" data-delay="400">
+        {%- if section.settings.button_1_text != blank -%}
+          <a href="{{ section.settings.button_1_url }}" class="btn btn--gold">{{ section.settings.button_1_text }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_2_text != blank -%}
+          <a href="{{ section.settings.button_2_url }}" class="btn btn--outline-white">{{ section.settings.button_2_text }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.hero_image -%}
+      <div class="hero__product-col" data-animate="fade-left" data-delay="200">
+        <img src="{{ section.settings.hero_image | image_url: width: 800 }}"
+             alt="{{ section.settings.hero_image.alt | default: shop.name }}"
+             class="hero__product-img"
+             loading="eager">
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Utah's Finest Since 1929"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Celebrate<br><em>with</em><br>Snelgrove</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 text",
+      "default": "Explore Flavors"
+    },
+    {
+      "type": "url",
+      "id": "button_1_url",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 text",
+      "default": "Order Pints Online"
+    },
+    {
+      "type": "url",
+      "id": "button_2_url",
+      "label": "Button 2 link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

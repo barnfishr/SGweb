@@ -1,0 +1,32 @@
+<div class="topbar">
+  {{ section.settings.text }}
+  {%- if section.settings.link_text != blank -%}
+    &nbsp;·&nbsp;
+    <a href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Now open in 6 Utah locations! · St. George · Centerville · Lehi · Daybreak · Sandy · Bluffdale"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Find a location →"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    }
+  ]
+}
+{% endschema %}

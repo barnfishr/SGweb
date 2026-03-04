@@ -1,0 +1,49 @@
+{
+  "current": {
+    "social_instagram_link": "https://www.instagram.com/snelgroveicecream",
+    "social_facebook_link": "https://www.facebook.com/snelgroveicecream/",
+    "social_tiktok_link": "https://www.tiktok.com/@snelgroveicecream",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "Now open in 6 Utah locations! · St. George · Centerville · Lehi · Daybreak · Sandy · Bluffdale"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "cta_text": "Order Online"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "Artistry in Pleasure Foods",
+          "description": "Utah's beloved ice cream since 1929. Classic recipes handed down through generations — made with the same love, craft, and promise of joy.",
+          "instagram_url": "https://www.instagram.com/snelgroveicecream",
+          "facebook_url": "https://www.facebook.com/snelgroveicecream/",
+          "tiktok_url": "https://www.tiktok.com/@snelgroveicecream"
+        },
+        "blocks": {
+          "menu-1": {
+            "type": "menu_column",
+            "settings": {
+              "heading": "Explore",
+              "menu": "footer-explore"
+            }
+          },
+          "menu-2": {
+            "type": "menu_column",
+            "settings": {
+              "heading": "Favorites",
+              "menu": "footer-favorites"
+            }
+          }
+        },
+        "block_order": ["menu-1", "menu-2"]
+      }
+    }
+  }
+}
