@@ -205,8 +205,8 @@
   left: 0;
   right: 0;
   z-index: 200;
-  background-color: var(--color-cherry);
-  color: var(--color-white);
+  background-color: var(--color-mint-chip);
+  color: var(--color-blueberry);
   padding-block: var(--space-5);
 }
 
@@ -535,8 +535,8 @@
 
 /* ---- Grocery CTA band ---- */
 .grocery-band {
-  background-color: var(--color-cherry);
-  color: var(--color-white);
+  background-color: var(--color-mint-chip);
+  color: var(--color-blueberry);
   text-align: center;
   padding-block: var(--space-12);
 }
@@ -545,13 +545,13 @@
   font-family: var(--font-display);
   font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
   font-weight: 900;
-  color: var(--color-white);
+  color: var(--color-blueberry);
   margin-bottom: var(--space-3);
 }
 
 .grocery-band__sub {
   font-size: var(--text-lg);
-  color: rgba(255,255,255,0.85);
+  color: var(--color-text-mid);
   margin-bottom: var(--space-8);
 }
 
@@ -581,25 +581,27 @@
 
 .quote-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
 }
 
 .quote-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: var(--space-7);
+  padding: var(--space-6) var(--space-6) var(--space-5);
   box-shadow: var(--shadow-sm);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .quote-card__mark {
   font-family: var(--font-display);
-  font-size: 64px;
-  line-height: 0.8;
+  font-size: 48px;
+  line-height: 1;
   color: var(--color-candy-pink);
   opacity: 0.7;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   display: block;
 }
 
@@ -609,6 +611,7 @@
   line-height: 1.7;
   font-style: italic;
   margin-bottom: var(--space-5);
+  flex: 1;
 }
 
 .quote-card__author {
@@ -618,8 +621,16 @@
 }
 
 .quote-card__source {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--color-cherry);
+}
+
+@media (max-width: 900px) {
+  .quote-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
 }
 
 /* ---- Email / Newsletter CTA ---- */
