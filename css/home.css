@@ -205,8 +205,8 @@
   left: 0;
   right: 0;
   z-index: 200;
-  background-color: var(--color-mint-chip);
-  color: var(--color-blueberry);
+  background-color: var(--color-cherry);
+  color: #fff;
   padding-block: var(--space-5);
 }
 
