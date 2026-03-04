@@ -1,0 +1,66 @@
+<section class="section">
+  <div class="container">
+    <div class="product-grid product-grid--{{ section.settings.products_per_row }}">
+      {%- paginate collection.products by section.settings.products_per_page -%}
+        {%- for product in collection.products -%}
+          <article class="flavor-card" data-animate="fade-up" data-delay="{{ forloop.index | times: 50 | at_most: 400 }}">
+            <a href="{{ product.url }}" class="flavor-card__link">
+              <div class="flavor-card__img-wrap">
+                {%- if product.featured_image -%}
+                  <img src="{{ product.featured_image | image_url: width: 400 }}"
+                       alt="{{ product.featured_image.alt | default: product.title }}"
+                       class="flavor-card__img"
+                       loading="lazy">
+                {%- else -%}
+                  <div class="flavor-card__emoji" aria-hidden="true">{{ product.title | truncate: 3, '' }}</div>
+                {%- endif -%}
+                {%- if product.tags contains 'classic' -%}
+                  <div class="flavor-card__badge"><span class="tag tag--gold">Classic</span></div>
+                {%- elsif product.tags contains 'fan-favorite' -%}
+                  <div class="flavor-card__badge"><span class="tag tag--brown">Fan Favorite</span></div>
+                {%- endif -%}
+              </div>
+              <div class="flavor-card__body">
+                <h3 class="flavor-card__name">{{ product.title }}</h3>
+                <p class="flavor-card__desc">{{ product.description | strip_html | truncate: 100 }}</p>
+                <p class="flavor-card__price">{{ product.price | money }}</p>
+              </div>
+            </a>
+          </article>
+        {%- endfor -%}
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" aria-label="Pagination">
+            {{ paginate | default_pagination }}
+          </nav>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "label": "Products per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

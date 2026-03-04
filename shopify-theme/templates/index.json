@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "eyebrow": "Utah's Finest Since 1929",
+        "heading": "Celebrate<br><em>with</em><br>Snelgrove",
+        "description": "Charles Snelgrove believed ice cream wasn't just a treat — it was a reason to gather, to laugh, to forget your troubles for a moment. Since 1929, every scoop has carried that promise.",
+        "button_1_text": "Explore Flavors",
+        "button_1_url": "/collections/all",
+        "button_2_text": "Order Pints Online",
+        "button_2_url": "/collections/all"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "label": "The Classics",
+        "heading": "Flavors Worth<br>Coming Back For",
+        "description": "From beloved originals like Burnt Almond Fudge to exciting new creations — every scoop is crafted to bring you back to your happiest moments.",
+        "collection": "all"
+      }
+    }
+  },
+  "order": ["hero", "featured-collection"]
+}

@@ -1,0 +1,66 @@
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" aria-label="{{ shop.name }} — Home">
+      {%- if section.settings.logo -%}
+        <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="nav__logo-img" loading="eager">
+      {%- else -%}
+        <div class="nav__logo-text" style="display:flex">
+          <span class="nav__logo-name">Snelgrove</span>
+          <span class="nav__logo-est">Est. 1929</span>
+        </div>
+      {%- endif -%}
+    </a>
+
+    <nav class="nav__links" role="navigation" aria-label="Main navigation">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" class="nav__link{% if link.active %} active{% endif %}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="nav__cta">
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">
+        {{ section.settings.cta_text | default: 'Order Online' }}
+      </a>
+    </div>
+
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="nav__mobile" role="navigation" aria-label="Mobile navigation">
+  {%- for link in section.settings.menu.links -%}
+    <a href="{{ link.url }}" class="nav__mobile-link{% if link.active %} active{% endif %}">{{ link.title }}</a>
+  {%- endfor -%}
+  <div class="nav__mobile-cta">
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="width:100%;justify-content:center;">
+      {{ section.settings.cta_text | default: 'Order Online' }}
+    </a>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "Order Online"
+    }
+  ]
+}
+{% endschema %}
