@@ -28,10 +28,6 @@
       background: var(--color-candy-pink); opacity: .4;
       display: flex; align-items: center; justify-content: center;
     }
-    .catering-intro__label {
-      font-family: var(--font-script); font-size: var(--text-2xl);
-      color: var(--color-cherry); display: block; margin-bottom: var(--space-3);
-    }
     .catering-intro__title {
       font-family: var(--font-display);
       font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
@@ -58,14 +54,6 @@
     .package-card:hover {
       box-shadow: var(--shadow-lg); transform: translateY(-4px);
     }
-    .package-card__icon {
-      width: 64px; height: 64px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: var(--space-5); font-size: 28px;
-    }
-    .package-card__icon--cart { background: var(--color-cherry-light); color: var(--color-cherry); }
-    .package-card__icon--cooler { background: var(--color-blueberry-light); color: var(--color-blueberry); }
-    .package-card__icon--custom { background: #FEF3D4; color: var(--color-banana-dark); }
     .package-card__name {
       font-family: var(--font-display); font-size: var(--text-2xl);
       font-weight: 900; color: var(--color-blueberry);
@@ -96,41 +84,9 @@
     .package-card__features li::before {
       content: '\2713'; display: flex; align-items: center; justify-content: center;
       width: 22px; height: 22px; border-radius: 50%;
-      background: var(--color-cherry); color: white; font-size: 11px; font-weight: 900;
+      background: var(--color-blueberry); color: white; font-size: 11px; font-weight: 900;
       flex-shrink: 0;
     }
-    .package-card__tag {
-      display: inline-block; padding: var(--space-1) var(--space-3);
-      border-radius: var(--radius-full); font-size: var(--text-xs);
-      font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      margin-bottom: var(--space-4);
-    }
-    .package-card__tag--popular { background: #DCFCE7; color: #166534; }
-    .package-card__tag--flexible { background: #FEF3D4; color: var(--color-banana-dark); }
-
-    /* ---- How It Works ---- */
-    .how-it-works { background: var(--color-vanilla); }
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-8); counter-reset: step;
-    }
-    .step-item { text-align: center; }
-    .step-item__number {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--color-cherry); color: var(--color-white);
-      font-family: var(--font-display); font-size: var(--text-xl);
-      font-weight: 900; display: flex; align-items: center;
-      justify-content: center; margin: 0 auto var(--space-4);
-    }
-    .step-item__title {
-      font-family: var(--font-display); font-size: var(--text-lg);
-      font-weight: 700; color: var(--color-blueberry);
-      margin-bottom: var(--space-2);
-    }
-    .step-item__desc {
-      font-size: var(--text-sm); color: var(--color-text-mid); line-height: 1.6;
-    }
-
     /* ---- Events strip ---- */
     .events-strip { background: var(--color-blueberry); color: var(--color-vanilla); position: relative; overflow: hidden; }
     .events-strip__pattern {
@@ -170,13 +126,6 @@
       font-size: var(--text-base); color: var(--color-text-mid);
       line-height: 1.8; margin-bottom: var(--space-6);
     }
-    .inquiry-info__note {
-      background: var(--color-mint-chip); border-radius: var(--radius-lg);
-      padding: var(--space-5);
-    }
-    .inquiry-info__note p {
-      font-size: var(--text-sm); color: var(--color-blueberry); line-height: 1.6;
-    }
     .inquiry-form-card {
       background: var(--color-white); border-radius: var(--radius-xl);
       padding: var(--space-8); box-shadow: var(--shadow-lg);
@@ -211,13 +160,9 @@
     @media (max-width: 900px) {
       .catering-intro { grid-template-columns: 1fr; gap: var(--space-8); }
       .packages-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
       .events-grid { grid-template-columns: 1fr; }
       .inquiry-grid { grid-template-columns: 1fr; gap: var(--space-8); }
       .form-row { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      .steps-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -263,12 +208,11 @@
   <main id="main-content">
 
     <!-- PAGE HERO -->
-    <section class="page-hero" style="background-color:var(--color-blueberry);">
+    <section class="page-hero" style="background-color:var(--color-blueberry); padding-block: var(--space-20, 6rem) var(--space-16, 4.5rem);">
       <div class="page-hero__pattern"></div>
       <div class="container page-hero__content">
-        <span class="page-hero__label" data-animate="fade-up">Sprinkle Joy on Your Next Event</span>
-        <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Catering</h1>
-        <p class="page-hero__desc" data-animate="fade-up" data-delay="200">
+        <h1 class="page-hero__title" data-animate="fade-up">Catering &amp; Events</h1>
+        <p class="page-hero__desc" data-animate="fade-up" data-delay="100">
           From charming cart setups to grab-and-go coolers, Snelgrove Ice Cream brings the
           scoop shop experience straight to your celebration.
         </p>
@@ -285,7 +229,6 @@
             <div class="catering-intro__img-placeholder" style="display:none"><img src="images/logo-icon.svg" alt="" style="height:64px;opacity:0.25;"></div>
           </div>
           <div data-animate="fade-right">
-            <span class="catering-intro__label">The Snelgrove Experience</span>
             <h2 class="catering-intro__title" id="catering-intro-heading">
               Ice Cream Makes<br>Every Event Better.
             </h2>
@@ -318,10 +261,6 @@
 
           <!-- The Snelgrove Cart -->
           <div class="package-card" data-animate="fade-up" data-delay="100">
-            <span class="package-card__tag package-card__tag--popular">Most Popular</span>
-            <div class="package-card__icon package-card__icon--cart">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </div>
             <h3 class="package-card__name">The Snelgrove Cart</h3>
             <p class="package-card__desc">
               Our charming vintage-style cart brings the full scoop shop experience to your
@@ -349,9 +288,6 @@
 
           <!-- Chiller Cooler -->
           <div class="package-card" data-animate="fade-up" data-delay="200">
-            <div class="package-card__icon package-card__icon--cooler">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V3a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v4"/></svg>
-            </div>
             <h3 class="package-card__name">Chiller Cooler</h3>
             <p class="package-card__desc">
               Perfect for parties on the go! This cooler comes packed with your 4 favorite
@@ -378,10 +314,6 @@
 
           <!-- Custom Experience -->
           <div class="package-card" data-animate="fade-up" data-delay="300">
-            <span class="package-card__tag package-card__tag--flexible">Flexible</span>
-            <div class="package-card__icon package-card__icon--custom">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
             <h3 class="package-card__name">Custom Experience</h3>
             <p class="package-card__desc">
               Dream it up and we'll make it happen. From branded packaging to custom flavor
@@ -404,39 +336,6 @@
             <a href="#inquiry" class="btn btn--gold" style="text-align:center; justify-content:center;">Let's Create Something Special</a>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section how-it-works" aria-labelledby="how-heading">
-      <div class="container">
-        <header class="section-header section-header--center" data-animate="fade-up">
-          <span class="section-label">Simple as a Scoop</span>
-          <h2 class="section-title" id="how-heading">How It Works</h2>
-        </header>
-
-        <div class="steps-grid">
-          <div class="step-item" data-animate="fade-up" data-delay="100">
-            <div class="step-item__number">1</div>
-            <h3 class="step-item__title">Tell Us About Your Event</h3>
-            <p class="step-item__desc">Fill out the form below with your event details, date, and estimated guest count.</p>
-          </div>
-          <div class="step-item" data-animate="fade-up" data-delay="200">
-            <div class="step-item__number">2</div>
-            <h3 class="step-item__title">Get Your Quote</h3>
-            <p class="step-item__desc">Someone from our team will contact you shortly with a custom quote and flavor options.</p>
-          </div>
-          <div class="step-item" data-animate="fade-up" data-delay="300">
-            <div class="step-item__number">3</div>
-            <h3 class="step-item__title">Pick Your Flavors</h3>
-            <p class="step-item__desc">Choose from our full lineup of classic Snelgrove flavors for your event.</p>
-          </div>
-          <div class="step-item" data-animate="fade-up" data-delay="400">
-            <div class="step-item__number">4</div>
-            <h3 class="step-item__title">We Bring the Joy</h3>
-            <p class="step-item__desc">Sit back and let us handle everything — setup, scooping, smiles, and cleanup.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -507,12 +406,13 @@
               create a custom catering experience that captures the nostalgia, joy, and togetherness
               that only Snelgrove Ice Cream can deliver.
             </p>
-            <div class="inquiry-info__note">
-              <p>
-                <strong>We typically respond within 1–2 business days.</strong><br>
-                For urgent catering inquiries, email us at
-                <a href="mailto:lyndsay@snelgroveicecream.com" style="color:var(--color-cherry);">lyndsay@snelgroveicecream.com</a>
-              </p>
+            <div style="border-radius: var(--radius-xl); aspect-ratio: 4/3; background: var(--color-melted); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <img src="images/catering-inquiry.webp" alt="Snelgrove catering event" style="width:100%; height:100%; object-fit:cover;"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div style="display:none; flex-direction:column; align-items:center; gap:var(--space-2); color:var(--color-text-mid); font-size:var(--text-sm);">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Photo placeholder</span>
+              </div>
             </div>
           </div>
 
