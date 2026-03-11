@@ -94,47 +94,8 @@
     .form-select { cursor: pointer; }
     .form-submit { width: 100%; padding-block: var(--space-4); font-size: var(--text-base); margin-top: var(--space-2); }
 
-    /* Catering section */
-    .catering-section { background: var(--color-melted); }
-    .catering-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: var(--space-12); align-items: center;
-    }
-    .catering-img {
-      border-radius: var(--radius-xl); width: 100%;
-      aspect-ratio: 4/3; object-fit: cover;
-    }
-    .catering-img-placeholder {
-      border-radius: var(--radius-xl); aspect-ratio: 4/3;
-      background: var(--color-candy-pink); opacity: .4;
-      display: flex; align-items: center; justify-content: center; font-size: 80px;
-    }
-    .catering-label {
-      font-family: var(--font-script); font-size: var(--text-2xl);
-      color: var(--color-cherry); display: block; margin-bottom: var(--space-3);
-    }
-    .catering-title {
-      font-family: var(--font-display); font-size: clamp(var(--text-3xl),4vw,var(--text-5xl));
-      font-weight: 900; color: var(--color-blueberry); margin-bottom: var(--space-5); line-height: 1.1;
-    }
-    .catering-body {
-      font-size: var(--text-base); color: var(--color-text-mid); line-height: 1.8;
-      margin-bottom: var(--space-5); max-width: 50ch;
-    }
-    .catering-features { list-style: none; margin-bottom: var(--space-7); }
-    .catering-features li {
-      display: flex; align-items: center; gap: var(--space-3);
-      font-size: var(--text-sm); color: var(--color-text); margin-bottom: var(--space-3);
-    }
-    .catering-features li::before {
-      content: '✓'; display: flex; align-items: center; justify-content: center;
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--color-cherry); color: white; font-size: 11px; font-weight: 900;
-      flex-shrink: 0;
-    }
-
     @media (max-width: 900px) {
-      .contact-section, .catering-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .contact-section { grid-template-columns: 1fr; gap: var(--space-8); }
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
@@ -158,23 +119,21 @@
       <nav class="nav__links">
         <a href="flavors.html"   class="nav__link">Flavors</a>
         <a href="menu.html"      class="nav__link">Menu</a>
-        <a href="locations.html" class="nav__link">Locations</a>
         <a href="story.html"     class="nav__link">Our Story</a>
         <a href="catering.html"  class="nav__link">Catering</a>
         <a href="contact.html"   class="nav__link active">Contact</a>
       </nav>
-      <div class="nav__cta"><a href="shop.html" class="btn btn--primary">Order Online</a></div>
+      <div class="nav__cta"><a href="locations.html" class="btn btn--primary">Locations</a></div>
       <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </header>
   <nav class="nav__mobile">
     <a href="flavors.html"   class="nav__mobile-link">Flavors</a>
-    <a href="menu.html"     class="nav__mobile-link">Menu</a>
-    <a href="locations.html" class="nav__mobile-link">Locations</a>
+    <a href="menu.html"      class="nav__mobile-link">Menu</a>
     <a href="story.html"     class="nav__mobile-link">Our Story</a>
     <a href="catering.html"  class="nav__mobile-link">Catering</a>
     <a href="contact.html"   class="nav__mobile-link">Contact</a>
-    <div class="nav__mobile-cta"><a href="shop.html" class="btn btn--primary" style="width:100%;justify-content:center;">Order Online</a></div>
+    <div class="nav__mobile-cta"><a href="locations.html" class="btn btn--primary" style="width:100%;justify-content:center;">Locations</a></div>
   </nav>
 
   <main id="main-content">
@@ -199,43 +158,17 @@
 
           <!-- Info sidebar -->
           <div data-animate="fade-up">
-            <h2 class="contact-info__title" id="contact-heading">Get in Touch</h2>
+            <h2 class="contact-info__title" id="contact-heading">Snelgrove Headquarters</h2>
 
             <div class="contact-info-item">
               <div class="contact-info-item__icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
-                <p class="contact-info-item__label">St. George Location</p>
+                <p class="contact-info-item__label">Headquarters</p>
                 <p class="contact-info-item__value">
-                  Desert Hills Plaza<br>
-                  922 E. Brigham Rd., Suite 4C<br>
-                  St. George, UT 84790
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-item__icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div>
-                <p class="contact-info-item__label">Hours</p>
-                <p class="contact-info-item__value">
-                  Sun–Thu: 11am – 10pm<br>
-                  Fri–Sat: 11am – 11pm
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-item__icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <p class="contact-info-item__label">Email</p>
-                <p class="contact-info-item__value">
-                  <a href="mailto:lyndsay@snelgroveicecream.com">lyndsay@snelgroveicecream.com</a>
+                  1847 S. 800 W., Suite 200<br>
+                  Woods Cross, UT 84087
                 </p>
               </div>
             </div>
@@ -252,11 +185,35 @@
               </div>
             </div>
 
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.59-1.16-2.59-2.59 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.07 2.53 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.69-1.48z"/></svg>
+              </div>
+              <div>
+                <p class="contact-info-item__label">TikTok</p>
+                <p class="contact-info-item__value">
+                  <a href="https://www.tiktok.com/@snelgroveicecream" target="_blank" rel="noopener">@snelgroveicecream</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-item__icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </div>
+              <div>
+                <p class="contact-info-item__label">Facebook</p>
+                <p class="contact-info-item__value">
+                  <a href="https://www.facebook.com/snelgroveicecream" target="_blank" rel="noopener">Snelgrove Ice Cream</a>
+                </p>
+              </div>
+            </div>
+
             <!-- Response time note -->
             <div style="background:var(--color-mint-chip); border-radius:var(--radius-lg); padding:var(--space-5); margin-top:var(--space-4);">
               <p style="font-size:var(--text-sm); color:var(--color-blueberry); line-height:1.6;">
                 <strong>We typically respond within 1–2 business days.</strong><br>
-                For urgent matters, reach us on Instagram DMs.
+                For urgent matters, reach us on social media.
               </p>
             </div>
           </div>
@@ -268,7 +225,6 @@
             <!-- Tab switcher -->
             <div class="form-tabs" role="tablist">
               <button class="form-tab active" role="tab" data-tab="general" aria-selected="true">General</button>
-              <button class="form-tab" role="tab" data-tab="catering" aria-selected="false">Catering</button>
               <button class="form-tab" role="tab" data-tab="franchise" aria-selected="false">Franchise</button>
             </div>
 
@@ -309,63 +265,6 @@
               </form>
             </div>
 
-            <!-- Catering Inquiry -->
-            <div class="form-panel" id="panel-catering">
-              <form action="#" method="POST" aria-label="Catering inquiry form" id="catering">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label" for="c-first">First Name <span>*</span></label>
-                    <input type="text" id="c-first" name="first_name" class="form-input" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="c-last">Last Name <span>*</span></label>
-                    <input type="text" id="c-last" name="last_name" class="form-input" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="c-email">Email <span>*</span></label>
-                  <input type="email" id="c-email" name="email" class="form-input" required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="c-phone">Phone</label>
-                  <input type="tel" id="c-phone" name="phone" class="form-input" autocomplete="tel">
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label" for="c-event-type">Event Type <span>*</span></label>
-                    <select id="c-event-type" name="event_type" class="form-select" required>
-                      <option value="">Select...</option>
-                      <option>Wedding</option>
-                      <option>Corporate Event</option>
-                      <option>Birthday Party</option>
-                      <option>School / Community</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="c-guests">Est. Guest Count <span>*</span></label>
-                    <select id="c-guests" name="guest_count" class="form-select" required>
-                      <option value="">Select...</option>
-                      <option>Under 50</option>
-                      <option>50–100</option>
-                      <option>100–250</option>
-                      <option>250–500</option>
-                      <option>500+</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="c-date">Event Date <span>*</span></label>
-                  <input type="date" id="c-date" name="event_date" class="form-input" required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="c-details">Event Details</label>
-                  <textarea id="c-details" name="details" class="form-textarea" placeholder="Tell us about your event, any flavor requests, dietary needs, etc..."></textarea>
-                </div>
-                <button type="submit" class="btn btn--primary form-submit">Request Catering Quote</button>
-              </form>
-            </div>
-
             <!-- Franchise Inquiry -->
             <div class="form-panel" id="panel-franchise">
               <form action="#" method="POST" aria-label="Franchise inquiry form">
@@ -397,41 +296,6 @@
 
           </div><!-- /.contact-form-card -->
 
-        </div>
-      </div>
-    </section>
-
-    <!-- CATERING FEATURE -->
-    <section class="section catering-section" aria-labelledby="catering-heading" id="catering-info">
-      <div class="container">
-        <div class="catering-grid">
-          <div data-animate="fade-left">
-            <img src="images/catering.jpg" alt="Snelgrove Ice Cream catering at an event" class="catering-img"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div class="catering-img-placeholder"><img src="images/logo-icon.svg" alt="" style="height:64px;opacity:0.25;"></div>
-          </div>
-          <div data-animate="fade-right">
-            <span class="catering-label">Catering</span>
-            <h2 class="catering-title" id="catering-heading">
-              Bring the Joy<br>to Your Event.
-            </h2>
-            <p class="catering-body">
-              Ice cream makes every event better. From intimate birthday parties to
-              large corporate gatherings, Snelgrove brings the scoop shop experience
-              straight to you.
-            </p>
-            <ul class="catering-features">
-              <li>Weddings &amp; receptions</li>
-              <li>Corporate events &amp; team celebrations</li>
-              <li>Birthday parties &amp; family reunions</li>
-              <li>School and community events</li>
-              <li>Custom flavor selections for your guests</li>
-              <li>Branded packaging available</li>
-            </ul>
-            <a href="#panel-catering" class="btn btn--primary" onclick="document.querySelector('[data-tab=catering]').click()">
-              Request a Catering Quote
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -505,10 +369,6 @@
         document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
       });
     });
-    // Check URL hash for catering tab
-    if (window.location.hash === '#catering') {
-      document.querySelector('[data-tab="catering"]').click();
-    }
   </script>
 </body>
 </html>
