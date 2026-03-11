@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Snelgrove Ice Cream — Utah's beloved ice cream since 1929. Classic flavors, handcrafted with care. Visit us in St. George or order pints online.">
+  <meta name="description" content="Snelgrove Ice Cream — Utah's beloved ice cream since 1929. Classic flavors, handcrafted with care. Visit us at one of our Utah locations.">
   <meta name="theme-color" content="#C0392B">
 
   <!-- Open Graph -->
@@ -26,7 +26,7 @@
 
   <!-- ===================== NAV ===================== -->
   <div class="topbar">
-    Now open in 6 Utah locations! &nbsp;·&nbsp; St. George · Centerville · Lehi · Daybreak · Sandy · Bluffdale &nbsp;·&nbsp;
+    Now open in 5 Utah locations! &nbsp;·&nbsp; Centerville · Lehi · Daybreak · Sandy · Bluffdale &nbsp;·&nbsp;
     <a href="locations.html">Find a location →</a>
   </div>
 
@@ -41,9 +41,21 @@
         </div>
       </a>
       <nav class="nav__links" role="navigation" aria-label="Main navigation">
-        <a href="flavors.html"   class="nav__link">Flavors</a>
+        <div class="nav__dropdown">
+          <a href="flavors.html" class="nav__link">Flavors</a>
+          <div class="nav__dropdown-menu">
+            <a href="flavors.html" class="nav__dropdown-link">Flavors</a>
+            <a href="pints.html"   class="nav__dropdown-link">Pints</a>
+          </div>
+        </div>
         <a href="menu.html"      class="nav__link">Menu</a>
-        <a href="story.html"     class="nav__link">Our Story</a>
+        <div class="nav__dropdown">
+          <a href="story.html"   class="nav__link">Our Story</a>
+          <div class="nav__dropdown-menu">
+            <a href="story.html"   class="nav__dropdown-link">Our Story</a>
+            <a href="careers.html" class="nav__dropdown-link">Careers</a>
+          </div>
+        </div>
         <a href="catering.html"  class="nav__link">Catering</a>
         <a href="contact.html"   class="nav__link">Contact</a>
       </nav>
@@ -57,8 +69,10 @@
   </header>
   <nav class="nav__mobile" role="navigation" aria-label="Mobile navigation">
     <a href="flavors.html"   class="nav__mobile-link">Flavors</a>
+    <a href="pints.html"     class="nav__mobile-link" style="padding-left:var(--space-6);">Pints</a>
     <a href="menu.html"      class="nav__mobile-link">Menu</a>
     <a href="story.html"     class="nav__mobile-link">Our Story</a>
+    <a href="careers.html"   class="nav__mobile-link" style="padding-left:var(--space-6);">Careers</a>
     <a href="catering.html"  class="nav__mobile-link">Catering</a>
     <a href="contact.html"   class="nav__mobile-link">Contact</a>
     <div class="nav__mobile-cta">
@@ -291,25 +305,6 @@
               <div class="status-dot"></div>
               <span class="tag tag--gold" style="background:#DCFCE7; color:#166534;">Now Open</span>
             </div>
-            <h3 class="location-card__name">St. George</h3>
-            <p class="location-card__address">
-              Desert Hills Plaza<br>
-              922 E. Brigham Rd., Suite 4C<br>
-              St. George, UT 84790
-            </p>
-            <p class="location-card__hours">
-              Sun–Thu 11am–10pm · Fri–Sat 11am–11pm
-            </p>
-            <a href="locations.html#st-george" class="location-card__link">
-              Get directions →
-            </a>
-          </div>
-
-          <div class="location-card" data-animate="fade-up" data-delay="200">
-            <div class="location-card__status">
-              <div class="status-dot"></div>
-              <span class="tag tag--gold" style="background:#DCFCE7; color:#166534;">Now Open</span>
-            </div>
             <h3 class="location-card__name">Centerville</h3>
             <p class="location-card__address">Davis County, Utah</p>
             <a href="locations.html" class="location-card__link">View details →</a>
@@ -508,7 +503,7 @@
         <div class="footer__col">
           <h4 class="footer__col-title">Find Us</h4>
           <ul class="footer__links">
-            <li><a href="locations.html#st-george" class="footer__link">St. George</a></li>
+
             <li><a href="locations.html#centerville" class="footer__link">Centerville</a></li>
             <li><a href="locations.html#lehi" class="footer__link">Lehi</a></li>
             <li><a href="locations.html#daybreak" class="footer__link">Daybreak</a></li>
