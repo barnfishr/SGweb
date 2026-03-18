@@ -96,39 +96,109 @@
         3. Event banner: Add/replace the hero__promo block
       To hide the promo banner, add style="display:none" to .hero__promo
     -->
-    <section class="hero" aria-label="Hero">
+    <section class="hero hero-slider" aria-label="Hero" aria-roledescription="carousel">
       <div class="hero__pattern"></div>
 
-      <div class="hero__inner">
-
-        <div class="hero__content">
-          <span class="hero__eyebrow" data-animate="fade-up">Utah's Finest Since 1929</span>
-
-          <h1 class="hero__title" data-animate="fade-up" data-delay="100">
-            Celebrate<br>
-            <em style="font-style:italic; color:var(--color-candy-pink)">with</em><br>
-            Snelgrove
-          </h1>
-
-          <p class="hero__desc" data-animate="fade-up" data-delay="300">
-            Charles Snelgrove believed ice cream wasn't just a treat — it was a reason to
-            gather, to laugh, to forget your troubles for a moment. Since 1929, every scoop
-            has carried that promise.
-          </p>
-
-          <div class="hero__actions" data-animate="fade-up" data-delay="400">
-            <a href="flavors.html" class="btn btn--gold">Explore Flavors</a>
-            <a href="shop.html"    class="btn btn--outline-white">Order Pints Online</a>
+      <!-- Slide 1 -->
+      <div class="hero-slider__slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="hero__eyebrow" data-animate="fade-up">Utah's Finest Since 1929</span>
+            <h2 class="hero__title" data-animate="fade-up" data-delay="100">
+              Celebrate<br>
+              <em style="font-style:italic; color:var(--color-candy-pink)">with</em><br>
+              Snelgrove
+            </h2>
+            <p class="hero__desc" data-animate="fade-up" data-delay="300">
+              Charles Snelgrove believed ice cream wasn't just a treat — it was a reason to
+              gather, to laugh, to forget your troubles for a moment. Since 1929, every scoop
+              has carried that promise.
+            </p>
+            <div class="hero__actions" data-animate="fade-up" data-delay="400">
+              <a href="flavors.html" class="btn btn--gold">Explore Flavors</a>
+              <a href="shop.html"    class="btn btn--outline-white">Order Pints Online</a>
+            </div>
+          </div>
+          <div class="hero__product-col" data-animate="fade-left" data-delay="200">
+            <img src="images/pint-hero.png"
+                 alt="Hand holding a Snelgrove Ice Cream pint"
+                 class="hero__product-img">
           </div>
         </div>
+      </div>
 
-        <div class="hero__product-col" data-animate="fade-left" data-delay="200">
-          <!-- Swap this image for seasonal/product promotions -->
-          <img src="images/pint-hero.png"
-               alt="Hand holding a Snelgrove Ice Cream pint"
-               class="hero__product-img">
+      <!-- Slide 2 -->
+      <div class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="hero__eyebrow">Handcrafted Classics</span>
+            <h2 class="hero__title">
+              Artistry<br>
+              <em style="font-style:italic; color:var(--color-candy-pink)">in</em><br>
+              Pleasure Foods
+            </h2>
+            <p class="hero__desc">
+              From Burnt Almond Fudge to Canadian Vanilla — every batch is crafted
+              with the same care Charles Snelgrove put into his very first scoop.
+            </p>
+            <div class="hero__actions">
+              <a href="menu.html"     class="btn btn--gold">See Full Menu</a>
+              <a href="catering.html" class="btn btn--outline-white">Catering &amp; Events</a>
+            </div>
+          </div>
+          <div class="hero__product-col">
+            <img src="images/main-hero.png"
+                 alt="Snelgrove Ice Cream scoops and treats"
+                 class="hero__product-img">
+          </div>
         </div>
+      </div>
 
+      <!-- Slide 3 -->
+      <div class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="hero__eyebrow">Now Open Across Utah</span>
+            <h2 class="hero__title">
+              A Scoop Shop<br>
+              <em style="font-style:italic; color:var(--color-candy-pink)">Near</em><br>
+              You
+            </h2>
+            <p class="hero__desc">
+              Five locations and counting — from Centerville to Bluffdale.
+              Come taste the legend that Utah has loved for nearly a century.
+            </p>
+            <div class="hero__actions">
+              <a href="locations.html" class="btn btn--gold">Find a Location</a>
+              <a href="story.html"     class="btn btn--outline-white">Our Story</a>
+            </div>
+          </div>
+          <div class="hero__product-col">
+            <img src="images/story-hero.jpeg"
+                 alt="Inside a Snelgrove Ice Cream shop"
+                 class="hero__product-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Navigation -->
+      <div class="hero-slider__nav" aria-label="Slider navigation">
+        <button class="hero-slider__arrow hero-slider__arrow--prev" aria-label="Previous slide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="hero-slider__dots" role="tablist" aria-label="Choose slide">
+          <button class="hero-slider__dot is-active" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+          <button class="hero-slider__dot" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+          <button class="hero-slider__dot" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+        </div>
+        <button class="hero-slider__arrow hero-slider__arrow--next" aria-label="Next slide">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="hero-slider__progress" aria-hidden="true">
+        <div class="hero-slider__progress-bar"></div>
       </div>
     </section>
 
