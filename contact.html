@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Snelgrove Ice Cream — get in touch, ask about catering, request a franchise location, or just say hello.">
+  <meta name="description" content="Contact Snelgrove Ice Cream — get in touch, ask about catering, or just say hello.">
   <title>Contact — Snelgrove Ice Cream</title>
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/tokens.css">
@@ -51,27 +51,7 @@
       font-weight: 700; color: var(--color-blueberry); margin-bottom: var(--space-6);
     }
 
-    /* Tab switcher */
-    .form-tabs {
-      display: flex; gap: var(--space-2); margin-bottom: var(--space-6);
-      background: var(--color-melted); border-radius: var(--radius-full);
-      padding: var(--space-1);
-    }
-    .form-tab {
-      flex: 1; padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-full); font-size: var(--text-sm);
-      font-weight: 700; letter-spacing: .04em; cursor: pointer;
-      transition: all var(--transition-fast); color: var(--color-text-mid);
-      text-align: center;
-    }
-    .form-tab.active {
-      background: var(--color-white); color: var(--color-blueberry);
-      box-shadow: var(--shadow-sm);
-    }
-
     /* Form fields */
-    .form-panel { display: none; }
-    .form-panel.active { display: block; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
     .form-group { margin-bottom: var(--space-5); }
     .form-label {
@@ -131,8 +111,8 @@
         <div class="nav__dropdown">
           <a href="story.html"   class="nav__link">Our Story</a>
           <div class="nav__dropdown-menu">
-            <a href="careers.html" class="nav__dropdown-link">Careers</a>
-            <a href="#"            class="nav__dropdown-link">Menu 2</a>
+            <a href="careers.html"   class="nav__dropdown-link">Careers</a>
+            <a href="franchise.html" class="nav__dropdown-link">Franchise</a>
             <a href="#"            class="nav__dropdown-link">Menu 3</a>
             <a href="#"            class="nav__dropdown-link">Menu 4</a>
           </div>
@@ -150,6 +130,7 @@
     <a href="menu.html"      class="nav__mobile-link">Menu</a>
     <a href="story.html"     class="nav__mobile-link">Our Story</a>
     <a href="careers.html"   class="nav__mobile-link" style="padding-left:var(--space-6);">Careers</a>
+    <a href="franchise.html" class="nav__mobile-link" style="padding-left:var(--space-6);">Franchise</a>
     <a href="catering.html"  class="nav__mobile-link">Catering</a>
     <a href="contact.html"   class="nav__mobile-link">Contact</a>
     <div class="nav__mobile-cta"><a href="locations.html" class="btn btn--primary" style="width:100%;justify-content:center;">Locations</a></div>
@@ -164,7 +145,7 @@
         <span class="page-hero__label" data-animate="fade-up">We'd love to hear from you</span>
         <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Say Hello</h1>
         <p class="page-hero__desc" data-animate="fade-up" data-delay="200">
-          Questions, catering inquiries, franchise interest, or just want to share your
+          Questions, catering inquiries, or just want to share your
           favorite scoop memory — we're all ears.
         </p>
       </div>
@@ -241,14 +222,7 @@
           <div class="contact-form-card" data-animate="fade-up" data-delay="200">
             <h3 class="contact-form-card__title">Send Us a Message</h3>
 
-            <!-- Tab switcher -->
-            <div class="form-tabs" role="tablist">
-              <button class="form-tab active" role="tab" data-tab="general" aria-selected="true">General</button>
-              <button class="form-tab" role="tab" data-tab="franchise" aria-selected="false">Franchise</button>
-            </div>
-
             <!-- General Inquiry -->
-            <div class="form-panel active" id="panel-general">
               <form action="#" method="POST" aria-label="General inquiry form">
                 <div class="form-row">
                   <div class="form-group">
@@ -282,36 +256,6 @@
                 </div>
                 <button type="submit" class="btn btn--primary form-submit">Send Message</button>
               </form>
-            </div>
-
-            <!-- Franchise Inquiry -->
-            <div class="form-panel" id="panel-franchise">
-              <form action="#" method="POST" aria-label="Franchise inquiry form">
-                <div class="form-group">
-                  <label class="form-label" for="f-name">Full Name <span>*</span></label>
-                  <input type="text" id="f-name" name="full_name" class="form-input" required>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label" for="f-email">Email <span>*</span></label>
-                    <input type="email" id="f-email" name="email" class="form-input" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="f-phone">Phone <span>*</span></label>
-                    <input type="tel" id="f-phone" name="phone" class="form-input" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="f-city">Desired City / Market <span>*</span></label>
-                  <input type="text" id="f-city" name="city" class="form-input" required placeholder="e.g. Provo, UT">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="f-experience">Relevant Business Experience</label>
-                  <textarea id="f-experience" name="experience" class="form-textarea" placeholder="Tell us about any relevant experience in retail, food service, or business ownership..."></textarea>
-                </div>
-                <button type="submit" class="btn btn--primary form-submit">Submit Franchise Interest</button>
-              </form>
-            </div>
 
           </div><!-- /.contact-form-card -->
 
@@ -350,7 +294,7 @@
           <h4 class="footer__col-title">Inquiries</h4>
           <ul class="footer__links">
             <li><a href="catering.html" class="footer__link">Catering</a></li>
-            <li><a href="contact.html" class="footer__link">Franchise Interest</a></li>
+            <li><a href="franchise.html" class="footer__link">Franchise</a></li>
             <li><a href="contact.html" class="footer__link">Press / Media</a></li>
           </ul>
         </div>
@@ -374,19 +318,5 @@
 
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
-  <script>
-    // Tab switcher logic
-    const tabs = document.querySelectorAll('.form-tab');
-    const panels = document.querySelectorAll('.form-panel');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        panels.forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected','true');
-        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>
