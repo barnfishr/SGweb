@@ -101,17 +101,13 @@
     </div>
 
     <!-- SEASONAL FLAVORS -->
-    <section class="seasonal-section" aria-labelledby="seasonal-heading">
+    <section class="seasonal-section" id="seasonal-section" aria-labelledby="seasonal-heading">
       <div class="container">
         <header class="seasonal-section__header" data-animate="fade-up">
           <span class="seasonal-section__label">Limited Time · Spring 2026</span>
           <h2 class="seasonal-section__title" id="seasonal-heading">
             Seasonal <em style="font-style:italic;color:var(--color-cherry);">Flavors</em>
           </h2>
-          <p class="seasonal-section__desc">
-            Fresh picks for the season — made with real fruit, real cream, and a little bit of Utah sunshine.
-            Here for a limited time. Scoop them while you can.
-          </p>
         </header>
 
         <div class="seasonal-grid">
@@ -173,7 +169,7 @@
       <div class="container">
         <h2 class="sr-only" id="flavors-title">All Ice Cream Flavors</h2>
 
-        <div class="flavors-full-grid">
+        <div class="flavors-full-grid" id="flavors-grid">
 
           <!-- SPRING 2026 FLAVOR LIST -->
 
@@ -511,17 +507,41 @@
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
   <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.flavor-card-full').forEach(card => {
-          const cats = card.dataset.category || '';
-          card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+    (function () {
+      const filterBtns    = document.querySelectorAll('.filter-btn');
+      const cards         = document.querySelectorAll('.flavor-card-full');
+      const seasonalSect  = document.getElementById('seasonal-section');
+      const flavorsGrid   = document.getElementById('flavors-grid');
+      const filterBar     = document.querySelector('.filter-bar');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+
+          // Filter the main grid
+          cards.forEach(card => {
+            const cats = card.dataset.category || '';
+            card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+          });
+
+          // Show seasonal section only for "all" or "seasonal" filters
+          if (seasonalSect) {
+            seasonalSect.style.display = (filter === 'all' || filter === 'seasonal') ? '' : 'none';
+          }
+
+          // Smooth-scroll to the relevant section
+          const target = (filter === 'seasonal' && seasonalSect) ? seasonalSect : flavorsGrid;
+          if (target) {
+            const barOffset = filterBar ? filterBar.offsetHeight : 0;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - barOffset - 20;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
         });
       });
-    });
+    })();
   </script>
   <style>
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
