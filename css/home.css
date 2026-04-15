@@ -30,14 +30,18 @@
   z-index: 2;
 }
 
-/* Dark overlay for text legibility on full-image slides */
+/* Subtle left-side gradient so text stays legible without washing out the image */
 .hero-slider__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(15, 35, 56, 0.82) 0%, rgba(15, 35, 56, 0.55) 55%, rgba(15, 35, 56, 0.25) 100%),
-    linear-gradient(180deg, rgba(15, 35, 56, 0.3) 0%, rgba(15, 35, 56, 0.5) 100%);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 35, 56, 0.65) 0%,
+    rgba(15, 35, 56, 0.35) 40%,
+    rgba(15, 35, 56, 0) 70%
+  );
 }
 
 /* Animate content in on active slide */
@@ -180,6 +184,7 @@
   color: var(--color-vanilla);
   line-height: 1.05;
   margin-bottom: var(--space-5);
+  text-shadow: 0 2px 20px rgba(15, 35, 56, 0.5);
 }
 
 .hero__title em {
@@ -240,10 +245,11 @@
 
 .hero__desc {
   font-size: var(--text-lg);
-  color: rgba(255, 248, 240, 0.8);
+  color: rgba(255, 248, 240, 0.95);
   max-width: 48ch;
   line-height: 1.7;
   margin-bottom: var(--space-8);
+  text-shadow: 0 1px 10px rgba(15, 35, 56, 0.6);
 }
 
 .hero__actions {
