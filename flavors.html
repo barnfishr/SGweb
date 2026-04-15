@@ -91,6 +91,7 @@
       <div class="container">
         <div class="filter-bar__inner">
           <button class="filter-btn active" data-filter="all">All Flavors</button>
+          <button class="filter-btn" data-filter="seasonal">Seasonal</button>
           <button class="filter-btn" data-filter="classic">Classics</button>
           <button class="filter-btn" data-filter="chocolate">Chocolate</button>
           <button class="filter-btn" data-filter="nutty">Nutty</button>
@@ -98,6 +99,74 @@
         </div>
       </div>
     </div>
+
+    <!-- SEASONAL FLAVORS -->
+    <section class="seasonal-section" aria-labelledby="seasonal-heading">
+      <div class="container">
+        <header class="seasonal-section__header" data-animate="fade-up">
+          <span class="seasonal-section__label">Limited Time · Spring 2026</span>
+          <h2 class="seasonal-section__title" id="seasonal-heading">
+            Seasonal <em style="font-style:italic;color:var(--color-cherry);">Flavors</em>
+          </h2>
+          <p class="seasonal-section__desc">
+            Fresh picks for the season — made with real fruit, real cream, and a little bit of Utah sunshine.
+            Here for a limited time. Scoop them while you can.
+          </p>
+        </header>
+
+        <div class="seasonal-grid">
+
+          <article class="seasonal-card" data-animate="fade-up" data-delay="100">
+            <div class="seasonal-card__img-wrap">
+              <img src="images/flavors/bear-lake-raspberry.png" alt="Bear Lake Raspberry" class="seasonal-card__img">
+              <span class="seasonal-card__tag">Seasonal</span>
+            </div>
+            <div class="seasonal-card__body">
+              <h3 class="seasonal-card__name">Bear Lake Raspberry</h3>
+              <p class="seasonal-card__desc">Made with real Bear Lake raspberries — bright, tart, and bursting with fresh fruit flavor.</p>
+            </div>
+          </article>
+
+          <article class="seasonal-card" data-animate="fade-up" data-delay="200">
+            <div class="seasonal-card__img-wrap">
+              <img src="images/flavors/lemon-blueberry.png" alt="Lemon Blueberry" class="seasonal-card__img">
+              <span class="seasonal-card__tag">Seasonal</span>
+            </div>
+            <div class="seasonal-card__body">
+              <h3 class="seasonal-card__name">Lemon Blueberry</h3>
+              <p class="seasonal-card__desc">Tangy lemon ice cream swirled with sweet blueberry ribbons. Bright, bold, and perfectly balanced.</p>
+            </div>
+          </article>
+
+          <article class="seasonal-card" data-animate="fade-up" data-delay="300">
+            <div class="seasonal-card__img-wrap">
+              <img src="images/flavors/strawberry.png" alt="Fresh Strawberry" class="seasonal-card__img">
+              <span class="seasonal-card__tag">Seasonal</span>
+            </div>
+            <div class="seasonal-card__body">
+              <h3 class="seasonal-card__name">Fresh Strawberry</h3>
+              <p class="seasonal-card__desc">Bright, fresh strawberry ice cream made with real fruit. Light, summery, and refreshing.</p>
+            </div>
+          </article>
+
+          <article class="seasonal-card" data-animate="fade-up" data-delay="400">
+            <div class="seasonal-card__img-wrap">
+              <img src="images/flavors/banana-cream-pie.png" alt="Banana Cream Pie" class="seasonal-card__img">
+              <span class="seasonal-card__tag">Seasonal</span>
+            </div>
+            <div class="seasonal-card__body">
+              <h3 class="seasonal-card__name">Banana Cream Pie</h3>
+              <p class="seasonal-card__desc">Creamy banana ice cream swirled with graham cracker pieces and whipped cream ribbons. A slice of summer in every scoop.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="seasonal-section__footnote" data-animate="fade-up">
+          Seasonal flavors rotate throughout the year. Check back each month for new limited-time creations.
+        </p>
+      </div>
+    </section>
 
     <!-- FLAVORS SECTION -->
     <section class="section flavors-page" aria-labelledby="flavors-title">
@@ -108,10 +177,10 @@
 
           <!-- SPRING 2026 FLAVOR LIST -->
 
-          <article class="flavor-card-full" data-category="fruit" data-animate="fade-up" data-delay="100">
+          <article class="flavor-card-full" data-category="fruit seasonal" data-animate="fade-up" data-delay="100">
             <div class="flavor-card-full__img-wrap">
               <img src="images/flavors/banana-cream-pie.png" alt="Banana Cream Pie" class="flavor-card-full__img">
-              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span></div>
+              <div class="flavor-card-full__badges"><span class="tag tag--seasonal">Seasonal</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Banana Cream Pie</h3>
@@ -119,10 +188,10 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="fruit" data-animate="fade-up" data-delay="200">
+          <article class="flavor-card-full" data-category="fruit seasonal" data-animate="fade-up" data-delay="200">
             <div class="flavor-card-full__img-wrap">
               <img src="images/flavors/bear-lake-raspberry.png" alt="Bear Lake Raspberry" class="flavor-card-full__img">
-              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span><span class="tag tag--pint">+Pints</span></div>
+              <div class="flavor-card-full__badges"><span class="tag tag--seasonal">Seasonal</span><span class="tag tag--pint">+Pints</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Bear Lake Raspberry</h3>
@@ -261,10 +330,10 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="fruit" data-animate="fade-up" data-delay="300">
+          <article class="flavor-card-full" data-category="fruit seasonal" data-animate="fade-up" data-delay="300">
             <div class="flavor-card-full__img-wrap">
               <img src="images/flavors/strawberry.png" alt="Fresh Strawberry" class="flavor-card-full__img">
-              <div class="flavor-card-full__badges"><span class="tag tag--pint">+Pints</span></div>
+              <div class="flavor-card-full__badges"><span class="tag tag--seasonal">Seasonal</span><span class="tag tag--pint">+Pints</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Fresh Strawberry</h3>
@@ -283,10 +352,10 @@
             </div>
           </article>
 
-          <article class="flavor-card-full" data-category="fruit" data-animate="fade-up" data-delay="200">
+          <article class="flavor-card-full" data-category="fruit seasonal" data-animate="fade-up" data-delay="200">
             <div class="flavor-card-full__img-wrap">
               <img src="images/flavors/lemon-blueberry.png" alt="Lemon Blueberry" class="flavor-card-full__img">
-              <div class="flavor-card-full__badges"><span class="tag tag--red">New</span></div>
+              <div class="flavor-card-full__badges"><span class="tag tag--seasonal">Seasonal</span></div>
             </div>
             <div class="flavor-card-full__body">
               <h3 class="flavor-card-full__name">Lemon Blueberry</h3>
