@@ -65,24 +65,37 @@
 /* ---- Location Cards Grid ---- */
 .loc-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
 }
 
 .loc-grid__card {
-  padding: 0 var(--space-8);
-  text-align: center;
-  border-right: 1px solid var(--color-border);
-}
-
-.loc-grid__card:last-child,
-.loc-grid__card:nth-child(3n) {
-  border-right: none;
+  display: flex;
 }
 
 /* ---- Location Card ---- */
 .loc-card {
-  padding-bottom: var(--space-8);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  text-align: left;
+  transition: all var(--transition-base);
+}
+
+.loc-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Single-card grid (e.g. "Opening Soon") — center at a comfortable width */
+.loc-section--alt .loc-grid {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+  margin-inline: auto;
 }
 
 .loc-card__photo {
@@ -132,21 +145,17 @@
 
 .loc-card__name {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--color-blueberry);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .loc-card__address {
   font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--color-text-mid);
   line-height: 1.7;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .loc-card__hours {
@@ -178,8 +187,9 @@
 .loc-card__actions {
   display: flex;
   gap: var(--space-3);
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .loc-card__actions .btn {
@@ -328,17 +338,10 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .loc-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .loc-grid__card:nth-child(3n) {
-    border-right: 1px solid var(--color-border);
-  }
-
-  .loc-grid__card:nth-child(2n) {
-    border-right: none;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 }
 
@@ -350,22 +353,6 @@
 
   .loc-hero__content {
     padding: var(--space-8) var(--space-5);
-  }
-
-  .loc-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .loc-grid__card {
-    border-right: none !important;
-    border-bottom: 1px solid var(--color-border);
-    padding: 0 0 var(--space-8);
-    margin-bottom: var(--space-8);
-  }
-
-  .loc-grid__card:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
   }
 
   .coming-soon-banner {
