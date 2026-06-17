@@ -393,6 +393,50 @@
     </div>
 
     <!-- FAMILY SECTION -->
+    <!-- ============================================================= -->
+    <!--  THROUGH THE YEARS GALLERY                                     -->
+    <!-- ============================================================= -->
+    <style>
+      .heritage-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:var(--space-6); }
+      .heritage-item { background:var(--color-white); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-sm); transition:all var(--transition-base); margin:0; }
+      .heritage-item:hover { box-shadow:var(--shadow-lg); transform:translateY(-4px); }
+      .heritage-item__media { aspect-ratio:4/3; background:var(--color-melted); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+      .heritage-item__media img { width:100%; height:100%; object-fit:cover; display:block; }
+      .heritage-item--tall .heritage-item__media img { object-fit:contain; padding:var(--space-3); }
+      .heritage-item__caption { padding:var(--space-4) var(--space-5); font-size:var(--text-sm); color:var(--color-text-mid); line-height:1.6; }
+      .heritage-item__caption strong { display:block; color:var(--color-blueberry); font-family:var(--font-display); font-size:var(--text-base); margin-bottom:var(--space-1); }
+    </style>
+    <section class="section" style="background:var(--color-melted);" aria-labelledby="heritage-heading">
+      <div class="container">
+        <header class="section-header section-header--center" data-animate="fade-up">
+          <span class="section-label">Through the Years</span>
+          <h2 class="section-title" id="heritage-heading">A Taste of History</h2>
+        </header>
+        <div class="heritage-gallery">
+          <figure class="heritage-item" data-animate="fade-up">
+            <div class="heritage-item__media"><img src="images/story/neon-sign.jpg" alt="The vintage Snelgrove neon double-cone sign"></div>
+            <figcaption class="heritage-item__caption"><strong>The Iconic Sign</strong>"This is America's Finest Ice Cream Store" â a Salt Lake landmark for generations.</figcaption>
+          </figure>
+          <figure class="heritage-item" data-animate="fade-up" data-delay="100">
+            <div class="heritage-item__media"><img src="images/story/reagan.jpg" alt="President Reagan enjoying ice cream"></div>
+            <figcaption class="heritage-item__caption"><strong>A Presidential Scoop</strong>Ice cream fit for the Oval Office.</figcaption>
+          </figure>
+          <figure class="heritage-item heritage-item--tall" data-animate="fade-up" data-delay="200">
+            <div class="heritage-item__media"><img src="images/story/olympics-2002.jpg" alt="Salt Lake 2002 Olympic ice cream cone pin"></div>
+            <figcaption class="heritage-item__caption"><strong>Salt Lake 2002</strong>A collectible cone pin from the Winter Olympic Games.</figcaption>
+          </figure>
+          <figure class="heritage-item" data-animate="fade-up" data-delay="100">
+            <div class="heritage-item__media"><img src="images/story/storefront.jpg" alt="A modern Snelgrove scoop shop"></div>
+            <figcaption class="heritage-item__caption"><strong>Today</strong>Premium ice cream, hand-scooped at our shops across Utah.</figcaption>
+          </figure>
+          <figure class="heritage-item heritage-item--tall" data-animate="fade-up" data-delay="200">
+            <div class="heritage-item__media"><img src="images/story/cones.jpg" alt="Three Snelgrove waffle cones"></div>
+            <figcaption class="heritage-item__caption"><strong>The Classics</strong>The hand-scooped flavors that built a legacy.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="section family-section" aria-labelledby="family-heading">
       <div class="container">
         <div class="family-grid">
