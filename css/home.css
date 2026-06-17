@@ -822,3 +822,16 @@
     align-items: flex-start;
   }
 }
+
+/* Portrait product hero photos: show the whole product on the right
+   instead of zooming/cropping under background-size:cover */
+.hero-slider__slide--product {
+  background-size: contain;
+  background-position: right center;
+}
+@media (max-width: 900px) {
+  .hero-slider__slide--product {
+    background-size: auto 62%;
+    background-position: center bottom;
+  }
+}
