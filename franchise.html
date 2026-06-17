@@ -117,14 +117,18 @@
     .benefit-card {
       background: var(--color-white); border-radius: var(--radius-xl);
       padding: var(--space-8); box-shadow: var(--shadow-sm);
-      border-top: 4px solid var(--color-cherry);
       transition: all var(--transition-base);
+      position: relative; overflow: hidden;
     }
-    .benefit-card:nth-child(2) { border-top-color: var(--color-banana-split); }
-    .benefit-card:nth-child(3) { border-top-color: var(--color-pistachio); }
-    .benefit-card:nth-child(4) { border-top-color: var(--color-candy-pink); }
-    .benefit-card:nth-child(5) { border-top-color: var(--color-blueberry); }
-    .benefit-card:nth-child(6) { border-top-color: var(--color-cherry); }
+    .benefit-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--color-cherry);
+    }
+    .benefit-card:nth-child(2)::before { background: var(--color-banana-split); }
+    .benefit-card:nth-child(3)::before { background: var(--color-pistachio); }
+    .benefit-card:nth-child(4)::before { background: var(--color-candy-pink); }
+    .benefit-card:nth-child(5)::before { background: var(--color-blueberry); }
+    .benefit-card:nth-child(6)::before { background: var(--color-cherry); }
     .benefit-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
     .benefit-card__icon {
       width: 48px; height: 48px; border-radius: var(--radius-lg);
