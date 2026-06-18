@@ -322,6 +322,28 @@
   color: var(--color-white);
 }
 
+/* ---- Real Ingredients Callout ---- */
+.real-ingredients {
+  padding: var(--space-12) 0;
+  background: linear-gradient(135deg, #F7D2DF22, var(--color-melted), #F4E6AC22);
+  text-align: center;
+}
+
+.real-ingredients__quote {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-blueberry);
+}
+
+.real-ingredients__quote::first-letter {
+  color: var(--color-cherry);
+}
+
 /* ---- Seasonal Banner (legacy, kept for backward compat) ---- */
 .seasonal-banner {
   background: linear-gradient(135deg, var(--color-candy-pink) 0%, var(--color-melted) 100%);
