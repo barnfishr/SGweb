@@ -842,6 +842,7 @@
   background-size: cover;
   background-position: center center;
   background-color: #F8C9CE;
+  min-height: calc(100vh - var(--nav-height) - 40px);
 }
 .hero-slider__slide--banner-link {
   position: absolute;
