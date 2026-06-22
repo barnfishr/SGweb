@@ -318,6 +318,16 @@
   transform: translateY(-2px);
 }
 
+.grocery-store-card__logo {
+  display: block;
+  max-width: 140px;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  margin: 0 auto var(--space-3);
+  object-fit: contain;
+}
+
 .grocery-store-card__icon {
   font-size: 36px;
   margin-bottom: var(--space-3);
