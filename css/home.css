@@ -839,22 +839,28 @@
 /* Designed banner slide: artwork already contains its own typography & CTA,
    so suppress the overlay/pattern and make the whole slide a link. */
 .hero-slider__slide--banner {
-  background-size: cover;
-  background-position: center center;
   background-color: #F8C9CE;
   min-height: calc(100vh - var(--nav-height) - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hero-slider__slide--banner-link {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
   display: block;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   cursor: pointer;
 }
+.hero-slider__slide--banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
 @media (max-width: 900px) {
-  .hero-slider__slide--banner {
-    background-size: contain;
-    background-repeat: no-repeat;
+  .hero-slider__slide--banner-img {
+    object-fit: contain;
   }
 }
