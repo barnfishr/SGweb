@@ -842,14 +842,15 @@
   background-size: cover;
   background-position: center center;
   background-color: #F8C9CE;
+}
+.hero-slider__slide--banner-link {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
   display: block;
   text-decoration: none;
   cursor: pointer;
-  min-height: calc(100vh - var(--nav-height) - 40px);
 }
-.hero-slider__slide--banner .hero-slider__overlay,
-.hero-slider__slide--banner .hero__pattern,
-.hero-slider__slide--banner .hero__inner { display: none; }
 @media (max-width: 900px) {
   .hero-slider__slide--banner {
     background-size: contain;
