@@ -145,17 +145,17 @@
       background: var(--color-white); border-radius: var(--radius-xl);
       padding: var(--space-7); box-shadow: var(--shadow-sm);
       transition: all var(--transition-base);
-      position: relative; overflow: hidden;
+      border-top: 4px solid var(--color-cherry);
     }
-    .value-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: var(--color-cherry);
-    }
-    .value-card:nth-child(2)::before { background: var(--color-banana-split); }
-    .value-card:nth-child(3)::before { background: var(--color-pistachio); }
-    .value-card:nth-child(4)::before { background: var(--color-candy-pink); }
+    .value-card:nth-child(2) { border-top-color: var(--color-banana-split); }
+    .value-card:nth-child(3) { border-top-color: var(--color-pistachio); }
+    .value-card:nth-child(4) { border-top-color: var(--color-candy-pink); }
     .value-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-    .value-card__icon { font-size: 44px; margin-bottom: var(--space-4); display: block; }
+    .value-card__icon {
+      display: block; margin-bottom: var(--space-4);
+      color: var(--color-cherry); line-height: 0;
+    }
+    .value-card__icon svg { width: 48px; height: 48px; }
     .value-card__title {
       font-family: var(--font-display); font-size: var(--text-xl);
       font-weight: 700; color: var(--color-blueberry); margin-bottom: var(--space-3);
@@ -488,34 +488,33 @@
     <section class="section values-section" aria-labelledby="values-heading">
       <div class="container">
         <header class="section-header section-header--center" data-animate="fade-up">
-          <span class="section-label">What We Believe</span>
           <h2 class="section-title" id="values-heading">Our Values</h2>
         </header>
         <div class="values-grid">
           <div class="value-card" data-animate="fade-up" data-delay="100">
             <span class="value-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
             </span>
             <h3 class="value-card__title">Made with Care</h3>
             <p class="value-card__body">Every batch is crafted with real ingredients and real attention — the same philosophy Charles Snelgrove started with in 1929.</p>
           </div>
           <div class="value-card" data-animate="fade-up" data-delay="200">
             <span class="value-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
             </span>
             <h3 class="value-card__title">Community First</h3>
             <p class="value-card__body">Ice cream brings people together. We believe in being part of the neighborhoods we serve — not just a shop, but a gathering place.</p>
           </div>
           <div class="value-card" data-animate="fade-up" data-delay="300">
             <span class="value-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
             </span>
             <h3 class="value-card__title">Honoring Heritage</h3>
             <p class="value-card__body">We protect and celebrate the recipes, stories, and spirit of a nearly century-old Utah brand — while always innovating with new flavors.</p>
           </div>
           <div class="value-card" data-animate="fade-up" data-delay="400">
             <span class="value-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
             </span>
             <h3 class="value-card__title">Joy in Every Scoop</h3>
             <p class="value-card__body">Charles called it "artistry in pleasure foods." For us, that means making every visit worth remembering — for any age, any occasion.</p>
