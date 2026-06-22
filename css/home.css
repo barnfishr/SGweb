@@ -845,6 +845,7 @@
   display: block;
   text-decoration: none;
   cursor: pointer;
+  min-height: calc(100vh - var(--nav-height) - 40px);
 }
 .hero-slider__slide--banner .hero-slider__overlay,
 .hero-slider__slide--banner .hero__pattern,
