@@ -822,3 +822,23 @@
     align-items: flex-start;
   }
 }
+
+/* Designed banner slide: artwork already contains its own typography & CTA,
+   so suppress the overlay/pattern and make the whole slide a link. */
+.hero-slider__slide--banner {
+  background-size: cover;
+  background-position: center center;
+  background-color: #F8C9CE;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.hero-slider__slide--banner .hero-slider__overlay,
+.hero-slider__slide--banner .hero__pattern,
+.hero-slider__slide--banner .hero__inner { display: none; }
+@media (max-width: 900px) {
+  .hero-slider__slide--banner {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
