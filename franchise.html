@@ -722,13 +722,24 @@
             </div>
 
             <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-capital">Available Capital</label>
+              <label class="inquiry-form__label" for="franchise-capital">Total Capital Available</label>
               <select class="inquiry-form__select" id="franchise-capital" name="available_capital">
                 <option value="" disabled selected>Select range</option>
                 <option value="under-100k">Under $100,000</option>
-                <option value="100k-250k">$100,000 – $250,000</option>
-                <option value="250k-500k">$250,000 – $500,000</option>
+                <option value="100k-250k">$100,000 &ndash; $250,000</option>
+                <option value="250k-500k">$250,000 &ndash; $500,000</option>
                 <option value="500k-plus">$500,000+</option>
+              </select>
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-liquid">Liquid Capital Available</label>
+              <select class="inquiry-form__select" id="franchise-liquid" name="liquid_capital">
+                <option value="" disabled selected>Select range</option>
+                <option value="under-50k">Under $50,000</option>
+                <option value="50k-100k">$50,000 &ndash; $100,000</option>
+                <option value="100k-250k">$100,000 &ndash; $250,000</option>
+                <option value="250k-plus">$250,000+</option>
               </select>
             </div>
 
