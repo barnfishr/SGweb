@@ -1100,6 +1100,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+/* CTA buttons overlaid on the banner image — positioned roughly where
+   the design has "FIND A SHOP / PLAN A CELEBRATION" (left side, below
+   the "a little more." line) */
+.hero-banner__cta {
+  position: absolute;
+  z-index: 3;
+  /* % positioning so buttons track the image as it scales */
+  left: 4%;
+  bottom: 18%;
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.hero-banner__btn {
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+  .hero-banner__cta {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6%;
+    justify-content: center;
+  }
 }
 .hero-slider__slide--banner-link {
   display: block;
