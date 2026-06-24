@@ -1094,11 +1094,13 @@
 
 /* Designed banner slide: artwork already contains its own typography & CTA,
    so suppress the overlay/pattern and make the whole slide a link. */
-/* Single celebration banner hero (no slider) */
+/* Single celebration banner hero (no slider) — override .hero defaults */
 .hero-celebration-banner {
   position: relative;
-  background-color: #F8C9CE;
+  background: #F8C9CE;
   display: block;
+  min-height: 0;
+  overflow: visible;
 }
 .hero-celebration-banner__img {
   display: block;
@@ -1114,15 +1116,13 @@
   justify-content: center;
   position: relative;
 }
-/* CTA buttons overlaid on the banner image — positioned roughly where
-   the design has "FIND A SHOP / PLAN A CELEBRATION" (left side, below
-   the "a little more." line) */
+/* CTA buttons overlaid on the banner image — positioned over the
+   left text column of the new celebration artwork */
 .hero-banner__cta {
   position: absolute;
   z-index: 3;
-  /* % positioning so buttons track the image as it scales */
-  left: 4%;
-  bottom: 18%;
+  left: 6%;
+  bottom: 10%;
   display: flex;
   gap: var(--space-3);
   flex-wrap: wrap;
@@ -1134,9 +1134,9 @@
 }
 @media (max-width: 900px) {
   .hero-banner__cta {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 6%;
+    position: static;
+    transform: none;
+    margin: var(--space-4) auto var(--space-6);
     justify-content: center;
   }
 }
