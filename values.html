@@ -3,45 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Snelgrove Ice Cream Accessibility Statement — our commitment to an inclusive, accessible website for all guests.">
-  <title>Accessibility — Snelgrove Ice Cream</title>
+  <meta name="description" content="What Snelgrove Ice Cream stands for — the values behind every scoop, since 1929.">
+  <title>Our Values — Snelgrove Ice Cream</title>
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
-  <meta property="og:title"       content="Accessibility — Snelgrove Ice Cream">
-  <meta property="og:description" content="Our commitment to an inclusive, accessible website experience for all guests.">
+  <meta property="og:title"       content="Our Values — Snelgrove Ice Cream">
+  <meta property="og:description" content="What Snelgrove Ice Cream stands for — the values behind every scoop, since 1929.">
   <meta property="og:image"       content="images/og-default.jpg">
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://www.snelgroveicecream.com/accessibility.html">
+  <meta property="og:url"         content="https://www.snelgroveicecream.com/values.html">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/animations.css">
   <style>
-    .legal { max-width: 75ch; margin: 0 auto; }
-    .legal__updated {
-      font-size: var(--text-sm); color: var(--color-text-light);
-      margin-bottom: var(--space-8); letter-spacing: .02em;
+    .values-section { background: var(--color-vanilla); }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-6);
+      padding: var(--space-2);
     }
-    .legal h2 {
-      font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 900;
-      color: var(--color-blueberry); margin: var(--space-10) 0 var(--space-4);
+    .value-card {
+      background: var(--color-white); border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-6) var(--space-8); box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+      border-top: 4px solid var(--color-cherry);
     }
-    .legal h3 {
-      font-size: var(--text-lg); font-weight: 800; color: var(--color-blueberry);
-      margin: var(--space-6) 0 var(--space-3);
+    .value-card:nth-child(2) { border-top-color: var(--color-banana-split); }
+    .value-card:nth-child(3) { border-top-color: var(--color-pistachio); }
+    .value-card:nth-child(4) { border-top-color: var(--color-candy-pink); }
+    .value-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .value-card__icon {
+      display: block; margin-bottom: var(--space-4);
+      color: var(--color-cherry); line-height: 0;
     }
-    .legal p, .legal li { font-size: var(--text-base); line-height: 1.75; color: var(--color-text-mid); }
-    .legal p { margin-bottom: var(--space-4); }
-    .legal ul { margin: 0 0 var(--space-4) var(--space-6); list-style: disc; }
-    .legal li { margin-bottom: var(--space-2); }
-    .legal a { color: var(--color-cherry); font-weight: 600; }
-    .legal__note {
-      background: var(--color-banana-split); border-radius: var(--radius-lg);
-      padding: var(--space-5); margin: var(--space-8) 0; font-size: var(--text-sm);
-      color: var(--color-blueberry-dark); line-height: 1.6;
+    .value-card__icon svg { width: 48px; height: 48px; }
+    .value-card__title {
+      font-family: var(--font-display); font-size: var(--text-xl);
+      font-weight: 700; color: var(--color-blueberry); margin-bottom: var(--space-3);
     }
+    .value-card__body { font-size: var(--text-sm); color: var(--color-text-mid); line-height: 1.7; }
   </style>
 </head>
 <body>
@@ -105,73 +108,45 @@
     <section class="page-hero" style="background-color:var(--color-blueberry);">
       <div class="page-hero__pattern"></div>
       <div class="container page-hero__content">
-        <span class="page-hero__label" data-animate="fade-up">Everyone's welcome</span>
-        <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Accessibility</h1>
+        <h1 class="page-hero__title" data-animate="fade-up" data-delay="100">Our Values</h1>
         <p class="page-hero__desc" data-animate="fade-up" data-delay="200">
-          We want every guest to enjoy Snelgrove — online and in our shops.
+          What we stand for, every scoop, every day &mdash; since 1929.
         </p>
       </div>
     </section>
 
-    <!-- CONTENT -->
-    <section class="section" style="background:var(--color-vanilla);">
+    <!-- VALUES -->
+    <section class="section values-section" aria-labelledby="values-heading">
       <div class="container">
-        <div class="legal" data-animate="fade-up">
-          <p class="legal__updated">Last updated: June 17, 2026</p>
-
-          <p>
-            Snelgrove Ice Cream is committed to making our website and our shops accessible to as many
-            people as possible, including guests with disabilities. We believe everyone deserves a sweet,
-            welcoming experience.
-          </p>
-
-          <h2>Our Commitment</h2>
-          <p>
-            We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA. These
-            guidelines explain how to make web content more accessible to people with a wide range of
-            disabilities, including visual, auditory, motor, and cognitive needs.
-          </p>
-
-          <h2>What We're Doing</h2>
-          <ul>
-            <li>Using clear, readable typography and color combinations chosen for sufficient contrast.</li>
-            <li>Providing descriptive alternative text for meaningful images.</li>
-            <li>Structuring pages with proper headings and landmarks so they work well with screen readers.</li>
-            <li>Supporting keyboard navigation and visible focus states for interactive elements.</li>
-            <li>Designing responsive layouts that adapt to phones, tablets, and desktops.</li>
-            <li>Including a "skip to content" link and descriptive labels on forms and buttons.</li>
-          </ul>
-
-          <h2>In Our Shops</h2>
-          <p>
-            Our team is happy to assist guests who need help reading the menu, navigating our locations,
-            or placing an order. If there is anything we can do to make your visit easier, please ask a
-            team member.
-          </p>
-
-          <h2>Ongoing Effort</h2>
-          <p>
-            Accessibility is an ongoing effort, not a one-time project. We continue to review and improve
-            our website and welcome feedback that helps us do better. Some third-party content or tools
-            embedded on our site may not yet be fully accessible, and we work with our partners to address
-            those gaps.
-          </p>
-
-          <h2>Need Help or Have Feedback?</h2>
-          <p>
-            If you encounter any difficulty using our website, or if you have suggestions for how we can
-            improve, please let us know. We will do our best to provide the information or assistance you need.
-          </p>
-          <p>
-            Snelgrove Ice Cream<br>
-            905 N Main St D6, North Salt Lake, UT 84054<br>
-            <a href="mailto:hello@snelgroveicecream.com">hello@snelgroveicecream.com</a><br>
-            Or reach out through our <a href="contact.html">contact page</a>.
-          </p>
-
-          <div class="legal__note">
-            This Accessibility Statement is provided as a starting template. We recommend confirming the
-            conformance level after an accessibility audit and reviewing the contact details before publication.
+        <h2 class="sr-only" id="values-heading">Our Values</h2>
+        <div class="values-grid">
+          <div class="value-card" data-animate="fade-up" data-delay="100">
+            <span class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
+            </span>
+            <h3 class="value-card__title">For the moments that matter</h3>
+            <p class="value-card__body">Real ingredients, real attention &mdash; because the people scooping it are showing up for your birthday, your win, your Friday night.</p>
+          </div>
+          <div class="value-card" data-animate="fade-up" data-delay="200">
+            <span class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
+            </span>
+            <h3 class="value-card__title">For your people</h3>
+            <p class="value-card__body">A scoop shop is a gathering place. Bring the kids, bring the team, bring whoever needs cheering up &mdash; we built this to fit a crowd.</p>
+          </div>
+          <div class="value-card" data-animate="fade-up" data-delay="300">
+            <span class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
+            </span>
+            <h3 class="value-card__title">For the classics</h3>
+            <p class="value-card__body">Burnt Almond Fudge. Canadian Vanilla. Caramel Cashew. Malted Milk. We protect the flavors people grew up coming back for &mdash; and add new ones worth coming back for.</p>
+          </div>
+          <div class="value-card" data-animate="fade-up" data-delay="400">
+            <span class="value-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
+            </span>
+            <h3 class="value-card__title">For the joy of it</h3>
+            <p class="value-card__body">Charles called it &ldquo;artistry in pleasure foods.&rdquo; We call it making any day worth remembering &mdash; for any age, any occasion.</p>
           </div>
         </div>
       </div>

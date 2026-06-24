@@ -74,24 +74,35 @@
     }
     .timeline-item {
       display: grid; grid-template-columns: 1fr 48px 1fr;
-      gap: var(--space-4); margin-bottom: var(--space-10); align-items: center;
+      gap: var(--space-6); margin-bottom: var(--space-10); align-items: center;
     }
+    /* Odd items: content LEFT, dot CENTER, media RIGHT */
+    .timeline-item:nth-child(odd) .timeline-item__content,
+    .timeline-item:nth-child(odd) .timeline-item__empty,
+    .timeline-item:nth-child(odd) .timeline-item__media { grid-column: 1; grid-row: 1; }
+    .timeline-item:nth-child(odd) .timeline-item__dot { grid-column: 2; grid-row: 1; }
+    .timeline-item:nth-child(odd) .timeline-item__content { grid-column: 1; }
+    .timeline-item:nth-child(odd) .timeline-item__media,
+    .timeline-item:nth-child(odd) .timeline-item__empty { grid-column: 3; }
+    /* Even items: media LEFT, dot CENTER, content RIGHT */
+    .timeline-item:nth-child(even) .timeline-item__content,
+    .timeline-item:nth-child(even) .timeline-item__empty,
+    .timeline-item:nth-child(even) .timeline-item__media { grid-row: 1; }
+    .timeline-item:nth-child(even) .timeline-item__media,
+    .timeline-item:nth-child(even) .timeline-item__empty { grid-column: 1; }
+    .timeline-item:nth-child(even) .timeline-item__dot { grid-column: 2; grid-row: 1; }
     .timeline-item:nth-child(even) .timeline-item__content { grid-column: 3; }
-    .timeline-item:nth-child(even) .timeline-item__empty  { grid-column: 1; grid-row: 1; }
     .timeline-item__dot {
       width: 48px; height: 48px; border-radius: 50%;
       background: var(--color-cherry); border: 3px solid var(--color-vanilla);
       box-shadow: 0 0 0 3px var(--color-cherry);
       display: flex; align-items: center; justify-content: center;
       font-size: var(--text-lg); z-index: 1;
-      grid-column: 2;
     }
     .timeline-item__content {
       background: var(--color-white); border-radius: var(--radius-xl);
       padding: var(--space-6); box-shadow: var(--shadow-md);
     }
-    .timeline-item:nth-child(even) .timeline-item__content { grid-column: 1; grid-row: 1; }
-    .timeline-item:nth-child(even) .timeline-item__dot     { grid-column: 2; grid-row: 1; }
     .timeline-item__year {
       font-family: var(--font-body); font-size: var(--text-xs);
       font-weight: 900; letter-spacing: .2em; text-transform: uppercase;
@@ -233,6 +244,7 @@
         <div class="nav__dropdown">
           <a href="story.html"   class="nav__link active">Our Story</a>
           <div class="nav__dropdown-menu">
+            <a href="values.html"    class="nav__dropdown-link">Our Values</a>
             <a href="careers.html"   class="nav__dropdown-link">Careers</a>
             <a href="franchise.html" class="nav__dropdown-link">Franchise</a>
           </div>
@@ -250,6 +262,7 @@
     <a href="pints.html"     class="nav__mobile-link" style="padding-left:var(--space-6);">Pints</a>
     <a href="menu.html"      class="nav__mobile-link">Menu</a>
     <a href="story.html"     class="nav__mobile-link">Our Story</a>
+    <a href="values.html"    class="nav__mobile-link" style="padding-left:var(--space-6);">Our Values</a>
     <a href="careers.html"   class="nav__mobile-link" style="padding-left:var(--space-6);">Careers</a>
     <a href="franchise.html" class="nav__mobile-link" style="padding-left:var(--space-6);">Franchise</a>
     <a href="catering.html"  class="nav__mobile-link">Catering</a>
@@ -344,7 +357,7 @@
                 becomes a Salt Lake City landmark overnight.
               </p>
             </div>
-            <div class="timeline-item__dot">💡</div>
+            <div class="timeline-item__dot"></div>
             <div class="timeline-item__media">
               <img src="images/story/neon-sign.jpg" alt="The vintage Snelgrove neon double-cone sign">
             </div>
@@ -354,7 +367,7 @@
             <div class="timeline-item__media">
               <img src="images/story/olympics-2002.jpg" alt="Salt Lake 2002 Olympic ice cream cone pin">
             </div>
-            <div class="timeline-item__dot">🏅</div>
+            <div class="timeline-item__dot"></div>
             <div class="timeline-item__content">
               <span class="timeline-item__year">2002</span>
               <h3 class="timeline-item__title">Olympic Recognition</h3>
@@ -376,7 +389,7 @@
                 wasn't over yet.
               </p>
             </div>
-            <div class="timeline-item__dot">💛</div>
+            <div class="timeline-item__dot"></div>
             <div class="timeline-item__empty"></div>
           </div>
 
@@ -384,7 +397,7 @@
             <div class="timeline-item__media">
               <img src="images/story/storefront.jpg" alt="A modern Snelgrove scoop shop">
             </div>
-            <div class="timeline-item__dot">🌟</div>
+            <div class="timeline-item__dot"></div>
             <div class="timeline-item__content">
               <span class="timeline-item__year">Today</span>
               <h3 class="timeline-item__title">The Return</h3>
@@ -423,7 +436,7 @@
       <div class="container">
         <div class="family-grid">
           <div data-animate="fade-left">
-            <img src="images/story/lyndsay-snelgrove.jpg" alt="Lyndsay Snelgrove, founder" class="family-photo"
+            <img src="images/heritage-photo.jpg" alt="Historic Snelgrove Ice Cream storefront with the iconic double cone neon sign" class="family-photo"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
             <div class="family-photo-placeholder" style="flex-direction:column;gap:var(--space-4);background:linear-gradient(135deg,rgba(192,57,43,0.08),rgba(247,210,223,0.2));border:2px solid rgba(192,57,43,0.15);">
               <!-- Double-cone heart graphic -->
@@ -439,7 +452,6 @@
             </div>
           </div>
           <div data-animate="fade-right">
-            <span class="family-label">The Family</span>
             <h2 class="family-title" id="family-heading">
               Keeping It<br>in the Family.
             </h2>
@@ -466,44 +478,6 @@
     </section>
 
     <!-- VALUES -->
-    <section class="section values-section" aria-labelledby="values-heading">
-      <div class="container">
-        <header class="section-header section-header--center" data-animate="fade-up">
-          <h2 class="section-title" id="values-heading">Our Values</h2>
-        </header>
-        <div class="values-grid">
-          <div class="value-card" data-animate="fade-up" data-delay="100">
-            <span class="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
-            </span>
-            <h3 class="value-card__title">For the moments that matter</h3>
-            <p class="value-card__body">Real ingredients, real attention &mdash; because the people scooping it are showing up for your birthday, your win, your Friday night.</p>
-          </div>
-          <div class="value-card" data-animate="fade-up" data-delay="200">
-            <span class="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
-            </span>
-            <h3 class="value-card__title">For your people</h3>
-            <p class="value-card__body">A scoop shop is a gathering place. Bring the kids, bring the team, bring whoever needs cheering up &mdash; we built this to fit a crowd.</p>
-          </div>
-          <div class="value-card" data-animate="fade-up" data-delay="300">
-            <span class="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
-            </span>
-            <h3 class="value-card__title">For the classics</h3>
-            <p class="value-card__body">Burnt Almond Fudge. Canadian Vanilla. Caramel Cashew. Malted Milk. We protect the flavors people grew up coming back for &mdash; and add new ones worth coming back for.</p>
-          </div>
-          <div class="value-card" data-animate="fade-up" data-delay="400">
-            <span class="value-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="46" r="13"/><circle cx="44" cy="42" r="12"/><path d="M22 33 Q 26 20 36 10" fill="none" stroke-width="2.5"/><path d="M44 30 Q 40 20 36 10" fill="none" stroke-width="2.5"/><path d="M36 10 C 28 6 22 12 22 19 C 30 19 36 14 36 10 Z"/><path d="M36 10 C 44 6 52 11 52 18 C 44 19 38 14 36 10 Z"/></svg>
-            </span>
-            <h3 class="value-card__title">For the joy of it</h3>
-            <p class="value-card__body">Charles called it &ldquo;artistry in pleasure foods.&rdquo; We call it making any day worth remembering &mdash; for any age, any occasion.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA -->
     <section style="background:var(--color-blueberry); text-align:center; padding-block:var(--space-16);">
       <div class="container">
