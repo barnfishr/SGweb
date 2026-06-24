@@ -97,10 +97,8 @@
     -->
     <section class="hero hero-slider" aria-label="Hero" aria-roledescription="carousel">
 
-      <!-- Slide 1 (Summer Flavors banner) hidden for now -->
-
-      <!-- Slide 2 -->
-      <div class="hero-slider__slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3"
+      <!-- Slide 1 — original celebration message -->
+      <div class="hero-slider__slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 2"
            style="background-image: url('images/story-hero.jpeg'); background-position: center 42%;">
         <div class="hero-slider__overlay"></div>
         <div class="hero__pattern"></div>
@@ -124,28 +122,61 @@
         </div>
       </div>
 
-      <!-- Slide 3 -->
-      <div class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2"
-           style="background-image: url('images/snelgrove-storefront-vintage.jpg'); background-position: center 32%;">
-        <div class="hero-slider__overlay"></div>
-        <div class="hero__pattern"></div>
-        <div class="hero__inner">
-          <div class="hero__content">
-            <span class="hero__eyebrow">For the moments that matter</span>
-            <h2 class="hero__title">
-              Birthdays.<br>
-              <em style="font-style:italic; color:var(--color-candy-pink)">Ballgames.</em><br>
-              Better days.
+      <!-- Slide 2 — celebration treatment (cream background, script + display title, badge) -->
+      <div class="hero-slider__slide hero-slider__slide--celebration" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2">
+
+        <!-- decorative confetti -->
+        <span class="hero-celebration__dot hero-celebration__dot--red" style="top:18%; left:44%;" aria-hidden="true"></span>
+        <span class="hero-celebration__dot hero-celebration__dot--navy" style="top:32%; left:54%;" aria-hidden="true"></span>
+        <span class="hero-celebration__dot hero-celebration__dot--red" style="top:64%; left:48%;" aria-hidden="true"></span>
+        <svg class="hero-celebration__heart" style="top:58%; left:43%;" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 21s-7-4.5-9-9.5C1 7 5 3 9 5c1.5.7 2.5 2 3 3 .5-1 1.5-2.3 3-3 4-2 8 2 6 6.5-2 5-9 9.5-9 9.5z"/>
+        </svg>
+        <svg class="hero-celebration__heart hero-celebration__heart--sm" style="top:42%; left:55%;" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 21s-7-4.5-9-9.5C1 7 5 3 9 5c1.5.7 2.5 2 3 3 .5-1 1.5-2.3 3-3 4-2 8 2 6 6.5-2 5-9 9.5-9 9.5z"/>
+        </svg>
+
+        <!-- scalloped badge -->
+        <div class="hero-celebration__badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="hero-celebration__badge-bg">
+            <path d="M60 4 l6 5 7-3 4 7 8 0 1 8 8 3 -2 8 7 5 -5 6 4 7 -7 4 0 8 -8 1 -3 8 -8 -2 -5 7 -6 -5 -7 4 -4 -7 -8 0 -1 -8 -8 -3 2 -8 -7 -5 5 -6 -4 -7 7 -4 0 -8 8 -1 3 -8 8 2 5 -7 6 5 7 -4 4 7 z" fill="var(--color-cherry)"/>
+          </svg>
+          <div class="hero-celebration__badge-text">
+            <span class="hero-celebration__badge-line1">Made for</span>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="hero-celebration__badge-heart"><path d="M12 21s-7-4.5-9-9.5C1 7 5 3 9 5c1.5.7 2.5 2 3 3 .5-1 1.5-2.3 3-3 4-2 8 2 6 6.5-2 5-9 9.5-9 9.5z"/></svg>
+            <span class="hero-celebration__badge-line2">Every special<br>moment</span>
+          </div>
+        </div>
+
+        <div class="hero-celebration__inner">
+
+          <!-- Left: text -->
+          <div class="hero-celebration__text">
+            <span class="hero-celebration__eyebrow">
+              <span class="hero-celebration__rule"></span>
+              Make it a
+              <span class="hero-celebration__rule"></span>
+            </span>
+            <h2 class="hero-celebration__title">
+              <span class="hero-celebration__title-script">Snelgrove</span>
+              <span class="hero-celebration__title-display">Celebration</span>
             </h2>
-            <p class="hero__desc">
-              Classic ice cream, made the way Charles Snelgrove did it in 1929 —
-              real ingredients, no shortcuts, ready for whatever you're celebrating.
+            <p class="hero-celebration__desc">
+              Classic ice cream for birthdays, ballgames, family nights, office wins, and ordinary days that deserve
+              <span class="hero-celebration__desc-script">a little more.</span>
             </p>
-            <div class="hero__actions">
-              <a href="menu.html"     class="btn btn--gold">See Full Menu</a>
-              <a href="catering.html" class="btn btn--outline-white">Catering &amp; Events</a>
+            <div class="hero-celebration__actions">
+              <a href="locations.html" class="btn btn--primary">Find a Shop</a>
+              <a href="catering.html" class="btn btn--outline-blueberry">Plan a Celebration</a>
             </div>
           </div>
+
+          <!-- Right: hero image (placeholder until the celebration shot is ready) -->
+          <div class="hero-celebration__art" aria-hidden="true">
+            <img src="images/snelgrove-storefront-vintage.jpg" alt="" class="hero-celebration__art-img"
+                 onerror="this.style.display='none'">
+          </div>
+
         </div>
       </div>
 
