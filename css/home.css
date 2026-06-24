@@ -1115,14 +1115,21 @@
 .hero-celebration-banner {
   position: relative;
   background: #F8C9CE;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 0;
-  overflow: visible;
+  width: 100%;
+  overflow: hidden;
 }
 .hero-celebration-banner__img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
+  /* Always fits in the viewport beneath the nav (no scrolling required to see CTA) */
+  max-height: calc(100vh - var(--nav-height) - 40px);
+  object-fit: contain;
 }
 
 .hero-slider__slide--banner {
