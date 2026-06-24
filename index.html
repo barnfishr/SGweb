@@ -95,35 +95,21 @@
         3. Event banner: Add/replace the hero__promo block
       To hide the promo banner, add style="display:none" to .hero__promo
     -->
-    <section class="hero hero-slider" aria-label="Hero" aria-roledescription="carousel">
+    <section class="hero hero-slider" aria-label="Hero">
 
-      <!-- Slide 1 — original celebration message -->
-      <div class="hero-slider__slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 2"
-           style="background-image: url('images/story-hero.jpeg'); background-position: center 42%;">
-        <div class="hero-slider__overlay"></div>
-        <div class="hero__pattern"></div>
-        <div class="hero__inner">
-          <div class="hero__content">
-            <span class="hero__eyebrow">Make it a celebration</span>
-            <h2 class="hero__title">
-              Make it a<br>
-              <em style="font-style:italic; color:var(--color-candy-pink)">Snelgrove</em><br>
-              celebration
-            </h2>
-            <p class="hero__desc">
-              Classic ice cream for birthdays, ballgames, family nights, office wins,
-              and ordinary days that deserve a little more.
-            </p>
-            <div class="hero__actions">
-              <a href="locations.html" class="btn btn--gold">Find a Shop</a>
-              <a href="catering.html" class="btn btn--outline-white">Plan a Celebration</a>
-            </div>
-          </div>
-        </div>
+      <!-- Banner slide — uses images/celebration-banner.png (upload to images/ to activate) -->
+      <div class="hero-slider__slide hero-slider__slide--banner is-active"
+           role="group" aria-label="Make it a Snelgrove Celebration">
+        <img src="images/celebration-banner.png"
+             alt="Make it a Snelgrove Celebration — classic ice cream for birthdays, ballgames, family nights, and office wins"
+             class="hero-slider__slide--banner-img"
+             onerror="this.style.display='none'; this.parentNode.classList.add('hero-slider__slide--banner-fallback')">
       </div>
 
-      <!-- Slide 2 — celebration treatment (cream background, script + display title, badge) -->
-      <div class="hero-slider__slide hero-slider__slide--celebration" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2">
+      <!-- Slide 1 (original celebration message) hidden for now -->
+
+      <!-- Slide 2 (custom celebration treatment) hidden for now -->
+      <div class="hero-slider__slide hero-slider__slide--celebration" style="display:none" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2">
 
         <!-- decorative confetti -->
         <span class="hero-celebration__dot hero-celebration__dot--red" style="top:18%; left:44%;" aria-hidden="true"></span>
@@ -180,13 +166,6 @@
         </div>
       </div>
 
-      <!-- Slider Navigation — edge arrows -->
-      <button class="hero-slider__arrow hero-slider__arrow--prev" aria-label="Previous slide">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="hero-slider__arrow hero-slider__arrow--next" aria-label="Next slide">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
     </section>
 
     <!-- ===================== FEATURE STRIP ===================== -->
