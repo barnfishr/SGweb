@@ -1094,6 +1094,18 @@
 
 /* Designed banner slide: artwork already contains its own typography & CTA,
    so suppress the overlay/pattern and make the whole slide a link. */
+/* Single celebration banner hero (no slider) */
+.hero-celebration-banner {
+  position: relative;
+  background-color: #F8C9CE;
+  display: block;
+}
+.hero-celebration-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .hero-slider__slide--banner {
   background-color: #F8C9CE;
   min-height: calc(100vh - var(--nav-height) - 40px);

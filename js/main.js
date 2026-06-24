@@ -64,16 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startAutoplay() {
       stopAutoplay();
-      autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
+      if (slides.length > 1) autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
     }
 
     function stopAutoplay() {
       clearInterval(autoplayInterval);
     }
 
-    // Arrow clicks
-    prevBtn.addEventListener('click', () => { prevSlide(); startAutoplay(); });
-    nextBtn.addEventListener('click', () => { nextSlide(); startAutoplay(); });
+    // Arrow clicks (arrows are optional)
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoplay(); });
 
     // Keyboard navigation
     slider.addEventListener('keydown', (e) => {
