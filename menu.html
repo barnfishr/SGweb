@@ -259,6 +259,67 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
+    /* Thumbnail slot — shows photo when one exists, soft placeholder otherwise */
+    .menu-item__thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-lg);
+      background: var(--color-vanilla);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+    }
+    .menu-item__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .menu-item__thumb.is-empty {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--color-vanilla) 0,
+        var(--color-vanilla) 8px,
+        var(--color-melted) 8px,
+        var(--color-melted) 16px
+      );
+    }
+    .menu-item__thumb.is-empty img { display: none; }
+    /* Hide thumb on mobile so list stays compact */
+    @media (max-width: 540px) {
+      .menu-item__thumb { display: none; }
+    }
+    /* Dirty soda thumbnail (top of card) */
+    .dirty-soda-card__thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-md);
+      background: var(--color-vanilla);
+      overflow: hidden;
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dirty-soda-card__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .dirty-soda-card__thumb.is-empty {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--color-vanilla) 0,
+        var(--color-vanilla) 8px,
+        var(--color-melted) 8px,
+        var(--color-melted) 16px
+      );
+    }
+    .dirty-soda-card__thumb.is-empty img { display: none; }
 
     /* ---- Two-col grid for small items (toppings, syrups etc) ---- */
     .menu-items--grid {
@@ -544,6 +605,7 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/mini.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Mini</div>
               <div class="menu-item__desc">One scoop — just the right size.</div>
@@ -551,6 +613,7 @@
             <div class="menu-item__price">$4.99</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/snelgrove-s-classic-twin-cone-small.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Snelgrove's Classic Twin Cone — Small</div>
               <div class="menu-item__desc">Try two flavors.</div>
@@ -558,6 +621,7 @@
             <div class="menu-item__price">$5.79</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/snelgrove-s-classic-twin-cone-medium.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Snelgrove's Classic Twin Cone — Medium</div>
               <div class="menu-item__desc">Try three flavors.</div>
@@ -565,6 +629,7 @@
             <div class="menu-item__price">$6.99</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/snelgrove-sampler.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Snelgrove Sampler</div>
               <div class="menu-item__desc">Enjoy up to 4 flavors packed with crisp waffle chips.</div>
@@ -593,19 +658,22 @@
           <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:900;color:var(--color-blueberry);margin-bottom:var(--space-4);">Make It Special</h3>
           <div class="menu-items">
             <div class="menu-item">
-              <div class="menu-item__left">
+            <div class="menu-item__thumb"><img src="images/menu/items/waffle-cone-or-bowl.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left">
                 <div class="menu-item__name">Waffle Cone or Bowl</div>
               </div>
               <div class="menu-item__price">+$1.50</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left">
+            <div class="menu-item__thumb"><img src="images/menu/items/chocolate-dip.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left">
                 <div class="menu-item__name">Chocolate Dip</div>
               </div>
               <div class="menu-item__price">+$2.00</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left">
+            <div class="menu-item__thumb"><img src="images/menu/items/chocolate-dip-with-sprinkles.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left">
                 <div class="menu-item__name">Chocolate Dip with Sprinkles</div>
               </div>
               <div class="menu-item__price">+$2.00</div>
@@ -670,6 +738,7 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/3-scoop-sundae-build-your-own.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">3 Scoop Sundae — Build Your Own</div>
               <div class="menu-item__desc">Choose 3 scoops, one topping, drizzle &amp; whipped cream.</div>
@@ -677,18 +746,21 @@
             <div class="menu-item__price">from $7.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/double-fudge-sundae.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Double Fudge Sundae</div>
             </div>
             <div class="menu-item__price">$8.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/cookie-sundae.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Cookie Sundae</div>
             </div>
             <div class="menu-item__price">$8.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/banana-split.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Banana Split</div>
             </div>
@@ -719,6 +791,7 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/thick-milkshake-16-oz.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Thick Milkshake — 16 oz.</div>
               <div class="menu-item__desc">Choose any ice cream. Comes standard with whipped cream and cherry on top.</div>
@@ -731,19 +804,23 @@
           <h3 style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--color-blueberry);margin-bottom:var(--space-4);">Customize</h3>
           <div class="menu-items">
             <div class="menu-item">
-              <div class="menu-item__left"><div class="menu-item__name">Chocolate Crackle Cup</div></div>
+            <div class="menu-item__thumb"><img src="images/menu/items/chocolate-crackle-cup.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left"><div class="menu-item__name">Chocolate Crackle Cup</div></div>
               <div class="menu-item__price">+$1.00</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left"><div class="menu-item__name">Make it Double Thick</div></div>
+            <div class="menu-item__thumb"><img src="images/menu/items/make-it-double-thick.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left"><div class="menu-item__name">Make it Double Thick</div></div>
               <div class="menu-item__price">+$1.00</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left"><div class="menu-item__name">Add Toppings</div></div>
+            <div class="menu-item__thumb"><img src="images/menu/items/add-toppings.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left"><div class="menu-item__name">Add Toppings</div></div>
               <div class="menu-item__price">+$0.75</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left"><div class="menu-item__name">Make it a Malt</div></div>
+            <div class="menu-item__thumb"><img src="images/menu/items/make-it-a-malt.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left"><div class="menu-item__name">Make it a Malt</div></div>
               <div class="menu-item__price">+$0.50</div>
             </div>
           </div>
@@ -761,6 +838,7 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/3-scoop-float-24-oz.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">3-Scoop Float — 24 oz.</div>
               <div class="menu-item__desc">Choose your ice creams &amp; soda.</div>
@@ -782,11 +860,13 @@
         <div style="margin-top:var(--space-6);">
           <div class="menu-items">
             <div class="menu-item">
-              <div class="menu-item__left"><div class="menu-item__name">Add Drizzles or Toppings</div></div>
+            <div class="menu-item__thumb"><img src="images/menu/items/add-drizzles-or-toppings.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left"><div class="menu-item__name">Add Drizzles or Toppings</div></div>
               <div class="menu-item__price">+$0.75</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left"><div class="menu-item__name">Add Torani Syrups</div></div>
+            <div class="menu-item__thumb"><img src="images/menu/items/add-torani-syrups.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left"><div class="menu-item__name">Add Torani Syrups</div></div>
               <div class="menu-item__price">+$0.35</div>
             </div>
           </div>
@@ -804,22 +884,27 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/16-oz.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">16 oz.</div></div>
             <div class="menu-item__price">from $1.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/24-oz.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">24 oz.</div></div>
             <div class="menu-item__price">from $2.00</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/32-oz-foam-cup.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">32 oz. Foam Cup</div></div>
             <div class="menu-item__price">from $2.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/44-oz-foam-cup.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">44 oz. Foam Cup</div></div>
             <div class="menu-item__price">from $3.00</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/pebble-ice-8-pound-bag.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">Pebble Ice — 8-Pound Bag</div></div>
             <div class="menu-item__price">$1.00</div>
           </div>
@@ -830,46 +915,57 @@
           <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:900;color:var(--color-blueberry);margin-bottom:var(--space-2);">Utah Dirty Sodas <span style="font-family:var(--font-script);font-size:var(--text-lg);font-weight:400;color:var(--color-cherry);">A Utah original</span></h3>
           <div class="dirty-sodas-grid" style="margin-top:var(--space-4);">
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-dirty-diet-coke.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Dirty Diet Coke</div>
               <div class="dirty-soda-card__recipe">Diet Coke · Coconut · Fresh Lime</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-dr-cocoberry.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Dr Cocoberry</div>
               <div class="dirty-soda-card__recipe">Dr Pepper · Strawberry · Coconut Cream</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-beach-life.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Beach Life</div>
               <div class="dirty-soda-card__recipe">Sprite · Vanilla · Raspberry · Swedish Fish</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-root-beer-royale.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Root Beer Royale</div>
               <div class="dirty-soda-card__recipe">Root Beer · Vanilla · Half &amp; Half</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-rockin-raspberry.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Rockin' Raspberry</div>
               <div class="dirty-soda-card__recipe">Sprite · Raspberry · Fresh Lime · Coconut Cream</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-peaches-and-cream.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Peaches &amp; Cream</div>
               <div class="dirty-soda-card__recipe">Diet Coke · Peach · Vanilla · Half &amp; Half</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-the-classic.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">The Classic</div>
               <div class="dirty-soda-card__recipe">Coke · Vanilla</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-orange-and-cream.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Orange &amp; Cream</div>
               <div class="dirty-soda-card__recipe">Orange Fanta · Half &amp; Half</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-shirley-temple.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Shirley Temple</div>
               <div class="dirty-soda-card__recipe">Sprite · Grenadine · Maraschino Cherries</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-roy-rogers.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Roy Rogers</div>
               <div class="dirty-soda-card__recipe">Coke · Grenadine · Maraschino Cherries</div>
             </div>
             <div class="dirty-soda-card">
+              <div class="dirty-soda-card__thumb"><img src="images/menu/items/dirty-lime-rickey.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
               <div class="dirty-soda-card__name">Lime Rickey</div>
               <div class="dirty-soda-card__recipe">Sprite · Grape · Fresh Lime</div>
             </div>
@@ -881,21 +977,24 @@
           <h3 style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--color-blueberry);margin-bottom:var(--space-4);">Add-ons</h3>
           <div class="menu-items">
             <div class="menu-item">
-              <div class="menu-item__left">
+            <div class="menu-item__thumb"><img src="images/menu/items/syrups.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left">
                 <div class="menu-item__name">Syrups</div>
                 <div class="menu-item__desc">Vanilla · Coconut · Raspberry · Strawberry · Peach · Grape · Grenadine<br><em>All sugar-free except Grape and Grenadine.</em></div>
               </div>
               <div class="menu-item__price">+$0.35</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left">
+            <div class="menu-item__thumb"><img src="images/menu/items/mix-ins.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left">
                 <div class="menu-item__name">Mix-Ins</div>
                 <div class="menu-item__desc">Half &amp; Half · Coconut Cream · Swedish Fish · Maraschino Cherries</div>
               </div>
               <div class="menu-item__price">+$0.60</div>
             </div>
             <div class="menu-item">
-              <div class="menu-item__left">
+            <div class="menu-item__thumb"><img src="images/menu/items/fresh-limes-and-fresh-lemons.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
+            <div class="menu-item__left">
                 <div class="menu-item__name">Fresh Limes &amp; Fresh Lemons</div>
               </div>
               <div class="menu-item__price">+$0.35</div>
@@ -915,18 +1014,22 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/single-cookie.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">Single Cookie</div></div>
             <div class="menu-item__price">$2.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/4-cookies.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">4 Cookies</div></div>
             <div class="menu-item__price">$9.00</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/6-cookies.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">6 Cookies</div></div>
             <div class="menu-item__price">$13.00</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/dozen-cookies.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left"><div class="menu-item__name">Dozen Cookies</div></div>
             <div class="menu-item__price">$24.00</div>
           </div>
@@ -958,6 +1061,7 @@
 
         <div class="menu-items">
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/monkey-bites.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Monkey Bites</div>
               <div class="menu-item__desc">Frozen banana slices with drizzle of choice. <em>Add drizzles &amp; toppings +$0.75 · Chocolate dipped +$1.00</em></div>
@@ -965,6 +1069,7 @@
             <div class="menu-item__price">$4.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/ice-cream-sandwich.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Ice Cream Sandwich</div>
               <div class="menu-item__desc">Half a Dutchman's Chocolate Chip Cookie with Vanilla ice cream. Satisfying, not overwhelming. <em>Whole sandwich $7.00 · Chocolate dipped +$1.00</em></div>
@@ -972,6 +1077,7 @@
             <div class="menu-item__price">$4.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/salted-cookie-dunkers.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Salted Cookie Dunkers</div>
               <div class="menu-item__desc">Bite-size Dutchman's cookie slices dipped in chocolate and sprinkled with sea salt — made for easy snacking and dunking.</div>
@@ -979,6 +1085,7 @@
             <div class="menu-item__price">$4.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/rice-krispie-treats.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Rice Krispie Treats</div>
               <div class="menu-item__desc">GF treat, marshmallow &amp; rice cereal.</div>
@@ -986,6 +1093,7 @@
             <div class="menu-item__price">$4.50</div>
           </div>
           <div class="menu-item">
+            <div class="menu-item__thumb"><img src="images/menu/items/snelgrove-pints.jpg" alt="" onerror="this.parentNode.classList.add('is-empty')"></div>
             <div class="menu-item__left">
               <div class="menu-item__name">Snelgrove Pints</div>
               <div class="menu-item__desc">Perfect gift for a friend — take a little Snelgrove home with you.</div>
