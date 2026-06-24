@@ -1094,6 +1094,23 @@
 
 /* Designed banner slide: artwork already contains its own typography & CTA,
    so suppress the overlay/pattern and make the whole slide a link. */
+/* Hero CTA strip — Find a Shop / Plan a Celebration, sits between banner and features strip */
+.hero-cta-strip {
+  background: var(--color-vanilla);
+  padding-block: var(--space-6);
+}
+.hero-cta-strip__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.hero-cta-strip__btn {
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-8);
+}
+
 /* Single celebration banner hero (no slider) — override .hero defaults */
 .hero-celebration-banner {
   position: relative;
