@@ -346,9 +346,10 @@
       transition: background var(--transition-fast);
     }
     .lightbox__close:hover { background: rgba(255,255,255,0.28); }
-    /* Hide thumb on mobile so list stays compact */
+    /* Smaller thumbs on phones — still visible, still tappable for the lightbox */
     @media (max-width: 540px) {
-      .menu-item__thumb { display: none; }
+      .menu-item__thumb { width: 56px; height: 56px; }
+      .menu-item__thumb.is-empty { display: none; }
     }
     /* Dirty soda thumbnail (top of card) */
     .dirty-soda-card__thumb {
