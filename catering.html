@@ -209,6 +209,7 @@
     Now open! &nbsp;·&nbsp; Centerville · Lehi · Daybreak · Sandy · Bluffdale · Tooele &nbsp;·&nbsp;
     <a href="locations.html">Find a location →</a>
   </div>
+
   <header class="nav" role="banner">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo" aria-label="Snelgrove Ice Cream — Home">
@@ -237,10 +238,14 @@
         </div>
         <a href="catering.html"  class="nav__link active">Catering</a>
         <a href="locations.html" class="nav__link">Locations</a>
-        <a href="contact.html"   class="nav__link">Contact</a>
+      <a href="contact.html"   class="nav__link">Contact</a>
       </nav>
-      <div class="nav__cta"><a href="locations.html" class="btn btn--primary">Find a Shop</a></div>
-      <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="nav__cta">
+        <a href="locations.html" class="btn btn--primary">Find a Shop</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
   <nav class="nav__mobile" role="navigation" aria-label="Mobile navigation">
@@ -251,10 +256,12 @@
     <a href="values.html"    class="nav__mobile-link" style="padding-left:var(--space-6);">Our Values</a>
     <a href="careers.html"   class="nav__mobile-link" style="padding-left:var(--space-6);">Careers</a>
     <a href="franchise.html" class="nav__mobile-link" style="padding-left:var(--space-6);">Franchise</a>
-    <a href="catering.html"  class="nav__mobile-link">Catering</a>
+    <a href="catering.html"  class="nav__mobile-link active">Catering</a>
     <a href="locations.html" class="nav__mobile-link">Locations</a>
   <a href="contact.html"   class="nav__mobile-link">Contact</a>
-    <div class="nav__mobile-cta"><a href="locations.html" class="btn btn--primary" style="width:100%;justify-content:center;">Find a Shop</a></div>
+    <div class="nav__mobile-cta">
+      <a href="locations.html" class="btn btn--primary" style="width:100%;justify-content:center;">Find a Shop</a>
+    </div>
   </nav>
 
   <main id="main-content">
@@ -521,27 +528,24 @@
         <div class="footer__col">
           <h4 class="footer__col-title">Explore</h4>
           <ul class="footer__links">
-            <li><a href="index.html"     class="footer__link">Home</a></li>
-            <li><a href="flavors.html"   class="footer__link">Flavors</a></li>
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="flavors.html" class="footer__link">Flavors</a></li>
             <li><a href="locations.html" class="footer__link">Locations</a></li>
-            <li><a href="story.html"     class="footer__link">Our Story</a></li>
-            <li><a href="contact.html"   class="footer__link">Contact</a></li>
+            <li><a href="story.html" class="footer__link">Our Story</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4 class="footer__col-title">Favorites</h4>
+          <h4 class="footer__col-title">Inquiries</h4>
           <ul class="footer__links">
-            <li><a href="flavors.html" class="footer__link">Burnt Almond Fudge</a></li>
-            <li><a href="flavors.html" class="footer__link">Canadian Vanilla</a></li>
-            <li><a href="flavors.html" class="footer__link">Rocky Road</a></li>
-            <li><a href="flavors.html" class="footer__link">Caramel Cashew</a></li>
             <li><a href="catering.html" class="footer__link">Catering</a></li>
+            <li><a href="franchise.html" class="footer__link">Franchise</a></li>
+            <li><a href="contact.html" class="footer__link">Press / Media</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Find Us</h4>
           <ul class="footer__links">
-
             <li><a href="locations.html#centerville" class="footer__link">Centerville</a></li>
             <li><a href="locations.html#lehi" class="footer__link">Lehi</a></li>
             <li><a href="locations.html#daybreak" class="footer__link">Daybreak</a></li>
@@ -553,7 +557,7 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copyright">&copy; <span id="footer-year"></span> Snelgrove Ice Cream. All rights reserved.</p>
-        <nav class="footer__bottom-links" aria-label="Legal"><a href="privacy.html" class="footer__bottom-link">Privacy Policy</a><a href="terms.html" class="footer__bottom-link">Terms of Use</a><a href="accessibility.html" class="footer__bottom-link">Accessibility</a></nav>
+        <nav class="footer__bottom-links"><a href="privacy.html" class="footer__bottom-link">Privacy</a><a href="terms.html" class="footer__bottom-link">Terms</a><a href="accessibility.html" class="footer__bottom-link">Accessibility</a></nav>
       </div>
     </div>
   </footer>
