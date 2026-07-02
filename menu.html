@@ -287,6 +287,65 @@
       background: var(--color-white);
     }
     .menu-item__thumb.is-empty img { display: none; }
+    /* Clickable thumbs: subtle hover cue */
+    .menu-item__thumb:not(.is-empty),
+    .dirty-soda-card__thumb:not(.is-empty) {
+      cursor: zoom-in;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .menu-item__thumb:not(.is-empty):hover,
+    .dirty-soda-card__thumb:not(.is-empty):hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+    /* Lightbox overlay */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(15, 30, 52, 0.88);
+      display: flex; align-items: center; justify-content: center;
+      padding: var(--space-6);
+      z-index: 9999;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { opacity: 1; visibility: visible; }
+    .lightbox__img {
+      max-width: 95vw; max-height: 92vh;
+      width: auto; height: auto;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      background: var(--color-white);
+    }
+    .lightbox__caption {
+      position: absolute;
+      bottom: var(--space-6);
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--color-vanilla);
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      letter-spacing: 0.05em;
+      background: rgba(0,0,0,0.4);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      pointer-events: none;
+    }
+    .lightbox__close {
+      position: absolute;
+      top: var(--space-5); right: var(--space-5);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      color: var(--color-vanilla);
+      font-size: 24px; line-height: 1;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition-fast);
+    }
+    .lightbox__close:hover { background: rgba(255,255,255,0.28); }
     /* Hide thumb on mobile so list stays compact */
     @media (max-width: 540px) {
       .menu-item__thumb { display: none; }
@@ -1142,5 +1201,63 @@
 
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
+
+  <!-- Menu photo lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close photo">&times;</button>
+    <img class="lightbox__img" id="lightbox-img" alt="">
+    <div class="lightbox__caption" id="lightbox-caption"></div>
+  </div>
+  <script>
+    (function () {
+      const box = document.getElementById('lightbox');
+      const boxImg = document.getElementById('lightbox-img');
+      const boxCap = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+      if (!box) return;
+
+      function open(src, caption) {
+        boxImg.src = src;
+        boxImg.alt = caption || '';
+        boxCap.textContent = caption || '';
+        boxCap.style.display = caption ? 'block' : 'none';
+        box.classList.add('is-open');
+        box.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        box.classList.remove('is-open');
+        box.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        // release image so we don't hold a giant bitmap
+        setTimeout(() => { boxImg.src = ''; }, 200);
+      }
+
+      // Attach to every populated thumb
+      document.querySelectorAll('.menu-item__thumb, .dirty-soda-card__thumb').forEach((el) => {
+        el.addEventListener('click', () => {
+          if (el.classList.contains('is-empty')) return;
+          const img = el.querySelector('img');
+          if (!img || !img.src) return;
+          // Prefer readable caption from the neighboring item name
+          let caption = '';
+          const item = el.closest('.menu-item, .dirty-soda-card');
+          if (item) {
+            const name = item.querySelector('.menu-item__name, .dirty-soda-card__name');
+            if (name) caption = name.textContent.trim();
+          }
+          open(img.src, caption);
+        });
+      });
+
+      box.addEventListener('click', (e) => {
+        if (e.target === box || e.target === boxImg || e.target === closeBtn) close();
+      });
+      closeBtn.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 </body>
 </html>
