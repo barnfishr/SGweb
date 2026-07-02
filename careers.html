@@ -281,13 +281,67 @@
 
           <div class="apply-form-card" data-animate="fade-up" data-delay="200">
             <h3 class="apply-form-card__title">Application</h3>
-            <iframe
-              src="https://form.jotform.com/261821257478060"
-              title="Join the Snelgrove Team"
-              style="width:100%; min-height:940px; border:none;"
-              loading="lazy"
-              allow="geolocation; microphone; camera"
-            ></iframe>
+            <form action="https://submit.jotform.com/submit/261821257478060/" method="POST" aria-label="Job application form">
+              <input type="hidden" name="formID" value="261821257478060">
+              <input type="hidden" name="website" value="">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="a-first">First Name <span>*</span></label>
+                  <input type="text" id="a-first" name="q11_firstName" class="form-input" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="a-last">Last Name <span>*</span></label>
+                  <input type="text" id="a-last" name="q12_lastName" class="form-input" required autocomplete="family-name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="a-email">Email <span>*</span></label>
+                <input type="email" id="a-email" name="q4_email2" class="form-input" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="a-phone">Phone <span>*</span></label>
+                <input type="tel" id="a-phone" name="q5_phone3[full]" class="form-input" required autocomplete="tel">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="a-location">Preferred Location <span>*</span></label>
+                  <select id="a-location" name="q6_dropdown4" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option>Centerville</option>
+                    <option>Lehi</option>
+                    <option>Daybreak</option>
+                    <option>Sandy</option>
+                    <option>Bluffdale</option>
+                    <option>Tooele</option>
+                    <option>Any Location</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="a-position">Position Interest <span>*</span></label>
+                  <select id="a-position" name="q7_dropdown5" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option>Scooper / Team Member</option>
+                    <option>Shift Lead</option>
+                    <option>Store Manager</option>
+                    <option>Any Role</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="a-availability">Availability <span>*</span></label>
+                <select id="a-availability" name="q8_dropdown6" class="form-select" required>
+                  <option value="">Select...</option>
+                  <option>Part-Time</option>
+                  <option>Full-Time</option>
+                  <option>Either</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="a-about">Tell Us About Yourself <span>*</span></label>
+                <textarea id="a-about" name="q9_textarea7" class="form-textarea" required placeholder="Share your experience and why you'd love to work at Snelgrove"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary form-submit">Submit Application</button>
+            </form>
           </div>
         </div>
       </div>

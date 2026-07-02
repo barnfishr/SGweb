@@ -235,13 +235,45 @@
             <h3 class="contact-form-card__title">Send Us a Message</h3>
 
             <!-- General Inquiry -->
-              <iframe
-              src="https://form.jotform.com/261820565644056"
-              title="Contact Snelgrove Ice Cream"
-              style="width:100%; min-height:760px; border:none;"
-              loading="lazy"
-              allow="geolocation; microphone; camera"
-            ></iframe>
+              <form action="https://submit.jotform.com/submit/261820565644056/" method="POST" aria-label="General inquiry form">
+                <input type="hidden" name="formID" value="261820565644056">
+                <input type="hidden" name="website" value="">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="first-name">First Name <span>*</span></label>
+                    <input type="text" id="first-name" name="q9_firstName" class="form-input" required autocomplete="given-name">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="last-name">Last Name <span>*</span></label>
+                    <input type="text" id="last-name" name="q10_lastName" class="form-input" required autocomplete="family-name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email <span>*</span></label>
+                  <input type="email" id="email" name="q4_email2" class="form-input" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone</label>
+                  <input type="tel" id="phone" name="q5_phone3[full]" class="form-input" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="subject">What's this about?</label>
+                  <select id="subject" name="q6_dropdown4" class="form-select">
+                    <option value="">Choose a topic...</option>
+                    <option>General Question</option>
+                    <option>Catering Inquiry</option>
+                    <option>Press / Media</option>
+                    <option>Feedback</option>
+                    <option>Wholesale / Grocery</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="message">Message <span>*</span></label>
+                  <textarea id="message" name="q7_textarea5" class="form-textarea" required placeholder="Tell us what's on your mind..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary form-submit">Send Message</button>
+              </form>
 
           </div><!-- /.contact-form-card -->
 
