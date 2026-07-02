@@ -285,6 +285,11 @@
     .inquiry-form__select { appearance: none; cursor: pointer; }
     .inquiry-form__select option { color: var(--color-blueberry); background: var(--color-white); }
     .inquiry-form__textarea { resize: vertical; min-height: 100px; }
+    .inquiry-form-embed {
+      background: var(--color-white); border-radius: var(--radius-xl);
+      overflow: hidden; box-shadow: var(--shadow-lg);
+      max-width: 760px; margin-inline: auto;
+    }
     .inquiry-form__fee-desc {
       font-size: var(--text-sm);
       color: rgba(255,255,255,.78);
@@ -714,86 +719,15 @@
             to start the conversation.
           </p>
 
-          <form class="inquiry-form" data-animate="fade-up" data-delay="300"
-                action="https://your-email-service.com/franchise-inquiry" method="POST"
-                aria-label="Franchise inquiry form">
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-first">First Name</label>
-              <input class="inquiry-form__input" type="text" id="franchise-first" name="first_name" placeholder="Your first name" required autocomplete="given-name">
-            </div>
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-last">Last Name</label>
-              <input class="inquiry-form__input" type="text" id="franchise-last" name="last_name" placeholder="Your last name" required autocomplete="family-name">
-            </div>
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-email">Email</label>
-              <input class="inquiry-form__input" type="email" id="franchise-email" name="email" placeholder="you@example.com" required autocomplete="email">
-            </div>
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-phone">Phone</label>
-              <input class="inquiry-form__input" type="tel" id="franchise-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel">
-            </div>
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-location">Preferred Market / City</label>
-              <input class="inquiry-form__input" type="text" id="franchise-location" name="preferred_location" placeholder="e.g. Provo, UT">
-            </div>
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-capital">Total Capital Available</label>
-              <select class="inquiry-form__select" id="franchise-capital" name="available_capital">
-                <option value="" disabled selected>Select range</option>
-                <option value="under-100k">Under $100,000</option>
-                <option value="100k-250k">$100,000 &ndash; $250,000</option>
-                <option value="250k-500k">$250,000 &ndash; $500,000</option>
-                <option value="500k-plus">$500,000+</option>
-              </select>
-            </div>
-
-            <div class="inquiry-form__field">
-              <label class="inquiry-form__label" for="franchise-liquid">Liquid Capital Available</label>
-              <select class="inquiry-form__select" id="franchise-liquid" name="liquid_capital">
-                <option value="" disabled selected>Select range</option>
-                <option value="under-50k">Under $50,000</option>
-                <option value="50k-100k">$50,000 &ndash; $100,000</option>
-                <option value="100k-250k">$100,000 &ndash; $250,000</option>
-                <option value="250k-plus">$250,000+</option>
-              </select>
-            </div>
-
-            <div class="inquiry-form__field inquiry-form__field--full">
-              <label class="inquiry-form__label" for="franchise-message">Tell Us About Yourself</label>
-              <textarea class="inquiry-form__textarea" id="franchise-message" name="message" placeholder="Share your background, experience, and what excites you about Snelgrove..." rows="4"></textarea>
-            </div>
-
-            <div class="inquiry-form__field inquiry-form__field--full inquiry-form__field--fee">
-              <span class="inquiry-form__label">Franchise Fee Acknowledgment <span style="color:var(--color-banana-split);">*</span></span>
-              <p class="inquiry-form__fee-desc">
-                Snelgrove franchises carry a $50,000 franchise fee. Please confirm you understand
-                this before submitting your inquiry.
-              </p>
-              <div class="inquiry-form__radio-row" role="radiogroup" aria-labelledby="fee-ack-label">
-                <label class="inquiry-form__radio">
-                  <input type="radio" name="fee_acknowledged" value="yes" required>
-                  <span>Yes &mdash; I understand</span>
-                </label>
-                <label class="inquiry-form__radio">
-                  <input type="radio" name="fee_acknowledged" value="no">
-                  <span>No</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="inquiry-form__submit">
-              <button type="submit" class="btn btn--gold" style="width:100%; justify-content:center; font-size:var(--text-base); padding:var(--space-4) var(--space-8);">
-                Submit Inquiry
-              </button>
-            </div>
-          </form>
+          <div class="inquiry-form-embed" data-animate="fade-up" data-delay="300">
+            <iframe
+              src="https://form.jotform.com/261820910333045"
+              title="Snelgrove Franchise Inquiry"
+              style="width:100%; min-height:1150px; border:none;"
+              loading="lazy"
+              allow="geolocation; microphone; camera"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
