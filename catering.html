@@ -143,32 +143,14 @@
       font-family: var(--font-display); font-size: var(--text-2xl);
       font-weight: 700; color: var(--color-blueberry); margin-bottom: var(--space-4);
     }
-    /* CTA card that opens the HoneyBook hosted inquiry form */
-    .inquiry-form-card--cta {
-      display: flex; flex-direction: column;
-      position: sticky; top: calc(var(--nav-height) + var(--space-4));
+    /* Embedded HoneyBook hosted inquiry form */
+    .hb-embed-wrap {
+      position: relative; width: 100%;
+      border-radius: var(--radius-lg); overflow: hidden;
+      background: var(--color-vanilla);
     }
-    .inquiry-form-card__lead {
-      font-size: var(--text-base); color: var(--color-text-mid);
-      line-height: 1.7; margin-bottom: var(--space-5);
-    }
-    .inquiry-form-card__list {
-      list-style: none; margin: 0 0 var(--space-6); padding: 0;
-      display: flex; flex-direction: column; gap: var(--space-3);
-    }
-    .inquiry-form-card__list li {
-      position: relative; padding-left: var(--space-6);
-      font-size: var(--text-sm); color: var(--color-text); line-height: 1.6;
-    }
-    .inquiry-form-card__list li::before {
-      content: '\2713'; position: absolute; left: 0; top: 1px;
-      display: flex; align-items: center; justify-content: center;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--color-cherry); color: #fff; font-size: 11px; font-weight: 900;
-    }
-    .inquiry-form-card__btn {
-      width: 100%; justify-content: center;
-      font-size: var(--text-base); padding: var(--space-4) var(--space-6);
+    .hb-embed {
+      display: block; width: 100%; min-height: 720px; border: 0;
     }
     .inquiry-form-card__note {
       font-size: var(--text-sm); color: var(--color-text-light);
@@ -502,26 +484,22 @@
             </div>
           </div>
 
-          <!-- Form card -> HoneyBook hosted inquiry form -->
-          <div class="inquiry-form-card inquiry-form-card--cta" data-animate="fade-up" data-delay="200">
+          <!-- Form card -> HoneyBook hosted inquiry form, embedded -->
+          <div class="inquiry-form-card" data-animate="fade-up" data-delay="200">
             <h3 class="inquiry-form-card__title">Request a Catering Quote</h3>
-            <p class="inquiry-form-card__lead">
-              Tell us about your event and we'll put together a custom quote &mdash;
-              flavors, guest count, packages, and all the sweet details.
-            </p>
-            <ul class="inquiry-form-card__list">
-              <li>Weddings, parties, corporate events &amp; more</li>
-              <li>The Snelgrove Cart, Chiller Cooler, or a custom experience</li>
-              <li>Quick, no-obligation quote from our events team</li>
-            </ul>
-            <a href="https://snelgroveicecream.hbportal.co/public/6a13bcc72fd22881911a2fec"
-               target="_blank" rel="noopener"
-               class="btn btn--gold inquiry-form-card__btn">
-              Start Your Catering Inquiry
-            </a>
+            <div class="hb-embed-wrap">
+              <iframe
+                src="https://snelgroveicecream.hbportal.co/public/6a13bcc72fd22881911a2fec"
+                title="Snelgrove catering inquiry form"
+                class="hb-embed"
+                loading="lazy"
+                allow="fullscreen"></iframe>
+            </div>
             <p class="inquiry-form-card__note">
-              Prefer email? Reach us at
-              <a href="mailto:catering@snelgroveicecream.com">catering@snelgroveicecream.com</a>
+              Form not loading? Open it
+              <a href="https://snelgroveicecream.hbportal.co/public/6a13bcc72fd22881911a2fec"
+                 target="_blank" rel="noopener">in a new tab</a>,
+              or email <a href="mailto:catering@snelgroveicecream.com">catering@snelgroveicecream.com</a>.
             </p>
           </div>
 
