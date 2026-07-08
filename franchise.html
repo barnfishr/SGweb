@@ -721,15 +721,88 @@
             to start the conversation.
           </p>
 
-          <div class="inquiry-form-embed" data-animate="fade-up" data-delay="300">
-            <iframe
-              src="https://form.jotform.com/261820910333045"
-              title="Snelgrove Franchise Inquiry"
-              style="width:100%; min-height:1150px; border:none;"
-              loading="lazy"
-              allow="geolocation; microphone; camera"
-            ></iframe>
-          </div>
+          <form class="inquiry-form" data-animate="fade-up" data-delay="300"
+                action="https://submit.jotform.com/submit/261820910333045/" method="POST"
+                aria-label="Franchise inquiry form">
+            <input type="hidden" name="formID" value="261820910333045">
+            <input type="hidden" name="website" value="">
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-first">First Name</label>
+              <input class="inquiry-form__input" type="text" id="franchise-first" name="q2_textbox0" placeholder="Your first name" required autocomplete="given-name">
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-last">Last Name</label>
+              <input class="inquiry-form__input" type="text" id="franchise-last" name="q3_textbox1" placeholder="Your last name" required autocomplete="family-name">
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-email">Email</label>
+              <input class="inquiry-form__input" type="email" id="franchise-email" name="q4_email2" placeholder="you@example.com" required autocomplete="email">
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-phone">Phone</label>
+              <input class="inquiry-form__input" type="tel" id="franchise-phone" name="q5_phone3[full]" placeholder="(555) 123-4567" required autocomplete="tel">
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-location">Preferred Market / City</label>
+              <input class="inquiry-form__input" type="text" id="franchise-location" name="q6_textbox4" placeholder="e.g. Provo, UT" required>
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-capital">Total Capital Available</label>
+              <select class="inquiry-form__select" id="franchise-capital" name="q7_dropdown5" required>
+                <option value="" disabled selected>Select range</option>
+                <option>Under $100,000</option>
+                <option>$100,000 &#8211; $250,000</option>
+                <option>$250,000 &#8211; $500,000</option>
+                <option>$500,000+</option>
+              </select>
+            </div>
+
+            <div class="inquiry-form__field">
+              <label class="inquiry-form__label" for="franchise-liquid">Liquid Capital Available</label>
+              <select class="inquiry-form__select" id="franchise-liquid" name="q8_dropdown6" required>
+                <option value="" disabled selected>Select range</option>
+                <option>Under $50,000</option>
+                <option>$50,000 &#8211; $100,000</option>
+                <option>$100,000 &#8211; $250,000</option>
+                <option>$250,000+</option>
+              </select>
+            </div>
+
+            <div class="inquiry-form__field inquiry-form__field--full inquiry-form__field--fee">
+              <span class="inquiry-form__label">Franchise Fee Acknowledgment <span style="color:var(--color-banana-split);">*</span></span>
+              <p class="inquiry-form__fee-desc">
+                Snelgrove franchises carry a $50,000 franchise fee. Please confirm you understand
+                this before submitting your inquiry.
+              </p>
+              <div class="inquiry-form__radio-row" role="radiogroup">
+                <label class="inquiry-form__radio">
+                  <input type="radio" name="q9_radio7" value="Yes &#8212; I understand" required>
+                  <span>Yes &mdash; I understand</span>
+                </label>
+                <label class="inquiry-form__radio">
+                  <input type="radio" name="q9_radio7" value="No">
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="inquiry-form__field inquiry-form__field--full">
+              <label class="inquiry-form__label" for="franchise-message">Tell Us About Yourself</label>
+              <textarea class="inquiry-form__textarea" id="franchise-message" name="q10_textarea8" placeholder="Share your background, experience, and what excites you about Snelgrove..." rows="4"></textarea>
+            </div>
+
+            <div class="inquiry-form__submit">
+              <button type="submit" class="btn btn--gold" style="width:100%; justify-content:center; font-size:var(--text-base); padding:var(--space-4) var(--space-8);">
+                Submit Inquiry
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
