@@ -1,0 +1,83 @@
+<!-- Styled catering inquiry form, PARKED until the catering JotForm exists.
+     TO ACTIVATE:
+     1. Create JotForm "Snelgrove Catering Inquiry" with fields (in order):
+        First Name (req short text), Last Name (req short text), Email (req),
+        Phone (req), Event Type dropdown (Wedding | Corporate Event | Birthday
+        Party | Family Reunion | School / Community | Other),
+        Est. Guest Count dropdown (Under 50 | 50-100 | 100-250 | 250-500 | 500+),
+        Event Date (date picker), Preferred Package dropdown (The Snelgrove Cart |
+        Chiller Cooler | Custom Experience | Not sure yet),
+        Event Details (textarea, optional).
+     2. GET form/{id}/questions via the JotForm API, replace every FIXME_JF_*
+        below with the real names (qN_textbox0 etc.; date fields post as
+        qN_date[month]/[day]/[year] - adjust the date input accordingly).
+     3. Swap into catering.html replacing the HoneyBook block; delete this file.
+-->
+            <form action="https://submit.jotform.com/submit/FIXME_JF_FORMID/" method="POST" aria-label="Catering inquiry form">
+              <input type="hidden" name="formID" value="FIXME_JF_FORMID">
+              <input type="hidden" name="website" value="">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="c-first">First Name <span>*</span></label>
+                  <input type="text" id="c-first" name="FIXME_JF_FIRST" class="form-input" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-last">Last Name <span>*</span></label>
+                  <input type="text" id="c-last" name="FIXME_JF_LAST" class="form-input" required autocomplete="family-name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-email">Email <span>*</span></label>
+                <input type="email" id="c-email" name="FIXME_JF_EMAIL" class="form-input" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-phone">Phone</label>
+                <input type="tel" id="c-phone" name="FIXME_JF_PHONE" class="form-input" autocomplete="tel">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="c-event-type">Event Type <span>*</span></label>
+                  <select id="c-event-type" name="FIXME_JF_EVENTTYPE" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option>Wedding</option>
+                    <option>Corporate Event</option>
+                    <option>Birthday Party</option>
+                    <option>Family Reunion</option>
+                    <option>School / Community</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-guests">Est. Guest Count <span>*</span></label>
+                  <select id="c-guests" name="FIXME_JF_GUESTS" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option>Under 50</option>
+                    <option>50–100</option>
+                    <option>100–250</option>
+                    <option>250–500</option>
+                    <option>500+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="c-date">Event Date <span>*</span></label>
+                  <input type="date" id="c-date" name="FIXME_JF_DATE" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-package">Preferred Package</label>
+                  <select id="c-package" name="FIXME_JF_PACKAGE" class="form-select">
+                    <option value="">Select...</option>
+                    <option>The Snelgrove Cart</option>
+                    <option>Chiller Cooler</option>
+                    <option>Custom Experience</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-details">Event Details</label>
+                <textarea id="c-details" name="FIXME_JF_DETAILS" class="form-textarea" placeholder="Tell us about your event, any flavor requests, dietary needs, etc..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary form-submit">Request Catering Quote</button>
+            </form>
