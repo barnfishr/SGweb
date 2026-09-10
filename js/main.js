@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = slider.querySelector('.hero-slider__arrow--next');
     let current = 0;
     let autoplayInterval = null;
-    const AUTOPLAY_DELAY = 3000;
+    const AUTOPLAY_DELAY = 6000;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let userPaused = reducedMotion;
 
     function goToSlide(index) {
       slides[current].classList.remove('is-active');
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startAutoplay() {
       stopAutoplay();
-      if (slides.length > 1) autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
+      if (slides.length > 1 && !userPaused) autoplayInterval = setInterval(nextSlide, AUTOPLAY_DELAY);
     }
 
     function stopAutoplay() {
@@ -99,6 +101,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pause autoplay on hover, resume on leave
     slider.addEventListener('mouseenter', stopAutoplay);
     slider.addEventListener('mouseleave', startAutoplay);
+
+    // Pause/play control (WCAG 2.2.2); starts paused if the user prefers reduced motion
+    const pauseBtn = slider.querySelector('.hero-slider__pause');
+    if (pauseBtn) {
+      const iconPause = pauseBtn.querySelector('.hero-slider__pause-icon-pause');
+      const iconPlay = pauseBtn.querySelector('.hero-slider__pause-icon-play');
+      function renderPauseBtn() {
+        pauseBtn.setAttribute('aria-pressed', String(userPaused));
+        pauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+        if (iconPause) iconPause.hidden = userPaused;
+        if (iconPlay) iconPlay.hidden = !userPaused;
+      }
+      pauseBtn.addEventListener('click', () => {
+        userPaused = !userPaused;
+        renderPauseBtn();
+        if (userPaused) stopAutoplay(); else startAutoplay();
+      });
+      renderPauseBtn();
+    }
 
     // Start autoplay
     startAutoplay();
