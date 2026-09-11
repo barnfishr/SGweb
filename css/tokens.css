@@ -7,8 +7,8 @@
 
 :root {
   /* --- Official Brand Colors --- */
-  --color-cherry:       #EF433A;   /* Cherry on Top — primary CTA / red */
-  --color-cherry-dark:  #C9322A;   /* Darker cherry for hover states */
+  --color-cherry:       #C9322A;   /* Cherry on Top — primary CTA / red */
+  --color-cherry-dark:  #A82820;   /* Darker cherry for hover states */
   --color-cherry-light: #FDECEA;   /* Very light cherry tint */
 
   --color-blueberry:    #264E7B;   /* Blueberry — dark navy, headers & dark sections */
@@ -29,8 +29,8 @@
   --color-white:        #FFFFFF;
   --color-off-white:    #FDFAF7;
   --color-text:         #264E7B;   /* Default body text = Blueberry */
-  --color-text-mid:     #4A6E91;   /* Mid-tone text */
-  --color-text-light:   #8AAABF;   /* Muted text */
+  --color-text-mid:     #456787;   /* Mid-tone text */
+  --color-text-light:   #4A6E91;   /* Muted text */
   --color-border:       #EDE0D8;   /* Subtle border */
 
   /* --- Semantic aliases --- */

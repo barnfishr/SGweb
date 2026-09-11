@@ -30,8 +30,10 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- ===================== NAV ===================== -->
-  <div class="topbar">
+  <div class="topbar" role="region" aria-label="Announcement">
     Now open! &nbsp;·&nbsp; Centerville · Lehi · Daybreak · Sandy · Bluffdale · Tooele &nbsp;·&nbsp;
     <a href="locations.html">Find a location →</a>
   </div>
@@ -92,6 +94,8 @@
 
   <main id="main-content">
 
+    <h1 class="sr-only">Snelgrove Ice Cream — Handcrafted in Utah since 1929</h1>
+
     <!-- ===================== HERO ===================== -->
     <!--
       PROMO SYSTEM: To change the hero promotion, update the hero__promo block below.
@@ -130,6 +134,10 @@
       </button>
       <button class="hero-slider__arrow hero-slider__arrow--next" aria-label="Next slide">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button class="hero-slider__pause" aria-label="Pause slideshow" aria-pressed="false">
+        <svg class="hero-slider__pause-icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg class="hero-slider__pause-icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M8 5v14l11-7z"/></svg>
       </button>
     </section>
 
@@ -402,7 +410,7 @@
           </div>
         </div>
         <div class="footer__col">
-          <h4 class="footer__col-title">Explore</h4>
+          <h3 class="footer__col-title">Explore</h3>
           <ul class="footer__links">
             <li><a href="index.html" class="footer__link">Home</a></li>
             <li><a href="flavors.html" class="footer__link">Flavors</a></li>
@@ -412,7 +420,7 @@
           </ul>
         </div>
         <div class="footer__col">
-          <h4 class="footer__col-title">Inquiries</h4>
+          <h3 class="footer__col-title">Inquiries</h3>
           <ul class="footer__links">
             <li><a href="catering.html" class="footer__link">Catering</a></li>
             <li><a href="franchise.html" class="footer__link">Franchise</a></li>
@@ -420,7 +428,7 @@
           </ul>
         </div>
         <div class="footer__col">
-          <h4 class="footer__col-title">Find Us</h4>
+          <h3 class="footer__col-title">Find Us</h3>
           <ul class="footer__links">
             <li><a href="locations.html#centerville" class="footer__link">Centerville</a></li>
             <li><a href="locations.html#lehi" class="footer__link">Lehi</a></li>
