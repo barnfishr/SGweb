@@ -1199,7 +1199,7 @@
 /* Pause/play control for the hero slider (WCAG 2.2.2) */
 .hero-slider__pause {
   position: absolute;
-  bottom: var(--space-4);
+  top: var(--space-4);
   right: var(--space-4);
   z-index: 10;
   display: flex;
