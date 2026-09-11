@@ -143,15 +143,13 @@
       font-family: var(--font-display); font-size: var(--text-2xl);
       font-weight: 700; color: var(--color-blueberry); margin-bottom: var(--space-4);
     }
-    /* Embedded HoneyBook hosted inquiry form */
+    /* Embedded HoneyBook contact form (placement widget) */
     .hb-embed-wrap {
-      position: relative; width: 100%;
+      position: relative; width: 100%; min-height: 560px;
       border-radius: var(--radius-lg); overflow: hidden;
       background: var(--color-vanilla);
     }
-    .hb-embed {
-      display: block; width: 100%; min-height: 720px; border: 0;
-    }
+    .hb-embed-wrap iframe { width: 100% !important; border: 0; }
     .inquiry-form-card__note {
       font-size: var(--text-sm); color: var(--color-text-light);
       text-align: center; margin-top: var(--space-4);
@@ -486,17 +484,20 @@
             </div>
           </div>
 
-          <!-- Form card -> HoneyBook hosted inquiry form, embedded -->
+          <!-- Form card -> HoneyBook contact form (official placement embed) -->
           <div class="inquiry-form-card" data-animate="fade-up" data-delay="200">
             <h3 class="inquiry-form-card__title">Request a Catering Quote</h3>
             <div class="hb-embed-wrap">
-              <iframe
-                src="https://www.honeybook.com/widget/snelgrove_ice_cream_299448/cf_id/698ba78309accb003b512f13"
-                title="Snelgrove catering inquiry form"
-                class="hb-embed"
-                loading="lazy"
-                allow="fullscreen"></iframe>
+              <div class="hb-p-698ba7830ad16800073b51ec-1"></div>
+              <img height="1" width="1" style="display:none" src="https://www.honeybook.com/p.png?pid=698ba7830ad16800073b51ec" alt="">
             </div>
+            <script>
+              (function(h,b,s,n,i,p,e,t) {
+                h._HB_ = h._HB_ || {};h._HB_.pid = i;
+                t=b.createElement(s);t.type="text/javascript";t.async=!0;t.src=n;
+                e=b.getElementsByTagName(s)[0];e.parentNode.insertBefore(t,e);
+              })(window,document,"script","https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js","698ba7830ad16800073b51ec");
+            </script>
             <p class="inquiry-form-card__note">
               Form not loading? Open it
               <a href="https://www.honeybook.com/widget/snelgrove_ice_cream_299448/cf_id/698ba78309accb003b512f13"
