@@ -51,8 +51,9 @@
     /* ---- Package Cards ---- */
     .packages-section { background: var(--color-melted); }
     .packages-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(2, 1fr);
       gap: var(--space-8);
+      max-width: 1000px; margin-inline: auto;
     }
     .package-card {
       background: var(--color-white); border-radius: var(--radius-xl);
@@ -336,46 +337,69 @@
             <div class="package-card__pricing">
               <span class="package-card__price-label">Pricing</span>
               <p class="package-card__price">
-                $4.50 per 4 oz scoop<br>
-                <span style="font-size:var(--text-sm); color:var(--color-text-mid);">(plus tax)</span><br>
+                $5.79 per twin-scoop cup<br>
+                <span style="font-size:var(--text-sm); color:var(--color-text-mid);">(two scoops in every cup — plus tax)</span><br>
                 + $25 / 24 hours cooler rental
               </p>
             </div>
             <ul class="package-card__features">
+              <li>Two scoops in every cup</li>
               <li>Perfect for 25–50 guests</li>
               <li>4 flavors of your choice</li>
               <li>Pre-scooped lidded cups</li>
               <li>Available for pick up</li>
-              <li>No scooping needed</li>
             </ul>
             <a href="#inquiry" class="btn btn--secondary" style="text-align:center; justify-content:center;">Request Cooler Quote</a>
           </div>
 
-          <!-- The Snelgrove Cart -->
+          <!-- The Snelgrove Carts -->
           <div class="package-card" data-animate="fade-up" data-delay="200">
-            <h3 class="package-card__name">The Snelgrove Cart</h3>
+            <h3 class="package-card__name">The Snelgrove Carts</h3>
             <p class="package-card__desc">
-              Our charming vintage-style cart brings the full scoop shop experience to your
-              event. A dedicated scooper serves your guests with a smile — the perfect centerpiece
-              for any celebration.
+              Our charming vintage-style carts bring the full scoop shop experience to your
+              event. A dedicated scooper serves your guests with a smile — perfect for parties,
+              weddings, corporate events, and special celebrations.
             </p>
             <div class="package-card__pricing">
               <span class="package-card__price-label">Pricing</span>
               <p class="package-card__price">
-                $4.50 per 4 oz scoop<br>
-                $8.00 per 8 oz scoop<br>
-                <span style="font-size:var(--text-sm); color:var(--color-text-mid);">(plus tax)</span><br>
-                + $150 / hour cart rental
+                Blue Cart — $6 per person<br>
+                Red Cart — $7 per person<br>
+                <span style="font-size:var(--text-sm); color:var(--color-text-mid);">Both include a 3-hour service window.</span>
               </p>
             </div>
             <ul class="package-card__features">
-              <li>Full cart setup &amp; tear-down included</li>
-              <li>Delivery to your venue</li>
-              <li>Dedicated scooper</li>
-              <li>Choose your favorite flavors</li>
+              <li>3-hour service window included</li>
+              <li>Extra time: $75 per additional hour</li>
+              <li>$125 delivery &amp; setup fee — waived at the catering minimum ($600 Blue / $800 Red)</li>
+              <li>Dedicated scooper, setup &amp; tear-down</li>
               <li>Cups, cones &amp; toppings provided</li>
             </ul>
             <a href="#inquiry" class="btn btn--gold" style="text-align:center; justify-content:center;">Request Cart Quote</a>
+          </div>
+
+          <!-- Cold Crocks -->
+          <div class="package-card" data-animate="fade-up" data-delay="250">
+            <h3 class="package-card__name">Cold Crocks</h3>
+            <p class="package-card__desc">
+              Serve it yourself, the easy way. Our insulated cold crocks keep your favorite
+              Snelgrove flavors perfectly frozen at your table while you scoop at your own
+              pace — a simple, budget-friendly way to bring the scoop shop home.
+            </p>
+            <div class="package-card__pricing">
+              <span class="package-card__price-label">Pricing</span>
+              <p class="package-card__price">
+                $5 per hour<br>
+                <span style="font-size:var(--text-sm); color:var(--color-text-mid);">3-hour minimum</span>
+              </p>
+            </div>
+            <ul class="package-card__features">
+              <li>Rented by the hour</li>
+              <li>3-hour minimum</li>
+              <li>Keeps ice cream perfectly frozen</li>
+              <li>Great for self-serve events</li>
+            </ul>
+            <a href="#inquiry" class="btn btn--secondary" style="text-align:center; justify-content:center;">Request Crock Quote</a>
           </div>
 
           <!-- Custom Experience -->
