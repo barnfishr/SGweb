@@ -47,6 +47,9 @@
       font-size: var(--text-lg); color: var(--color-text-mid);
       line-height: 1.8; margin-bottom: var(--space-6); max-width: 55ch;
     }
+    .catering-intro__actions {
+      display: flex; flex-wrap: wrap; gap: var(--space-3);
+    }
 
     /* ---- Package Cards ---- */
     .packages-section { background: var(--color-melted); }
@@ -202,6 +205,8 @@
     /* ---- Responsive ---- */
     @media (max-width: 900px) {
       .catering-intro { grid-template-columns: 1fr; gap: var(--space-8); }
+      .catering-intro__actions { flex-direction: column; align-items: stretch; }
+      .catering-intro__actions .btn { justify-content: center; padding-block: var(--space-4); }
       .packages-grid { grid-template-columns: 1fr; }
       .events-grid { grid-template-columns: 1fr; }
       .inquiry-grid { grid-template-columns: 1fr; gap: var(--space-8); }
@@ -306,8 +311,10 @@
               you to design a catering experience that captures the nostalgia, joy, and
               togetherness that only Snelgrove Ice Cream can deliver.
             </p>
-            <a href="#packages" class="btn btn--primary">View Packages</a>
-            <a href="#inquiry" class="btn btn--secondary" style="margin-left: var(--space-3);">Request a Quote</a>
+            <div class="catering-intro__actions">
+              <a href="#packages" class="btn btn--primary">View Packages</a>
+              <a href="#inquiry" class="btn btn--secondary">Request a Quote</a>
+            </div>
           </div>
         </div>
       </div>
